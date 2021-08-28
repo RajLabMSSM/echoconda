@@ -31,8 +31,7 @@ Imports:
     devtools,
     magrittr,
     utils,
-    R.utils, 
-    BiocManager,   
+    R.utils,  
     reticulate
 Suggests:
       knitr,
