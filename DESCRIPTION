@@ -1,0 +1,42 @@
+Package: echoconda
+Type: Package
+Title: echoverse module: conda environment management
+Version: 0.99.0
+Authors@R: 
+    c(person(given = "Brian",
+           family = "Schilder",
+           role = c("cre"),
+           email = "brian_schilder@alumni.brown.edu",
+           comment = c(ORCID = "0000-0001-5949-2191")),
+    person(given = "Jack",
+           family = "Humphrey",
+           role = c("aut"),
+           email = "Jack.Humphrey@mssm.edu",
+           comment = c(ORCID = "0000-0002-6274-6620")),
+    person(given = "Towfique",
+           family = "Raj",
+           role = c("aut"),
+           email = "towfique.raj@mssm.edu",
+           comment = c(ORCID = "0000-0002-9355-5704"))
+           ) 
+Description: Various utility functions to find, build, and use conda environments from within R.
+URL: https://github.com/RajLabMSSM/echoconda
+BugReports: https://github.com/RajLabMSSM/echoconda/issues
+Encoding: UTF-8
+LazyData: false
+Depends: R (>= 3.6.0)
+SystemRequirements: Python (>= 3.7.0)
+biocViews:
+Imports: 
+    devtools,
+    magrittr,
+    utils,
+    R.utils, 
+    BiocManager,   
+    reticulate
+Suggests:
+      knitr,
+      rmarkdown
+RoxygenNote: 7.1.1
+VignetteBuilder: knitr
+License: GPL (>= 3) + file LICENSE
