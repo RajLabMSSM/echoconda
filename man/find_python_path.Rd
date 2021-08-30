@@ -14,6 +14,9 @@ find_python_path(conda_env = "echoR", verbose = TRUE)
 \description{
 Find the python file for a specific env
 }
+\examples{
+python <- find_python_path(conda_env = "echoR")
+}
 \seealso{
 Other CONDA: 
 \code{\link{find_package}()}

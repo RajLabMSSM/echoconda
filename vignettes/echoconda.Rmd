@@ -1,0 +1,58 @@
+---
+title: "echoconda: Getting Started" 
+author: "<h4>Author: <i>Brian M. Schilder</i></h4>" 
+date: "<h4>Most recent update: <i>`r format( Sys.Date(), '%b-%d-%Y')`</i></h4>"
+output:
+  BiocStyle::html_document:
+    self_contained: yes
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    code_folding: show
+    df_print: paged
+vignette: >
+    %\VignetteIndexEntry{echoconda} 
+    %\usepackage[utf8]{inputenc}
+    %\VignetteEngine{knitr::rmarkdown} 
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup}
+library(echoconda) 
+```
+
+
+# Activate conda env
+
+```{r}
+activate_env(conda_env = "echoR")
+```
+
+# Find package path 
+
+```{r}
+tabix <- find_package(package = "tabix", conda_env = "echoR")
+print(tabix)
+```
+
+# Find python path
+
+```{r}
+python <- find_python_path(conda_env = "echoR")
+print(python)
+```
+
+
+
+# Session Info 
+
+<details> 
+
+```{r Session Info}
+utils::sessionInfo()
+```
+
+</details>  
+

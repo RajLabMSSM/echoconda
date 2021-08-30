@@ -20,6 +20,10 @@ remotes::install_github("RajLabMSSM/echoconda")
 library(echoconda)
 ```
 
+## [Documentation site](https://rajlabmssm.github.io/echoconda/)
+
+## [Vignette](https://rajlabmssm.github.io/echoconda/articles/echoconda)
+
 <hr>
 
 ## Creator

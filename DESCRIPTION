@@ -34,8 +34,11 @@ Imports:
     R.utils,  
     reticulate
 Suggests:
-      knitr,
-      rmarkdown
+    rmarkdown,
+    remotes,
+    knitr,
+    testthat (>= 3.0.0)
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
 License: GPL (>= 3) + file LICENSE
+Config/testthat/edition: 3
