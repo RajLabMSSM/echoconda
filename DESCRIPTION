@@ -34,9 +34,12 @@ Imports:
     R.utils,  
     reticulate
 Suggests:
+    markdown,
     rmarkdown,
     remotes,
     knitr,
+    BiocStyle,
+    covr,
     testthat (>= 3.0.0)
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
