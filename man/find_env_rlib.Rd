@@ -17,7 +17,6 @@ Find the R library for a specific env
 \seealso{
 Other conda: 
 \code{\link{activate_env}()},
-\code{\link{create_echoR_env}()},
 \code{\link{env_from_yaml}()},
 \code{\link{install_conda}()}
 }

@@ -5,7 +5,7 @@
 #'
 #' @family conda
 #' @export
-#' @importFrom reticulate conda_version conda_install
+#' @importFrom reticulate conda_version install_miniconda
 install_conda <- function(conda_path = "auto",
                           verbose = FALSE) {
     conda_version <- NULL
@@ -16,7 +16,7 @@ install_conda <- function(conda_path = "auto",
         messager("+ CONDA:: conda not detected. Installing with reticulate...",
             v = verbose
         )
-        reticulate::conda_install()
+        reticulate::install_miniconda()
     } else {
         messager("+ CONDA:: conda already installed.", v = verbose)
     }

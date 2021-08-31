@@ -19,7 +19,6 @@ activate_env(conda_env = "echoR")
 }
 \seealso{
 Other conda: 
-\code{\link{create_echoR_env}()},
 \code{\link{env_from_yaml}()},
 \code{\link{find_env_rlib}()},
 \code{\link{install_conda}()}

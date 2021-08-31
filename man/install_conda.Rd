@@ -17,7 +17,6 @@ Install conda if it's missing
 \seealso{
 Other conda: 
 \code{\link{activate_env}()},
-\code{\link{create_echoR_env}()},
 \code{\link{env_from_yaml}()},
 \code{\link{find_env_rlib}()}
 }

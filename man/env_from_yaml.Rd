@@ -19,7 +19,6 @@ Create conda env from yaml file
 \seealso{
 Other conda: 
 \code{\link{activate_env}()},
-\code{\link{create_echoR_env}()},
 \code{\link{find_env_rlib}()},
 \code{\link{install_conda}()}
 }
