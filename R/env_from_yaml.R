@@ -11,8 +11,10 @@
 #' @family conda
 #' @export
 #' @importFrom reticulate conda_binary
-env_from_yaml <- function(yaml_path = system.file(package = "echoconda",
-                                                  "conda/echoR.yml"),
+env_from_yaml <- function(yaml_path = system.file(
+                              package = "echoconda",
+                              "conda/echoR.yml"
+                          ),
                           conda = "auto",
                           force_new = FALSE,
                           verbose = TRUE) {
@@ -35,11 +37,19 @@ env_from_yaml <- function(yaml_path = system.file(package = "echoconda",
         conda <- reticulate::conda_binary(conda = conda)
         cmd <- paste(conda, "env create -f", force, yaml_path)
         message(cmd)
-        system(cmd)
-        messager("echoconda:: Conda environment created:",
-            env_name,
-            v = verbose
-        )
+        env_name <- tryCatch(expr = {
+            system(cmd)
+            messager("echoconda:: Conda environment created:",
+                env_name,
+                v = verbose
+            )
+            env_name
+        }, error = function(x) {
+            messager("echoconda:: Conda enviroment creation failed.",
+                v = verbose
+            )
+            "base"
+        })
     }
     report_time(start = start, v = verbose)
     return(env_name)
