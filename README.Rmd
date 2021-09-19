@@ -27,7 +27,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # echoverse: echoconda 
 
-Various utility functions to find, build, and use conda environments from within R.
+Various utility functions to find, build, 
+and use conda environments from within R.
  
 ```{r, eval=FALSE}
 if(!"remotes" %in% rownames(installed.packages())){install.packages("remotes")}

@@ -63,7 +63,7 @@
 #'                              auth_token = devtools::github_pat()) {
 #'     # Avoid confusing checks
 #'     envname <- NULL
-#' 
+#'
 #'     # Make sure conda is installed to begin with
 #'     install_conda()
 #'     # conda_path <- reticulate::conda_binary()

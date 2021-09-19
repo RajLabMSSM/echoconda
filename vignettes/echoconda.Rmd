@@ -23,6 +23,12 @@ editor_options:
 library(echoconda) 
 ```
 
+# Build env from yaml
+
+```{r}
+env_name <- env_from_yaml(yaml_path = system.file(package = "echoconda", 
+                                                  "conda/echoR.yml"))
+```
 
 # Activate conda env
 
@@ -43,7 +49,6 @@ print(tabix)
 python <- find_python_path(conda_env = "echoR")
 print(python)
 ```
-
 
 
 # Session Info 

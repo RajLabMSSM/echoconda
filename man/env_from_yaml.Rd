@@ -5,13 +5,22 @@
 \title{Create conda env from yaml file}
 \usage{
 env_from_yaml(
-  yaml_path = file.path("https://github.com", "RajLabMSSM/echolocatoR",
-    "raw/master/inst", "conda/echoR.yml")
+  yaml_path = system.file(package = "echoconda", "conda/echoR.yml"),
+  conda = "auto",
+  force_new = FALSE,
+  verbose = TRUE
 )
 }
 \arguments{
 \item{yaml_path}{Path to local or remote yaml file with conda build
 specifications.}
+
+\item{conda}{Path to conda executable.}
+
+\item{force_new}{If the conda env already exists,
+overwrite it with a new one (\emph{DEFAULT}: \code{FALSE}).}
+
+\item{verbose}{Print messages.}
 }
 \description{
 Create conda env from yaml file

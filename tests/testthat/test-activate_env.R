@@ -1,5 +1,11 @@
 test_that("activate_env works", {
     
-    testthat::expect_null(activate_env(conda_env = "echoR"))
-    testthat::expect_null(activate_env(conda_env = "typo"))
+    env_name <- env_from_yaml()
+    testthat::expect_equal(env_name, "echoR")
+
+    conda_env <- activate_env(conda_env = "echoR")
+    testthat::expect_equal(conda_env, "echoR")
+
+    conda_env <- activate_env(conda_env = "typo")
+    testthat::expect_equal(conda_env, "base")
 })

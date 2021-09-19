@@ -25,7 +25,7 @@ bgzip <- find_package(package = "bgzip", conda_env = "echoR")
 bgzip <- find_package(package = "bgzip", conda_env = NULL)
 }
 \seealso{
-Other CONDA: 
+Other echoconda: 
 \code{\link{find_python_path}()}
 }
-\concept{CONDA}
+\concept{echoconda}

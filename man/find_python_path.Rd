@@ -18,7 +18,7 @@ Find the python file for a specific env
 python <- find_python_path(conda_env = "echoR")
 }
 \seealso{
-Other CONDA: 
+Other echoconda: 
 \code{\link{find_package}()}
 }
-\concept{CONDA}
+\concept{echoconda}

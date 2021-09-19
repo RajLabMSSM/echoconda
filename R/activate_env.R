@@ -13,15 +13,18 @@ activate_env <- function(conda_env = "echoR",
     install_conda()
     env_list <- reticulate::conda_list()
     if (conda_env %in% env_list$name) {
-        messager("+ CONDA:: Activating conda env", paste0("'", conda_env, "'"),
+        messager("+ echoconda:: Activating conda env",
+            paste0("'", conda_env, "'"),
             v = verbose
         )
         reticulate::use_condaenv(condaenv = conda_env)
     } else {
-        messager("+ CONDA::", paste0("'", conda_env, "'"),
+        messager("+ echoconda::", paste0("'", conda_env, "'"),
             "conda environment not found. Using default 'base' instead.",
             v = verbose
         )
+        conda_env <- "base"
         reticulate::use_condaenv(condaenv = "base")
     }
+    return(conda_env)
 }

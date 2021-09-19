@@ -41,7 +41,7 @@ Suggests:
     BiocStyle,
     covr,
     testthat (>= 3.0.0)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 VignetteBuilder: knitr
 License: GPL (>= 3) + file LICENSE
 Config/testthat/edition: 3

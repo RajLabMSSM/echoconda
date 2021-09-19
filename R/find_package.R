@@ -4,7 +4,7 @@
 #' @param conda_env Conda environment name.
 #' @param verbose Print messages.
 #'
-#' @family CONDA
+#' @family echoconda
 #' @examples
 #' # Tabix
 #' tabix <- find_package(package = "tabix", conda_env = "echoR")
@@ -22,13 +22,13 @@ find_package <- function(package,
     )
     packages <- list.files(dirname(python), full.names = TRUE)
     if (package %in% basename(packages)) {
-        messager("+ CONDA:: Identified", package,
+        messager("echoconda:: Identified", package,
             "executable in", conda_env, "env.",
             v = verbose
         )
         pkg_path <- packages[endsWith(packages, package)]
     } else {
-        messager("CONDA:: Could not identify", package,
+        messager("echoconda:: Could not identify", package,
             "executable in", conda_env, "env.",
             "Defaulting to generic", paste0("'", package, "'"),
             "command",

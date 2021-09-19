@@ -15,7 +15,7 @@
 #'                                    "Rcpp"
 #'                                )) {
 #'     if ("reticulate" %in% utils::installed.packages()) {
-#'         messager("CONDA:: `reticulate` already installed.")
+#'         messager("echoconda:: `reticulate` already installed.")
 #'     } else {
 #'         required_packages <-
 #'             dependencies[!dependencies %in% utils::installed.packages()]

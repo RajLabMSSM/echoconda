@@ -4,7 +4,7 @@
 \alias{install_conda}
 \title{Install conda if it's missing}
 \usage{
-install_conda(conda_path = "auto", verbose = FALSE)
+install_conda(conda_path = "auto", verbose = TRUE)
 }
 \arguments{
 \item{conda_path}{Path to conda executable.}
