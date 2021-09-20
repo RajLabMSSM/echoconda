@@ -21,36 +21,42 @@ env_from_yaml <- function(yaml_path = system.file(
     install_conda()
     start <- Sys.time()
     force <- if (force_new) "--force" else NULL
-    env_name <- name_from_yaml(
+    conda_env <- name_from_yaml(
         yaml_path = yaml_path,
         verbose = verbose
     )
-    if (env_exists(env_name) & force_new == FALSE) {
-        messager("echoconda:: Conda environment already exists:",
-            env_name,
-            v = verbose
-        )
+    if((is.null(conda_env)) || (conda_env=="base")) {
+        messager("Returning 'base'",v=verbose)
+        conda_env <- "base"
     } else {
-        messager("echoconda:: Creating conda environment:", env_name,
-            v = verbose
-        )
-        conda <- reticulate::conda_binary(conda = conda)
-        cmd <- paste(conda, "env create -f", force, yaml_path)
-        message(cmd)
-        env_name <- tryCatch(expr = {
-            system(cmd)
-            messager("echoconda:: Conda environment created:",
-                env_name,
-                v = verbose
+        if (env_exists(conda_env) & (!force_new)) {
+            messager("echoconda:: Conda environment already exists:",
+                     conda_env,
+                     v = verbose
             )
-            env_name
-        }, error = function(x) {
-            messager("echoconda:: Conda enviroment creation failed.",
-                v = verbose
+        } else {
+            messager("echoconda:: Creating conda environment:", conda_env,
+                     v = verbose
             )
-            "base"
-        })
+            conda <- reticulate::conda_binary(conda = conda)
+            cmd <- paste(conda, "env create -f", force, yaml_path)
+            message(cmd)
+            conda_env <- tryCatch(expr = {
+                system(cmd)
+                messager("echoconda:: Conda environment created:",
+                         conda_env,
+                         v = verbose
+                )
+                conda_env
+            }, error = function(x) {
+                messager("echoconda:: Conda enviroment creation failed.",
+                         v = verbose
+                )
+                "base"
+            })
+        }
     }
+    conda_env <- check_env(conda_env = conda_env)
     report_time(start = start, v = verbose)
-    return(env_name)
+    return(conda_env)
 }

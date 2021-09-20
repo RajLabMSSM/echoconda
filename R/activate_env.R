@@ -26,5 +26,6 @@ activate_env <- function(conda_env = "echoR",
         conda_env <- "base"
         reticulate::use_condaenv(condaenv = "base")
     }
+    conda_env <- check_env(conda_env)
     return(conda_env)
 }

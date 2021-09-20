@@ -13,11 +13,11 @@ install_conda <- function(conda_path = "auto",
         conda_version <- reticulate::conda_version(conda = conda_path)
     })
     if (is.null(conda_version)) {
-        messager("echoconda:: conda not detected. Installing with reticulate...",
+        messager("echoconda:: Conda not detected. Installing with reticulate.",
             v = verbose
         )
         reticulate::install_miniconda()
     } else {
-        messager("echoconda:: conda already installed.", v = verbose)
+        messager("echoconda:: Conda already installed.", v = verbose)
     }
 }

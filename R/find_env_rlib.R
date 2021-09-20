@@ -7,6 +7,7 @@
 #' @export
 find_env_rlib <- function(conda_env = "echoR",
                           suffix = "lib/R/library/") {
+    conda_env <- check_env(conda_env = conda_env)
     conda_path <- dirname(dirname(find_python_path(conda_env = conda_env)))
     if (conda_path == ".") {
         env_Rlib <- .libPaths()

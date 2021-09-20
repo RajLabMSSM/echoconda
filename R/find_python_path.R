@@ -14,6 +14,7 @@ find_python_path <- function(conda_env = "echoR",
     name <- NULL
 
     install_conda(verbose = FALSE)
+    conda_env <- check_env(conda_env = conda_env)
     env_list <- reticulate::conda_list()
     if (is.null(conda_env)) {
         messager("echoconda:: No conda env supplied.",

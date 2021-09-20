@@ -1,5 +1,5 @@
 test_that("find_package works", {
-    env_name <- env_from_yaml(yaml_path = system.file(
+    conda_env <- env_from_yaml(yaml_path = system.file(
         package = "echoconda",
         "conda/echoR.yml"
     ))

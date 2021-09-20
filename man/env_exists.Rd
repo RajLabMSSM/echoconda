@@ -4,10 +4,10 @@
 \alias{env_exists}
 \title{Check whether a conda env exists}
 \usage{
-env_exists(env_name, conda = "auto")
+env_exists(conda_env, conda = "auto")
 }
 \arguments{
-\item{env_name}{Name of the conda environment.}
+\item{conda_env}{Name of the conda environment.}
 
 \item{conda}{Path to conda executable.}
 }
@@ -15,5 +15,5 @@ env_exists(env_name, conda = "auto")
 Check whether a conda env exists
 }
 \examples{
-does_exist <- env_exists(env_name = "echoR")
+does_exist <- env_exists(conda_env = "echoR")
 }

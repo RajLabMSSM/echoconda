@@ -1,21 +1,22 @@
 name_from_yaml <- function(yaml_path,
                            verbose = TRUE) {
     messager("echoconda:: Retrieving conda env name from yaml.", v = verbose)
-    options(timeout = 60)
-    lines <- tryCatch(
+    lines <- suppressWarnings(tryCatch(
         expr = {
+            options(timeout = 5)
             lines <- readLines(yaml_path)
+            lines
         },
         error = function(e) NULL
-    )
+    ))
     if (!is.null(lines)) {
-        env_name <- trimws(gsub(
+        conda_env <- trimws(gsub(
             "name: ", "",
             grep("name:", lines, value = TRUE)
-        ))
+        )) 
     } else {
         messager("echoconda:: Could not retrieve conda env name.", v = verbose)
-        env_name <- NULL
+        conda_env <- NULL 
     }
-    return(env_name)
+    return(conda_env)
 }
