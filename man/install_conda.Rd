@@ -3,13 +3,22 @@
 \name{install_conda}
 \alias{install_conda}
 \title{Install conda if it's missing}
+\source{
+\href{https://github.com/rstudio/reticulate/issues/1055}{
+reticulate GitHub Issue.}
+\href{https://github.com/conda/conda/issues/5388}{
+conda GitHub Issue.}
+}
 \usage{
-install_conda(conda_path = "auto", verbose = TRUE)
+install_conda(conda_path = "auto", verbose = TRUE, ...)
 }
 \arguments{
 \item{conda_path}{Path to conda executable.}
 
 \item{verbose}{Print messages.}
+
+\item{...}{Additional arguments to be passed to 
+\link[reticulate]{install_miniconda}.}
 }
 \description{
 Install conda if it's missing

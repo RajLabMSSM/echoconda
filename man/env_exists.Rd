@@ -3,8 +3,11 @@
 \name{env_exists}
 \alias{env_exists}
 \title{Check whether a conda env exists}
+\source{
+\url{https://github.com/rstudio/reticulate/blob/577acd2dfd43b48720037eb0851f20e377dbb802/R/conda.R#L494}
+}
 \usage{
-env_exists(conda_env, conda = "auto")
+env_exists(conda_env = NULL, conda = "auto")
 }
 \arguments{
 \item{conda_env}{Name of the conda environment.}
@@ -12,7 +15,8 @@ env_exists(conda_env, conda = "auto")
 \item{conda}{Path to conda executable.}
 }
 \description{
-Check whether a conda env exists
+An extension of the internal function
+ \code{reticulate:::condaenv_exists()}.
 }
 \examples{
 does_exist <- env_exists(conda_env = "echoR")

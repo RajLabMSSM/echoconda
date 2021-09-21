@@ -21,7 +21,8 @@ env_exists <- function(conda_env = NULL,
                          error = identity)
     if (inherits(condabin, "error")) return(FALSE) 
     #### Check that the environment exists #### 
-    python <- tryCatch(reticulate::conda_python(envname, conda = conda),
+    python <- tryCatch(reticulate::conda_python(envname = conda_env,
+                                                conda = conda),
                        error = identity)
     if (inherits(python, "error")) return(FALSE) 
     #### Validate the Python binary exists ####
