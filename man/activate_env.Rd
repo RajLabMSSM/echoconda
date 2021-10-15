@@ -12,7 +12,11 @@ activate_env(conda_env = "echoR", verbose = TRUE)
 \item{verbose}{Print messages.}
 }
 \description{
-Activate conda env
+\link[reticulate]{use_condaenv} often 
+\href{https://github.com/rstudio/reticulate/issues/292}{
+doesn't work in practice}, especially within RStudio.
+\link[echoconda]{activate_env} ensures the env is actually activated 
+and used.
 }
 \examples{
 activate_env(conda_env = "echoR")

@@ -1,0 +1,38 @@
+name: ewce_suite
+channels:
+  - conda-forge
+  - bioconda 
+  - nodefaults
+dependencies:
+  # Python
+  - python>=3.6.1
+  - pandas 
+  - openpyxl 
+  - seaborn
+  # R
+  - r-base>=4.0.0
+  - r-essentials
+  - r-devtools 
+  - r-reticulate  
+  - r-gert 
+  - r-usethis
+  - r-here
+  - r-openxlsx 
+  - r-ggplot2
+  - r-tidyverse  
+  - r-biocmanager
+  ## EWCE suite packages
+  - bioconductor-ewce
+  - bioconductor-ewcedata
+  - bioconductor-mungesumstats
+  - bioconductor-SNPlocs.Hsapiens.dbSNP144.GRCh37
+  - bioconductor-BSgenome.Hsapiens.1000genomes.hs37d5
+  - bioconductor-SNPlocs.Hsapiens.dbSNP144.GRCh38
+  - bioconductor-BSgenome.Hsapiens.NCBI.GRCh38
+  ## Hoping to add these eventually
+  # - bioconductor-orthogene
+  # - r-magma.celltyping
+  ## Command line
+  - radian 
+  - wget
+  - pip
