@@ -4,7 +4,11 @@
 \alias{env_to_yaml}
 \title{Create yaml file from env}
 \source{
-{https://github.com/rstudio/reticulate/issues/779}{GitHub Issue}
+\href{https://github.com/rstudio/reticulate/issues/779}{
+GitHub Issue}
+
+\href{https://github.com/datitran/object_detector_app/issues/41}{
+GitHub Issue}
 }
 \usage{
 env_to_yaml(

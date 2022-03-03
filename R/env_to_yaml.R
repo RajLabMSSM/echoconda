@@ -7,7 +7,10 @@
 #' @param ... Additional arguments passed to \link[reticulate]{conda_create}.
 #' @inheritParams reticulate::conda_create
 #' 
-#' @source {https://github.com/rstudio/reticulate/issues/779}{GitHub Issue}
+#' @source \href{https://github.com/rstudio/reticulate/issues/779}{
+#' GitHub Issue}
+#' @source \href{https://github.com/datitran/object_detector_app/issues/41}{
+#' GitHub Issue}
 #' @family conda
 #' @export
 #' @importFrom reticulate conda_binary

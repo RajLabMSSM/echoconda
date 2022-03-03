@@ -22,7 +22,7 @@ library(echoconda)
 Will build the "echoR" conda environment by default.
 
 ```{r}
-env_name <- echoconda::yaml_to_env()
+conda_env <- echoconda::yaml_to_env()
 ```
 
 ## Export 
