@@ -15,6 +15,7 @@ find_python_path(conda_env = "echoR", verbose = TRUE)
 Find the python file for a specific env
 }
 \examples{
+# importFrom reticulate conda_list
 python <- find_python_path(conda_env = "echoR")
 }
 \seealso{

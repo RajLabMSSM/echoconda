@@ -5,9 +5,9 @@
 #'
 #' @family echoconda
 #' @examples
+#' # importFrom reticulate conda_list
 #' python <- find_python_path(conda_env = "echoR")
 #' @export
-#' @importFrom reticulate conda_list
 find_python_path <- function(conda_env = "echoR",
                              verbose = TRUE) {
     # Avoid confusing checks

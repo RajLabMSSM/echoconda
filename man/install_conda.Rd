@@ -23,6 +23,10 @@ install_conda(conda_path = "auto", verbose = TRUE, ...)
 \description{
 Install conda if it's missing
 }
+\examples{
+# importFrom reticulate conda_version
+# echoconda::install_conda()
+}
 \seealso{
 Other conda: 
 \code{\link{activate_env}()},

@@ -12,7 +12,9 @@
 #' conda GitHub Issue.}
 #' @family conda
 #' @export
-#' @importFrom reticulate conda_version install_miniconda
+#' @examples 
+#' # importFrom reticulate conda_version
+#' # echoconda::install_conda()
 install_conda <- function(conda_path = "auto",
                           verbose = TRUE,
                           ...) {

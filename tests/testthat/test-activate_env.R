@@ -1,11 +1,11 @@
 test_that("activate_env works", {
     
-    conda_env <- activate_env(conda_env = "echoR")
+    conda_env <- echoconda::activate_env(conda_env = "echoR")
     testthat::expect_equal(
         conda_env,
-        if (env_exists("echoR")) "echoR" else "base"
+        if (echoconda::env_exists("echoR")) "echoR" else "base"
     )
 
-    conda_env <- activate_env(conda_env = "typo")
+    conda_env <- echoconda::activate_env(conda_env = "base")
     testthat::expect_equal(conda_env, "base")
 })

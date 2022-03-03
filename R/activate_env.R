@@ -8,14 +8,17 @@
 #' 
 #' @param conda_env Conda environment to use.
 #' @param verbose Print messages.
-#'
+#' @source \href{https://github.com/rstudio/reticulate/issues/1147}{GH Issues}
+#' @source \href{https://github.com/rstudio/reticulate/issues/1044}{GH Issues}
+#' @source \href{https://github.com/rstudio/reticulate/issues/292}{GH Issues}
 #' @family conda
-#' @examples
-#' activate_env(conda_env = "echoR")
 #' @export
-#' @importFrom reticulate conda_list use_condaenv use_python
+#' 
+#' @examples
+#' # importFrom reticulate conda_list use_condaenv use_python conda_list
+#' echoconda::activate_env(conda_env = "echoR")
 activate_env <- function(conda_env = "echoR",
-                         verbose = TRUE) {
+                         verbose = TRUE) { 
     install_conda()
     
     current_env <- which_env()
@@ -33,11 +36,12 @@ activate_env <- function(conda_env = "echoR",
         #### Take multiple approaches to ensure env gets activated ####
         out <- tryCatch(expr = {
             reticulate::use_condaenv(condaenv = conda_env,
-                                     required = TRUE)
+                                     required = TRUE) 
             python <- find_python_path(conda_env = conda_env,
-                                       verbose = FALSE)
-            reticulate::use_python(python, required = TRUE)
-            # Sys.setenv(RETICULATE_PYTHON = python)
+                                       verbose = FALSE)  
+            Sys.setenv(RETICULATE_PYTHON = python)  
+            reticulate::use_python(python = python,
+                                   required = TRUE) ## <--Tricky
         }, error = function(e){e})
         if (inherits(out, "error")) { 
             conda_env <- which_env(verbose = FALSE)
@@ -51,7 +55,9 @@ activate_env <- function(conda_env = "echoR",
             v = verbose
         )
         conda_env <- "base"
-        reticulate::use_condaenv(condaenv = "base")
+        out <- tryCatch({
+            reticulate::use_condaenv(condaenv = "base", )
+        }, error = function(e){e})
     }
     conda_env <- check_env(conda_env)
     return(conda_env)

@@ -3,6 +3,11 @@
 \name{activate_env}
 \alias{activate_env}
 \title{Activate conda env}
+\source{
+\href{https://github.com/rstudio/reticulate/issues/1147}{GH Issues}
+
+\href{https://github.com/rstudio/reticulate/issues/1044}{GH Issues}
+}
 \usage{
 activate_env(conda_env = "echoR", verbose = TRUE)
 }
@@ -19,7 +24,8 @@ doesn't work in practice}, especially within RStudio.
 and used.
 }
 \examples{
-activate_env(conda_env = "echoR")
+# importFrom reticulate conda_list use_condaenv use_python conda_list
+echoconda::activate_env(conda_env = "echoR")
 }
 \seealso{
 Other conda: 
