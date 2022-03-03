@@ -52,9 +52,30 @@
 
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.99.4" id="echoconda-0994">echoconda 0.99.4<a class="anchor" aria-label="anchor" href="#echoconda-0994"></a></h2>
-<ul><li>Update GHA</li>
-<li>Try to allow switching between envs again.</li>
+<div class="section level3">
+<h3 id="new-features-0-99-4">New features<a class="anchor" aria-label="anchor" href="#new-features-0-99-4"></a></h3>
+<ul><li>Update GitHub Actions.</li>
+<li>
+<code>find_packages</code>: New function to search for packages
+across all conda envs.</li>
+<li>
+<code>env_to_yaml</code>: New function to export yaml file.</li>
+<li>
+<code>yaml_to_env</code>: New function to create env from yaml
+file.</li>
+<li>
+<code>list_yamls</code>: New function to list available yaml files
+shipped with <code>echoconda</code>.</li>
+<li>Add minimal <em>test.yml</em> and <em>test_bad.yml</em> files.</li>
 </ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-0-99-4">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-99-4"></a></h3>
+<ul><li>Try to allow switching between envs again.</li>
+<li>Omit setting env vars in <em>zzz.R</em>.</li>
+<li>Provide <em>echoR_windows.yaml</em> that omits conda packages not
+available on Windows OS.</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.99.0" id="echoconda-0990">echoconda 0.99.0<a class="anchor" aria-label="anchor" href="#echoconda-0990"></a></h2>
 <ul><li>Added a <code>NEWS.md</code> file to track changes to the

@@ -69,36 +69,62 @@
       </header><div class="row">
   <div class="contents col-md-9">
 
-
-<div class="section level1">
-<div class="page-header"><h1 id="echoverse-echoconda">echoverse: echoconda<a class="anchor" aria-label="anchor" href="#echoverse-echoconda"></a>
-</h1></div>
-<p>Various utility functions to find, build, and use conda environments
-from within R.</p>
+<img src="https://github.com/RajLabMSSM/echoconda/raw/main/inst/hex/hex.png" height="300"><br><br><a href="https://github.com/RajLabMSSM/echoconda" class="external-link"><img src="https://img.shields.io/badge/devel%20version-0.99.4-black.svg"></a>
+<a href="https://github.com/RajLabMSSM/echoconda/actions" class="external-link"><img src="https://github.com/RajLabMSSM/echoconda/workflows/R-CMD-check-bioc/badge.svg" alt="R build status"></a> <a href="https://github.com/RajLabMSSM/echoconda/commits/main" class="external-link"><img src="https://img.shields.io/github/last-commit/RajLabMSSM/echoconda.svg"></a>
+<a href="https://codecov.io/gh/RajLabMSSM/echoconda" class="external-link"><img src="https://codecov.io/gh/RajLabMSSM/echoconda/branch/main/graph/badge.svg"></a>
+<a href="https://cran.r-project.org/web/licenses/GPL%20(%3E=%203)" class="external-link"><img src="https://img.shields.io/badge/license-GPL%20(%3E=%203)-blue.svg" alt="License: GPL (&gt;= 3)"></a>
+<h5>
+Author: <i>Brian M. Schilder</i>
+</h5>
+<h5>
+README updated: <i>Mar-03-2022</i>
+</h5>
+<div class="section level2">
+<h2 id="echoconda-various-utility-functions-to-find-build-and-use-conda-environments-from-within-r">
+<code>echoconda</code>: Various utility functions to find, build,
+and use conda environments from within R.<a class="anchor" aria-label="anchor" href="#echoconda-various-utility-functions-to-find-build-and-use-conda-environments-from-within-r"></a>
+</h2>
+<p>This R package is part of the <em>echoverse</em> suite that supports
+<a href="https://github.com/RajLabMSSM/echolocatoR" class="external-link"><code>echolocatoR</code></a>:
+an automated genomic fine-mapping pipeline.</p>
+<p>If you use <code>echoconda</code>, please cite:</p>
+<blockquote>
+<p>Brian M Schilder, Jack Humphrey, Towfique Raj (2021) echolocatoR: an
+automated end-to-end statistical and functional genomic fine-mapping
+pipeline, <em>Bioinformatics</em>; btab658, <a href="https://doi.org/10.1093/bioinformatics/btab658" class="external-link uri">https://doi.org/10.1093/bioinformatics/btab658</a></p>
+</blockquote>
+</div>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="st">"remotes"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html" class="external-link">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span><span class="op">}</span>
+<code class="sourceCode R"><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://remotes.r-lib.org" class="external-link">"remotes"</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
 
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"RajLabMSSM/echoconda"</span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RajLabMSSM/echoconda" class="external-link">echoconda</a></span><span class="op">)</span></code></pre></div>
-<div class="section level2">
-<h2 id="documentation-site">
-<a href="https://rajlabmssm.github.io/echoconda/" class="external-link">Documentation
-site</a><a class="anchor" aria-label="anchor" href="#documentation-site"></a>
-</h2>
 </div>
 <div class="section level2">
-<h2 id="vignette">
-<a href="https://rajlabmssm.github.io/echoconda/articles/echoconda" class="external-link">Vignette</a><a class="anchor" aria-label="anchor" href="#vignette"></a>
+<h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
 </h2>
+<div class="section level3">
+<h3 id="website">
+<a href="https://rajlabmssm.github.io/echoconda" class="external-link">Website</a><a class="anchor" aria-label="anchor" href="#website"></a>
+</h3>
+</div>
+<div class="section level3">
+<h3 id="getting-started">
+<a href="https://rajlabmssm.github.io/echoconda/articles/echoconda" class="external-link">Getting
+started</a><a class="anchor" aria-label="anchor" href="#getting-started"></a>
+</h3>
 <hr>
 </div>
+</div>
 <div class="section level2">
-<h2 id="creator">Creator<a class="anchor" aria-label="anchor" href="#creator"></a>
+<h2 id="contact">Contact<a class="anchor" aria-label="anchor" href="#contact"></a>
 </h2>
 <p><a href="https://bschilder.github.io/BMSchilder/" target="_blank" class="external-link">Brian
-M. Schilder, Bioinformatician II</a><br><a href="https://rajlab.org" target="_blank" class="external-link">Raj Lab</a><br>
-Department of Neuroscience, Icahn School of Medicine at Mount Sinai</p>
-</div>
+M. Schilder, Bioinformatician II</a><br><a href="https://rajlab.org" target="_blank" class="external-link">Raj Lab</a><br><a href="https://icahn.mssm.edu/about/departments/neuroscience" target="_blank" class="external-link">Department
+of Neuroscience, Icahn School of Medicine at Mount Sinai</a></p>
 </div>
 
   </div>
@@ -136,14 +162,7 @@ Department of Neuroscience, Icahn School of Medicine at Mount Sinai</p>
 </ul>
 </div>
 
-<div class="dev-status">
-<h2 data-toc-skip>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://codecov.io/gh/RajLabMSSM/echoconda" class="external-link"><img src="https://codecov.io/gh/RajLabMSSM/echoconda/branch/main/graph/badge.svg"></a></li>
-<li><a href="https://github.com/RajLabMSSM/echoconda/actions" class="external-link"><img src="https://github.com/RajLabMSSM/echoconda/workflows/R-full/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://github.com/RajLabMSSM/echoconda/commits/main" class="external-link"><img src="https://img.shields.io/github/last-commit/RajLabMSSM/echoconda.svg"></a></li>
-</ul>
-</div>
+
 
   </div>
 </div>

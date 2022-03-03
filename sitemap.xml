@@ -25,10 +25,16 @@
     <loc>/reference/check_access.html</loc>
   </url>
   <url>
+    <loc>/reference/conda_create0.html</loc>
+  </url>
+  <url>
+    <loc>/reference/conda_list_packages.html</loc>
+  </url>
+  <url>
     <loc>/reference/env_exists.html</loc>
   </url>
   <url>
-    <loc>/reference/env_from_yaml.html</loc>
+    <loc>/reference/env_to_yaml.html</loc>
   </url>
   <url>
     <loc>/reference/find_env_rlib.html</loc>
@@ -37,7 +43,7 @@
     <loc>/reference/find_install_dir.html</loc>
   </url>
   <url>
-    <loc>/reference/find_package.html</loc>
+    <loc>/reference/find_packages.html</loc>
   </url>
   <url>
     <loc>/reference/find_python_path.html</loc>
@@ -55,6 +61,12 @@
     <loc>/reference/install_conda.html</loc>
   </url>
   <url>
+    <loc>/reference/list_yamls.html</loc>
+  </url>
+  <url>
     <loc>/reference/which_env.html</loc>
+  </url>
+  <url>
+    <loc>/reference/yaml_to_env.html</loc>
   </url>
 </urlset>
