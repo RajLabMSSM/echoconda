@@ -7,6 +7,8 @@
 \href{https://github.com/rstudio/reticulate/issues/1147}{GH Issues}
 
 \href{https://github.com/rstudio/reticulate/issues/1044}{GH Issues}
+
+\href{https://github.com/rstudio/reticulate/issues/292}{GH Issues}
 }
 \usage{
 activate_env(conda_env = "echoR", verbose = TRUE)

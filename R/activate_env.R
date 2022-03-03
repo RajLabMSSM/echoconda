@@ -35,13 +35,18 @@ activate_env <- function(conda_env = "echoR",
         ) 
         #### Take multiple approaches to ensure env gets activated ####
         out <- tryCatch(expr = {
-            reticulate::use_condaenv(condaenv = conda_env,
-                                     required = TRUE) 
+            suppressWarnings(
+                reticulate::use_condaenv(condaenv = conda_env,
+                                         required = TRUE) 
+            )
             python <- find_python_path(conda_env = conda_env,
                                        verbose = FALSE)  
-            Sys.setenv(RETICULATE_PYTHON = python)  
-            reticulate::use_python(python = python,
-                                   required = TRUE) ## <--Tricky
+            Sys.setenv(RETICULATE_PYTHON = python) 
+            suppressWarnings(
+                reticulate::use_python(python = python,
+                                       required = TRUE) 
+            )
+        
         }, error = function(e){e})
         if (inherits(out, "error")) { 
             conda_env <- which_env(verbose = FALSE)
@@ -56,7 +61,10 @@ activate_env <- function(conda_env = "echoR",
         )
         conda_env <- "base"
         out <- tryCatch({
-            reticulate::use_condaenv(condaenv = "base", )
+            python <- find_python_path(conda_env = conda_env,
+                                       verbose = FALSE)  
+            Sys.setenv(RETICULATE_PYTHON = python)  
+            reticulate::use_condaenv(condaenv = "base")
         }, error = function(e){e})
     }
     conda_env <- check_env(conda_env)

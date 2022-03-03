@@ -6,6 +6,12 @@
 \usage{
 which_env(verbose = TRUE)
 }
+\arguments{
+\item{verbose}{Print messages.}
+}
 \description{
-Print the currently activated conda env
+\link[reticulate]{py_discover_config}
+"This function enables callers to check which versions of
+ Python will be discovered on a system as well as which one 
+ will be chosen for use with reticulate."
 }
