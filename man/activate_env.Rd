@@ -31,8 +31,9 @@ echoconda::activate_env(conda_env = "echoR")
 }
 \seealso{
 Other conda: 
-\code{\link{env_from_yaml}()},
+\code{\link{env_to_yaml}()},
 \code{\link{find_env_rlib}()},
-\code{\link{install_conda}()}
+\code{\link{install_conda}()},
+\code{\link{yaml_to_env}()}
 }
 \concept{conda}

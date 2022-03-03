@@ -30,7 +30,8 @@ Install conda if it's missing
 \seealso{
 Other conda: 
 \code{\link{activate_env}()},
-\code{\link{env_from_yaml}()},
-\code{\link{find_env_rlib}()}
+\code{\link{env_to_yaml}()},
+\code{\link{find_env_rlib}()},
+\code{\link{yaml_to_env}()}
 }
 \concept{conda}

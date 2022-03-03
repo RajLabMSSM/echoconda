@@ -1,17 +1,21 @@
 #' Create conda env from yaml file
 #'
-#'
+#' Create a conda environment from a yaml file. By default, 
+#' creates the "echoR" conda env to support \pkg{echolocatoR}.
 #' @param yaml_path Path to local or remote yaml file with conda build
 #' specifications.
-#' @param conda Path to conda executable.
 #' @param force_new If the conda env already exists,
 #'  overwrite it with a new one (\emph{DEFAULT}: \code{FALSE}).
 #' @param verbose Print messages.
-#'
+#' @inheritParams reticulate::conda_create
+#' 
+#' @source {https://github.com/rstudio/reticulate/issues/779}{GitHub Issue}
 #' @family conda
 #' @export
 #' @importFrom reticulate conda_binary
-env_from_yaml <- function(yaml_path = system.file(
+#' @examples
+#' conda_env <- echoconda::yaml_to_env()
+yaml_to_env <- function(yaml_path = system.file(
                               package = "echoconda",
                               "conda/echoR.yml"
                           ),
@@ -38,11 +42,13 @@ env_from_yaml <- function(yaml_path = system.file(
             messager("echoconda:: Creating conda environment:", conda_env,
                      v = verbose
             )
-            conda <- reticulate::conda_binary(conda = conda)
-            cmd <- paste(conda, "env create -f", force, yaml_path)
-            message(cmd)
+            # conda <- reticulate::conda_binary(conda = conda)
+            # cmd <- paste(conda, "env create -f", force, yaml_path)
+            # message(cmd)
             conda_env <- tryCatch(expr = {
-                system(cmd)
+                # system(cmd) 
+                out <- reticulate::conda_create(envname = conda_env,
+                                                environment = yaml_path)
                 messager("echoconda:: Conda environment created:",
                          conda_env,
                          v = verbose

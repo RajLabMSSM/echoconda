@@ -18,8 +18,4 @@ Find the python file for a specific env
 # importFrom reticulate conda_list
 python <- find_python_path(conda_env = "echoR")
 }
-\seealso{
-Other echoconda: 
-\code{\link{find_package}()}
-}
 \concept{echoconda}

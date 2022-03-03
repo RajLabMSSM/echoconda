@@ -1,52 +1,55 @@
 ---
-title: "echoconda: Getting Started" 
+title: "``r read.dcf('../DESCRIPTION', fields = 'Package')[1]``: Getting Started" 
 author: "<h4>Author: <i>Brian M. Schilder</i></h4>" 
-date: "<h4>Most recent update: <i>`r format( Sys.Date(), '%b-%d-%Y')`</i></h4>"
+date: "<h4>Updated: <i>`r format( Sys.Date(), '%b-%d-%Y')`</i></h4>"
 output:
-  BiocStyle::html_document:
-    self_contained: yes
-    toc: true
-    toc_float: true
-    toc_depth: 3
-    code_folding: show
-    df_print: paged
+  BiocStyle::html_document
 vignette: >
-    %\VignetteIndexEntry{echoconda} 
+    %\VignetteIndexEntry{echodata} 
     %\usepackage[utf8]{inputenc}
-    %\VignetteEngine{knitr::rmarkdown} 
-editor_options: 
-  markdown: 
-    wrap: 72
+    %\VignetteEngine{knitr::rmarkdown}
 ---
 
 ```{r setup}
 library(echoconda) 
 ```
 
-# Build env from yaml
+
+# Examples  
+
+## Build env from yaml
+
+Will build the "echoR" conda environment by default.
 
 ```{r}
-env_name <- env_from_yaml(yaml_path = system.file(package = "echoconda", 
-                                                  "conda/echoR.yml"))
+env_name <- echoconda::yaml_to_env()
 ```
 
-# Activate conda env
+## Export 
 
 ```{r}
-activate_env(conda_env = "echoR")
+yaml_path <- echoconda::env_to_yaml(conda_env = "echoR")
 ```
 
-# Find package path 
+
+## Activate conda env
 
 ```{r}
-tabix <- find_package(package = "tabix", conda_env = "echoR")
-print(tabix)
+echoconda::activate_env(conda_env = "echoR")
 ```
 
-# Find python path
+## Find package path 
 
 ```{r}
-python <- find_python_path(conda_env = "echoR")
+pkgs <- echoconda::find_packages(packages = c("dplyr","numpy","wget"),
+                                 conda_env = "echoR")
+print(pkgs)
+```
+
+## Find python path
+
+```{r}
+python <- echoconda::find_python_path(conda_env = "echoR")
 print(python)
 ```
 
@@ -60,4 +63,6 @@ utils::sessionInfo()
 ```
 
 </details>  
+
+<br>
 

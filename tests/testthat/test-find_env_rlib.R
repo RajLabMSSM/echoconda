@@ -1,5 +1,6 @@
 test_that("find_env_rlib works", {
-    conda_env <- env_from_yaml(yaml_path = system.file(
+    
+    conda_env <- echoconda::yaml_to_env(yaml_path = system.file(
         package = "echoconda",
         "conda/echoR.yml"
     ))
