@@ -32,6 +32,7 @@ yaml_to_env <- function(yaml_path = system.file(
     )
     #### Search for known yamls (by name or by path) ####
     yaml_path <- search_yamls(conda_env = yaml_path,
+                              show_contents = verbose,
                               verbose = verbose)
     #### Check OS ####
     if(get_os()=="Windows" && conda_env=="echoR"){
