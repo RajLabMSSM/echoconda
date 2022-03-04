@@ -14,7 +14,7 @@
 #' StackOverflow suggestions for cross-platform troubleshooting}
 #' @family conda
 #' @export
-#' @importFrom reticulate conda_binary
+#' @importFrom reticulate conda_binary import r_to_py
 #' @examples
 #' conda_env <- echoconda::yaml_to_env()
 yaml_to_env <- function(yaml_path = system.file(

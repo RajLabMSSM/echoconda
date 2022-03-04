@@ -15,12 +15,11 @@
 #' @param verbose Print messages.
 #' @inheritParams reticulate::conda_binary
 #' 
-#' @export
-#' @importFrom data.table fread rbindlist
-#' 
 #' @returns Merged data.table with all packages installed in each conda 
 #' environment. 
-#' @importFrom data.table :=
+#' 
+#' @export
+#' @importFrom data.table := fread rbindlist
 #' @examples 
 #' pkgs <- echoconda::find_packages(conda_env="base")
 find_packages <- function(packages = NULL,
