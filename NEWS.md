@@ -1,3 +1,13 @@
+# echoconda 0.99.5
+
+## New features
+
+* New functions:
+    - `cmd_print`
+    - `set_permissions`
+* New conda env yaml:
+    - *epiprocess.yml*  
+
 # echoconda 0.99.4
 
 ## New features

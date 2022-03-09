@@ -1,0 +1,32 @@
+name: epiprocess
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+dependencies:
+  # Python
+  - python>=3.6.1
+  - pandas>=0.25.0
+  # Command line
+  - fastqc
+  - trim-galore
+  - bowtie2
+  - picard
+  - samtools
+  - bedtools
+  - seacr
+  - deeptools
+  - macs2
+  # R
+  - r>=4.0.0
+  - r-devtools
+  - r-patchwork
+  - r-gert
+  - r-r.oo
+  - r-data.table
+  - r-ggplot2
+  - r-tidyverse
+  # R: Bioconductor
+  - r-biocmanager
+  - radian
+  - pip
