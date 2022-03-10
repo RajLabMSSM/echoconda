@@ -1,16 +1,16 @@
 <img src='https://github.com/RajLabMSSM/echoconda/raw/main/inst/hex/hex.png' height='300'><br><br>
-[![](https://img.shields.io/badge/devel%20version-0.99.4-black.svg)](https://github.com/RajLabMSSM/echoconda)
+[![](https://img.shields.io/badge/devel%20version-0.99.5-black.svg)](https://github.com/RajLabMSSM/echoconda)
 [![R build
 status](https://github.com/RajLabMSSM/echoconda/workflows/R-CMD-check-bioc/badge.svg)](https://github.com/RajLabMSSM/echoconda/actions)
 [![](https://img.shields.io/github/last-commit/RajLabMSSM/echoconda.svg)](https://github.com/RajLabMSSM/echoconda/commits/main)
 [![](https://codecov.io/gh/RajLabMSSM/echoconda/branch/main/graph/badge.svg)](https://codecov.io/gh/RajLabMSSM/echoconda)
-[![License: GPL (>=
+[![License: GPL (\>=
 3)](https://img.shields.io/badge/license-GPL%20(%3E=%203)-blue.svg)](https://cran.r-project.org/web/licenses/GPL%20(%3E=%203))
 <h5>
 Author: <i>Brian M. Schilder</i>
 </h5>
 <h5>
-README updated: <i>Mar-03-2022</i>
+README updated: <i>Mar-10-2022</i>
 </h5>
 
 ## `echoconda`: Various utility functions to find, build, and use conda environments from within R.
@@ -21,9 +21,10 @@ genomic fine-mapping pipeline.
 
 If you use `echoconda`, please cite:
 
-> Brian Schilder, Jack Humphrey and Towfique Raj (NA). echoconda:
-> Echoverse Module: Conda Environment Management. R package version
-> 0.99.4. <https://github.com/RajLabMSSM/echoconda>
+> Brian M Schilder, Jack Humphrey, Towfique Raj (2021) echolocatoR: an
+> automated end-to-end statistical and functional genomic fine-mapping
+> pipeline, *Bioinformatics*; btab658,
+> <https://doi.org/10.1093/bioinformatics/btab658>
 
 ## Installation
 
