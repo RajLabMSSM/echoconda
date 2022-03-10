@@ -1,4 +1,4 @@
-name: epiprocess
+name: epiprepare
 channels:
   - conda-forge
   - bioconda
