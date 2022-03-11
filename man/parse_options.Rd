@@ -18,12 +18,22 @@ parse_options(
 \arguments{
 \item{path}{Path to executable file.}
 
+\item{command}{Modifying command for tool 
+(e.g. "submodule" when running "git submodule add").}
+
+\item{subcommand}{Modifying subcommand for tool
+(e.g. "add" when running "git submodule add").}
+
 \item{help_args}{Help arguments to use when identifying argument options.}
 
-\item{verbose}{Print messsages.}
+\item{args_sep}{Regex pattern that separates each new argument.}
 
-\item{sep}{Regex pattern to search for when detecting the beginning 
-of each argument description. Can use regex syntax.}
+\item{args_start}{Regex pattern to search for when detecting the beginning 
+of each argument description.}
+
+\item{col_names}{Column names after parsing.}
+
+\item{verbose}{Print messsages.}
 }
 \description{
 Parse the available options (arguments) for a given command line tool.

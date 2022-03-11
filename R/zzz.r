@@ -2,6 +2,7 @@
 # not sure what exactly this does yet, though
 # RETICULATE_AUTOCONFIGURE: https://rstudio.github.io/reticulate/reference/configure_environment.html
 .onLoad <- function(libname, pkgname) { 
+  .datatable.aware = TRUE;
   #### Find dir where user has write permissions ####
     # .conda_dir <- find_install_dir(dest_dir_opts = c(
     #   # dirname(dirname(reticulate::conda_binary())),

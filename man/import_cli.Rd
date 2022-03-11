@@ -5,21 +5,27 @@
 \title{Import Command Line Interface tool}
 \usage{
 import_cli(
-  tool,
-  use_namespace = basename(tool),
+  path,
+  use_namespace = basename(path),
   conda_env = NULL,
   verbose = TRUE
 )
 }
 \arguments{
+\item{path}{Path to CLI tool executable file (preferred), 
+or simply the tool name.}
+
 \item{use_namespace}{a character string of a namespace to use for the resulting functions}
 
-\item{path}{Path to CLI tool executable file.}
+\item{conda_env}{Conda environments to search in. 
+If \code{NULL} (default), will search all conda environments.}
+
+\item{verbose}{Print messages.}
 }
 \description{
 Import a Command Line Interface (CLI) tool into R as a function.
 }
 \examples{
-import_cli(tool="curl")
-curl::run("-h")
+import_cli(path="curl")
+# curl::run("-h")
 }

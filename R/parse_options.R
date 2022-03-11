@@ -2,9 +2,15 @@
 #' 
 #' Parse the available options (arguments) for a given command line tool.
 #' @param path Path to executable file.
+#' @param command Modifying command for tool 
+#'  (e.g. "submodule" when running "git submodule add").
+#' @param subcommand Modifying subcommand for tool
+#'  (e.g. "add" when running "git submodule add").
 #' @param help_args Help arguments to use when identifying argument options.
-#' @param sep Regex pattern to search for when detecting the beginning 
-#' of each argument description. Can use regex syntax.
+#' @param args_sep Regex pattern that separates each new argument.
+#' @param args_start Regex pattern to search for when detecting the beginning 
+#' of each argument description.
+#' @param col_names Column names after parsing.
 #' @param verbose Print messsages.
 #' @export
 #' @importFrom dplyr %>%
@@ -19,7 +25,9 @@ parse_options <- function(path,
                           col_names = c("arg","description"),
                           verbose = TRUE){
     requireNamespace("stringr")
-    
+    requireNamespace("readr")
+    requireNamespace("tidyr")
+    V1 <- arg <- base <- NULL;
     # echoverseTemplate:::args2vars(parse_options); 
     # echoverseTemplate:::source_all()
     

@@ -30,6 +30,7 @@ biocViews:
 Imports:
     utils,
     data.table,
+    dplyr,
     reticulate (>= 1.24)
 Suggests:
     markdown,
@@ -42,7 +43,12 @@ Suggests:
     covr,
     testthat (>= 3.0.0),
     badger,
-    hexSticker
+    hexSticker,
+    parallel,
+    stringr,
+    readr,
+    tidyr,
+    giftwrap
 RoxygenNote: 7.1.2
 VignetteBuilder: knitr
 License: GPL (>= 3)

@@ -10,6 +10,8 @@ find_packages(
   conda = "auto",
   filter_paths = FALSE,
   sort_names = FALSE,
+  return_path = FALSE,
+  nThread = 1,
   verbose = TRUE
 )
 }
@@ -30,6 +32,11 @@ See \strong{Finding Conda} and \code{\link[reticulate:conda-tools]{conda_binary(
 from the table.}
 
 \item{sort_names}{Sort packages alphanumerically by their name.}
+
+\item{return_path}{Return only the path to each package.}
+
+\item{nThread}{Number of threads to use when parallelizing searches across
+multiple conda envs.}
 
 \item{verbose}{Print messages.}
 }
