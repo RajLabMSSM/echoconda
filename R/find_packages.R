@@ -12,6 +12,7 @@
 #' @param filter_paths Filter out packages without callable executable paths
 #'  from the table.
 #' @param sort_names Sort packages alphanumerically by their name. 
+#' @param types Path type to search for and include in the table.
 #' @param return_path Return only the path to each package. 
 #' @param nThread Number of threads to use when parallelizing searches across
 #' multiple conda envs.
@@ -30,6 +31,7 @@ find_packages <- function(packages = NULL,
                           conda = "auto",
                           filter_paths = FALSE,
                           sort_names = FALSE,
+                          types=c("r","python","binary"),
                           return_path=FALSE,
                           nThread = 1,
                           verbose = TRUE){ 
@@ -68,6 +70,7 @@ find_packages <- function(packages = NULL,
     #### Get paths to each package ####
     pkgs_select <- find_packages_paths(conda_env=conda_env,
                                        pkgs_select=pkgs_select, 
+                                       types=types,
                                        verbose=verbose)
     #### Filter ####
     if(isTRUE(filter_paths)){

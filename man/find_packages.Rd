@@ -10,6 +10,7 @@ find_packages(
   conda = "auto",
   filter_paths = FALSE,
   sort_names = FALSE,
+  types = c("r", "python", "binary"),
   return_path = FALSE,
   nThread = 1,
   verbose = TRUE
@@ -33,6 +34,8 @@ from the table.}
 
 \item{sort_names}{Sort packages alphanumerically by their name.}
 
+\item{types}{Path type to search for and include in the table.}
+
 \item{return_path}{Return only the path to each package.}
 
 \item{nThread}{Number of threads to use when parallelizing searches across
@@ -50,5 +53,5 @@ Search for a package (or list of packages) across all available conda
  By default, returns all packages from all conda environments.
 }
 \examples{
-pkgs <- echoconda::find_packages(conda_env="base")
+pkgs <- echoconda::find_packages(conda_env="base", types=NULL)
 }
