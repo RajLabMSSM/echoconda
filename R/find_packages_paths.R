@@ -42,13 +42,17 @@ find_packages_paths <- function(conda_env,
     if(length(execs)==0) return(pkgs_select)
     # #### Find package paths ####
     pkg_paths <- lapply(pkgs_select$package, function(pkg){
-        execs[grepl(paste0("^",gsub("-",".*.",
-                                    gsub(x =  pkg,
-                                         pattern = c("^r-|^bioconductor-"),
-                                         replacement = "")
-                                    )
-                           ),
-                    basename(execs))]
+        ### Wrapping in sort() will naturally put bin towards the top
+        ### which tend to be real executables.
+        sort(
+            execs[grepl(paste0("^",gsub("-",".*.",
+                                        gsub(x =  pkg,
+                                             pattern = c("^r-|^bioconductor-"),
+                                             replacement = "")
+            )
+            ),
+            basename(execs))]
+        )
     }) %>% `names<-`(pkgs_select$package)
     dat <- data.table::data.table(package=names(pkg_paths),
                                   path=pkg_paths) 
