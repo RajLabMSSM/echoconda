@@ -23,7 +23,7 @@
 #' @export
 #' @importFrom data.table := fread rbindlist
 #' @importFrom dplyr %>% first group_by mutate
-#' @importFrom stats na.omit
+#' @importFrom stats na.omit setNames
 #' @examples 
 #' pkgs <- echoconda::find_packages(conda_env="base")
 find_packages <- function(packages = NULL,
@@ -36,15 +36,17 @@ find_packages <- function(packages = NULL,
                           nThread = 1,
                           verbose = TRUE){ 
     requireNamespace("parallel") 
-    package <- path <- python <- package <- NULL;
+    package <- path <- python <- NULL;
     # echoverseTemplate:::args2vars(find_packages);
-    # echoverseTemplate:::source_all()
+    # echoverseTemplate:::source_all(packages = "dplyr")
     
+    #### Gather names of (requested envs) ####
     envs <- reticulate::conda_list()
     packages <- unique(packages)
     if(!is.null(conda_env)) envs <- envs[envs$name %in% conda_env,]
     conda <- reticulate::conda_binary(conda = conda)
     n_pkgs <- if(is.null(packages)) "all" else length(packages)
+    #### Report what will be searched ####
     messager("Searching for",n_pkgs,"package(s) across",
              nrow(envs),"conda environment(s):",
              v=verbose)
@@ -80,20 +82,14 @@ find_packages <- function(packages = NULL,
     if(sort_names){
         data.table::setkey(pkgs_select,"package") 
     }
-    ##### Add command used to call package #####
-    # pkgs_select <- pkgs_select %>%
-    #     dplyr::group_by(package) %>% 
-    #     dplyr::mutate(command = dplyr::first(
-    #         stats::na.omit(c(path, gsub("-","_",package)))
-    #         )) %>%
-    #     data.table::data.table()
     #### Report ####
     messager(formatC(length(unique(pkgs_select$package)),big.mark = ","),
              "unique package(s) found across",
              length(unique(pkgs_select$conda_env)),
              "conda environment(s).",v=verbose)
-    if(return_path){
-        return(unique(pkgs_select$path))
+    if(return_path){  
+        return(stats::setNames(pkgs_select$path,
+                               pkgs_select$package))
     }else {
         return(pkgs_select)
     } 

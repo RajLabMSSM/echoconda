@@ -53,5 +53,5 @@ Search for a package (or list of packages) across all available conda
  By default, returns all packages from all conda environments.
 }
 \examples{
-pkgs <- echoconda::find_packages(conda_env="base", types=NULL)
+pkgs <- echoconda::find_packages(conda_env="base")
 }
