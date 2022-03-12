@@ -35,40 +35,13 @@ parse_options <- function(path,
     #### Append commands/subcommands #####
     if(!is.na(command)) path <- paste(path,command)
     if(!is.na(subcommand)) path <- paste(path,subcommand) 
-    #### Enter nonsense command to get output of incorrect argument ####
-    {
-        tmp <- tempfile(fileext = "1.txt")
-        typo_str <- "-typooo"
-        empty <- system(paste(path,typo_str,"2>&1 | tee",tmp,"&"),
-                        intern = TRUE) 
-        ## Wait until the file is written
-        Sys.sleep(1)
-        out_wrong <- readr::read_file(tmp)
-    }   
-    #### Find the appropriate help flag #### 
-    valid_h <- FALSE
-    for(h in help_args){
-        messager("Testing help_flag:",h,v=verbose) 
-        tmp <- tempfile(fileext = "-2.txt")
-        empty <- system(paste(path,h,"2>&1 | tee",tmp,"&"),
-                        intern = TRUE) 
-        ## Wait until the file is written
-        Sys.sleep(1)
-        out <- readr::read_file(tmp)
-        if((out=="") | (out==gsub(typo_str,h,out_wrong))){
-            next()    
-        } else {
-            messager("Settled on using",h,"flag.",v=verbose)
-            system(paste(path,h))
-            valid_h <- TRUE
-            break()
-        } 
-    }  
-    if(valid_h==FALSE) stop("Could not identify any used help_flags.") 
+    help_out <- import_help(path = path, 
+                            help_args = help_args, 
+                            verbose = verbose)
     #### Parse the options ####   
     messager("Parsing options from help output.",v=verbose) 
      
-    txt <- out %>%
+    txt <- help_out %>%
         stringr::str_split(pattern = args_sep,
                            simplify = TRUE) %>%
         trimws() %>%  

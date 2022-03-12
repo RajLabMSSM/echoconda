@@ -3,29 +3,40 @@
 \name{import_cli}
 \alias{import_cli}
 \title{Import Command Line Interface tool}
+\source{
+\href{https://stackoverflow.com/a/12983961/13214824}{
+Stack Overflow}
+
+\href{https://adv-r.hadley.nz/function-factories.html}{
+Function factories}
+
+\href{https://github.com/r-lib/roxygen2/issues/798}{
+Dynamic roxygen notes}
+
+\href{https://stackoverflow.com/q/29327423/13214824}{
+match.call}
+}
 \usage{
-import_cli(
-  path,
-  use_namespace = basename(path),
-  conda_env = NULL,
-  verbose = TRUE
-)
+import_cli(path, fix_names = TRUE, conda_env = NULL, verbose = TRUE)
 }
 \arguments{
 \item{path}{Path to CLI tool executable file (preferred), 
 or simply the tool name.}
 
-\item{use_namespace}{a character string of a namespace to use for the resulting functions}
-
 \item{conda_env}{Conda environments to search in. 
 If \code{NULL} (default), will search all conda environments.}
 
 \item{verbose}{Print messages.}
+
+\item{env}{Which R environment to use.}
 }
 \description{
 Import a Command Line Interface (CLI) tool into R as a function.
 }
 \examples{
-import_cli(path="curl")
-# curl::run("-h")
+mycurl <- import_cli(path="curl")
+mycurl(h = TRUE)
+mycurl(url= file.path("http://hgdownload.soe.ucsc.edu/goldenPath",
+                           "hg38/multiz100way/md5sum.txt"),
+       o="~/Downloads/tmp.txt")
 }

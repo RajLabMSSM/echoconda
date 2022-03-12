@@ -2,7 +2,12 @@ find_packages_paths <- function(conda_env,
                                 pkgs_select,
                                 types=c("r","python","binary"),
                                 verbose=TRUE){ 
+    # echoverseTemplate:::source_all(packages = "dplyr")
+    # echoverseTemplate:::args2vars(find_packages_paths); conda_env="echoR"
     
+    #### Reset path col ####
+    if("path" %in% colnames(pkgs_select)) pkgs_select$path <- NULL;
+    #### Conda conda path ####
     python <- find_python_path(conda_env = conda_env,
                                verbose = verbose)
     pylib <- find_python_library(python = python)
@@ -25,7 +30,7 @@ find_packages_paths <- function(conda_env,
                          } 
                          ), 
                    intern = TRUE)
-        } else{NULL},
+        } else{NULL}, 
         ### R package folders 
         if("r" %in% types){
             list.files(file.path(env_path,"lib/R/library"),
@@ -40,24 +45,34 @@ find_packages_paths <- function(conda_env,
         } else {NULL}
     )
     if(length(execs)==0) return(pkgs_select)
-    # #### Find package paths ####
-    pkg_paths <- lapply(pkgs_select$package, function(pkg){
-        ### Wrapping in sort() will naturally put bin towards the top
-        ### which tend to be real executables.
-        sort(
-            execs[grepl(paste0("^",gsub("-",".*.",
+    "/opt/anaconda3/envs/echoR/bin/R" %in% execs
+    #### Find package paths ####
+    pkg_paths <- lapply(pkgs_select$package, function(pkg){ 
+        execs_select <- 
+            execs[
+                grepl(pattern = paste0("^",gsub("-",".*.",
                                         gsub(x =  pkg,
                                              pattern = c("^r-|^bioconductor-"),
                                              replacement = "")
-            )
-            ),
-            basename(execs))]
-        )
+                                        )
+                               ),
+                        x = basename(execs),
+                      ignore.case = TRUE)
+                ]
+        ## Do some extra checks for R because too many other packages start 
+        ## with that letter.
+        if(tolower(pkg)=="r") {
+            execs_select <- execs_select[tolower(basename(execs_select))=="r"]
+        }
+        ### Sorting  will naturally put bin towards the top
+        ### which tend to be real executables.
+        execs_select <- sort(execs_select) 
+        return(execs_select)
     }) %>% `names<-`(pkgs_select$package)
     dat <- data.table::data.table(package=names(pkg_paths),
                                   path=pkg_paths) 
-    ##### Get r packages #####  
     data.table::setkeyv(dat,"package")
+    ##### Get r packages #####   
     # dat["trim-galore"]
     # dat["r-dplyr"]
     # dat["pandas"]

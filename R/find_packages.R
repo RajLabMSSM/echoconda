@@ -37,14 +37,18 @@ find_packages <- function(packages = NULL,
                           verbose = TRUE){ 
     requireNamespace("parallel") 
     package <- path <- python <- NULL;
-    # echoverseTemplate:::args2vars(find_packages);
     # echoverseTemplate:::source_all(packages = "dplyr")
+    # echoverseTemplate:::args2vars(find_packages);conda_env="echoR";
     
     #### Gather names of (requested envs) ####
     envs <- reticulate::conda_list()
     packages <- unique(packages)
-    if(!is.null(conda_env)) envs <- envs[envs$name %in% conda_env,]
-    conda <- reticulate::conda_binary(conda = conda)
+    envs <- envs[envs$name %in% conda_env,]
+    if(nrow(envs)==0) {
+        stp <- paste("Could not identify any conda_env",
+                     "matching existing conda environments.")
+        stop(stp)
+    } 
     n_pkgs <- if(is.null(packages)) "all" else length(packages)
     #### Report what will be searched ####
     messager("Searching for",n_pkgs,"package(s) across",
@@ -61,32 +65,50 @@ find_packages <- function(packages = NULL,
             pkgs <- conda_list_packages(conda_env = env, 
                                         conda = conda,
                                         verbose = FALSE)
+            pkgs <- cbind(env=env, pkgs) 
+            ##### Subset to only requested package(s) ####
             if(!is.null(packages)){ 
                 pkgs <- subset(pkgs, prep(package) %in% prep(packages))
+            } 
+            if(nrow(pkgs)>0){
+                #### Get paths to each package ####
+                pkgs <- find_packages_paths(conda_env=env,
+                                            pkgs_select=pkgs, 
+                                            types=types,
+                                            verbose=verbose)
+            } else {
+                messager("No matching packages identified",
+                         "in the requested conda environment:",env,"\n",
+                         "Returning empty data.table.",
+                         v=verbose)
             }
-            pkgs <- cbind(conda_env=env, pkgs)
-            pkgs
+            return(pkgs)
         }, error = function(e){ message(e); NULL}) 
     }, mc.cores = nThread) %>%
-        data.table::rbindlist()
-    #### Get paths to each package ####
-    pkgs_select <- find_packages_paths(conda_env=conda_env,
-                                       pkgs_select=pkgs_select, 
-                                       types=types,
-                                       verbose=verbose)
+        data.table::rbindlist() %>%
+        dplyr::relocate("env",.before = 1)
+    #### Report ####
+    if(nrow(pkgs_select)==0){
+        messager("No matching packages identified",
+                 "in the requested conda environment(s).",
+                 "Returning empty data.table.",
+                 v=verbose)
+        return(pkgs_select)
+    } else {
+        messager(formatC(length(unique(pkgs_select$package)),big.mark = ","),
+                 "unique package(s) found across",
+                 length(unique(pkgs_select$env)),
+                 "conda environment(s).",v=verbose)
+    }
     #### Filter ####
     if(isTRUE(filter_paths)){
         pkgs_select <- subset(pkgs_select, !is.na(path))
     }
     #### Sort ####
     if(sort_names){
-        data.table::setkey(pkgs_select,"package") 
+        data.table::setkeyv(pkgs_select,c("env","package")) 
     }
-    #### Report ####
-    messager(formatC(length(unique(pkgs_select$package)),big.mark = ","),
-             "unique package(s) found across",
-             length(unique(pkgs_select$conda_env)),
-             "conda environment(s).",v=verbose)
+    #### Return ####
     if(return_path){  
         return(stats::setNames(pkgs_select$path,
                                pkgs_select$package))

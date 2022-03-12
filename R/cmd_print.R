@@ -23,6 +23,7 @@ cmd_print <- function(cmd,
     if(verbose){
         if(raw){
             cat(cmd)
+            cat("\n")
         } else {
             if(basepath){
                 split <- strsplit(cmd," ")[[1]]
@@ -46,6 +47,7 @@ cmd_print <- function(cmd,
                 cmd <- gsub(" -",paste0(wrap," -"),cmd) 
             }
             cat(cmd)
+            cat("\n")
         } 
     }
 }

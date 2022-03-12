@@ -12,16 +12,18 @@ test_that("parse_options works", {
     
     #### Conda env #### 
     #### python ####
-    path <- echoconda::find_packages("python",conda_env = "echoR")$path
-    opts <- echoconda::parse_options(path=path)
+    path <- echoconda::find_packages("python",conda_env = "echoR",
+                                     return_path = TRUE)
+    opts <- echoconda::parse_options(path=path[['python']][1])
     testthat::expect_true(nrow(opts)>20 & nrow(opts)<40)
     #### r ####
-    path <- echoconda::find_packages("r",conda_env = "echoR")$path
-    opts <- echoconda::parse_options(path=path)
+    path <- echoconda::find_packages("r",conda_env = "echoR",
+                                     return_path = TRUE)
+    opts <- echoconda::parse_options(path=path[["r"]][1])
     testthat::expect_true(nrow(opts)>20 & nrow(opts)<40)
     #### radian ####
-    path <- echoconda::find_packages("radian",conda_env = "echoR")$path
-    opts <- echoconda::parse_options(path=path)
+    out <- echoconda::find_packages("radian",conda_env = "echoR")
+    opts <- echoconda::parse_options(path=unlist(out$path)[1])
     testthat::expect_true(nrow(opts)>10 & nrow(opts)<20)
     
     #### Not working ####

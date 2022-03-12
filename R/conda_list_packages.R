@@ -10,7 +10,11 @@ conda_list_packages <- function(conda_env,
                                 conda = "auto",
                                 verbose = TRUE){
     messager("Listing all packages in environment:",conda_env,v=verbose)
-    conda_x <- reticulate::conda_exe(conda = conda)
+    #### Get conda executable ####
+    ## Not clear on how these are different. Return same file on Mac.
+    conda_x <- reticulate::conda_binary(conda = conda)
+    # conda_x <- reticulate::conda_exe(conda = conda)
+    #### List packages via conda CLI ####
     out <- system(paste(conda_x,"list -n",conda_env), intern = TRUE)
     pkgs <- data.table::fread(text = out, skip = 2, fill = TRUE)
     cnames <- colnames(pkgs)[-1]

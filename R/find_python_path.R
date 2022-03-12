@@ -11,28 +11,33 @@
 find_python_path <- function(conda_env = "echoR",
                              verbose = TRUE) {
     # Avoid confusing checks
-    name <- NULL
-
+    name <- NULL; 
     install_conda(verbose = FALSE)
     conda_env <- check_env(conda_env = conda_env)
     env_list <- reticulate::conda_list()
-    if (is.null(conda_env)) {
-        messager("echoconda:: No conda env supplied.",
-            "Using default 'python' instead.",
-            v = verbose
-        )
-        python_path <- "python"
-    } else {
-        if (conda_env %in% env_list$name) {
-            python_path <- subset(env_list, name == conda_env)$python
-        } else {
-            messager("echoconda::", paste0("'", conda_env, "'"),
-                "conda environment not found.",
-                "Using default 'python' instead.",
-                v = verbose
+    python_paths <- lapply(conda_env, function(env){ 
+        if (is.null(env)) {
+            messager("echoconda:: No conda env supplied.",
+                     "Using default 'python' instead.",
+                     v = verbose
             )
             python_path <- "python"
+        } else {
+            if (env %in% env_list$name) {
+                python_path <- subset(env_list, name == env)$python
+            } else {
+                messager("echoconda::", paste0("'", env, "'"),
+                         "conda environment not found.",
+                         "Using default 'python' instead.",
+                         v = verbose
+                )
+                python_path <- "python"
+            }
         }
-    }
-    return(python_path)
+        return(python_path)
+    })
+    #### Return results as named vector #### 
+    python_paths <- unlist(python_paths)
+    names(python_paths) <- conda_env
+    return(python_paths) 
 }
