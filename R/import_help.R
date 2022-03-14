@@ -1,5 +1,6 @@
 import_help <- function(path,
-                        help_args = c("-h","--help","-help","-H"),
+                        help_args = c("-h","--help","-help",
+                                      "-H","help","HELP"),
                         exceptions="axel",
                         verbose=TRUE){
     #### Enter nonsense command to get output of incorrect argument ####

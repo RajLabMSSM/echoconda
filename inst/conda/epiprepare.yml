@@ -16,7 +16,8 @@ dependencies:
   - bedtools
   - seacr
   - deeptools
-  - macs2
+  - macs2 
+  - refgenie
   # R
   - r>=4.0.0
   - r-devtools
