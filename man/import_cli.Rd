@@ -23,12 +23,12 @@ import_cli(path, fix_names = TRUE, conda_env = NULL, verbose = TRUE)
 \item{path}{Path to CLI tool executable file (preferred), 
 or simply the tool name.}
 
+\item{fix_names}{Map argument names to R-friendly versions.}
+
 \item{conda_env}{Conda environments to search in. 
 If \code{NULL} (default), will search all conda environments.}
 
 \item{verbose}{Print messages.}
-
-\item{env}{Which R environment to use.}
 }
 \description{
 Import a Command Line Interface (CLI) tool into R as a function.

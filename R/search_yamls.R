@@ -6,7 +6,11 @@ search_yamls <- function(conda_env,
     yamls <- list_yamls(verbose = FALSE)
     if(conda_env %in% yamls$conda_env){
         ce <- conda_env 
+        #### Check OS ####
         if(get_os()=="Windows" && conda_env=="echoR"){
+            messager("Windows OS detected:",
+                     "using modified yaml file that omits packages",
+                     "not available on Windows.", v=verbose)
             yaml_path <- system.file(package = "echoconda",
                                      "conda/echoR_windows.yml")
         } else {

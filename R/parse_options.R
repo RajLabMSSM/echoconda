@@ -11,7 +11,7 @@
 #' @param args_start Regex pattern to search for when detecting the beginning 
 #' of each argument description.
 #' @param col_names Column names after parsing.
-#' @param verbose Print messsages.
+#' @param verbose Print messages.
 #' @export
 #' @importFrom dplyr %>%
 #' @examples  

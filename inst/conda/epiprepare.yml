@@ -5,11 +5,12 @@ channels:
   - nodefaults
 dependencies:
   # Python
-  - python>=3.6.1
+  - python>=3.7
   - pandas>=0.25.0
   # Command line
   - fastqc
-  - trim-galore
+  - trim-galore 
+  - pigz
   - bowtie2
   - picard
   - samtools

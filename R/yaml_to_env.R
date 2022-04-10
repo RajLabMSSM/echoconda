@@ -6,6 +6,7 @@
 #' specifications.
 #' @param force_new If the conda env already exists,
 #'  overwrite it with a new one (\emph{DEFAULT}: \code{FALSE}).
+#' @param show_contents Show the contents of the yaml file (if used).
 #' @param verbose Print messages.
 #' @inheritParams reticulate::conda_create
 #' 
@@ -21,10 +22,11 @@ yaml_to_env <- function(yaml_path = system.file(
                               package = "echoconda",
                               "conda/echoR.yml"
                           ),
-                          conda = "auto",
-                          force_new = FALSE,
-                          verbose = TRUE) {
-    install_conda()
+                        conda = "auto",
+                        force_new = FALSE,
+                        show_contents = FALSE,
+                        verbose = TRUE) {
+    install_conda(verbose = verbose)
     start <- Sys.time() 
     conda_env <- name_from_yaml(
         yaml_path = yaml_path,
@@ -32,16 +34,8 @@ yaml_to_env <- function(yaml_path = system.file(
     )
     #### Search for known yamls (by name or by path) ####
     yaml_path <- search_yamls(conda_env = yaml_path,
-                              show_contents = verbose,
-                              verbose = verbose)
-    #### Check OS ####
-    if(get_os()=="Windows" && conda_env=="echoR"){
-        messager("Windows OS detected:",
-                 "using modified yaml file that omits packages",
-                 "not available on Windows.", v=verbose)
-        yaml_path <- system.file(package = "echoconda",
-                                 "conda/echoR_windows.yml")
-    }
+                              show_contents = show_contents,
+                              verbose = verbose) 
     #### Create env or return "base" ####
     if((is.null(conda_env)) || (conda_env=="base")) {
         messager("Returning 'base'",v=verbose)

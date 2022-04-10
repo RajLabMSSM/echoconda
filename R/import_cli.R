@@ -3,8 +3,9 @@
 #' Import a Command Line Interface (CLI) tool into R as a function.
 #' @param path Path to CLI tool executable file (preferred), 
 #' or simply the tool name.
-#' @param env Which R environment to use.
+#' @param fix_names Map argument names to R-friendly versions. 
 #' @inheritParams find_packages 
+#' 
 #' @source \href{https://stackoverflow.com/a/12983961/13214824}{
 #' Stack Overflow}
 #' @source \href{https://adv-r.hadley.nz/function-factories.html}{
@@ -31,7 +32,8 @@ import_cli <- function(path,
      
     if(!is.null(conda_env)){
         pkgs <- find_packages(packages = path,
-                              conda_env = conda_env)
+                              conda_env = conda_env, 
+                              verbose = verbose)
         p <- path
         pkgs <- subset(pkgs, package==basename(p))
         new_path <- unlist(pkgs$path)[1]

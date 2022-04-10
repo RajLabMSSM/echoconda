@@ -2,7 +2,7 @@ test_that("parse_options works", {
   
     #### curl ####
     opts <- echoconda::parse_options(path="curl")
-    testthat::expect_true(nrow(opts)>200 & nrow(opts)<300)
+    testthat::expect_true(nrow(opts)>10 & nrow(opts)<15)
     #### wget ####
     opts <- echoconda::parse_options(path="wget")
     testthat::expect_true(nrow(opts)>100 & nrow(opts)<200)

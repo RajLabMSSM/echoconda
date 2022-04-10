@@ -33,7 +33,7 @@ of each argument description.}
 
 \item{col_names}{Column names after parsing.}
 
-\item{verbose}{Print messsages.}
+\item{verbose}{Print messages.}
 }
 \description{
 Parse the available options (arguments) for a given command line tool.

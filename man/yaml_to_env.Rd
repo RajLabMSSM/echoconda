@@ -14,6 +14,7 @@ yaml_to_env(
   yaml_path = system.file(package = "echoconda", "conda/echoR.yml"),
   conda = "auto",
   force_new = FALSE,
+  show_contents = FALSE,
   verbose = TRUE
 )
 }
@@ -27,6 +28,8 @@ See \strong{Finding Conda} and \code{\link[reticulate:conda-tools]{conda_binary(
 
 \item{force_new}{If the conda env already exists,
 overwrite it with a new one (\emph{DEFAULT}: \code{FALSE}).}
+
+\item{show_contents}{Show the contents of the yaml file (if used).}
 
 \item{verbose}{Print messages.}
 }
