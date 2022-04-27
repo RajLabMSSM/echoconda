@@ -4,7 +4,11 @@
 \alias{list_envs}
 \title{List conda envs}
 \usage{
-list_envs(conda = "auto", conda_env = NULL, use_basilisk = FALSE)
+list_envs(
+  conda = "auto",
+  conda_env = NULL,
+  method = c("basilisk", "reticulate")
+)
 }
 \arguments{
 \item{conda}{The path to a \code{conda} executable. Use \code{"auto"} to allow
@@ -13,8 +17,11 @@ See \strong{Finding Conda} and \code{\link[reticulate:conda-tools]{conda_binary(
 
 \item{conda_env}{[Optional] A specific conda environment to search for.}
 
-\item{use_basilisk}{Search conda envs created by \pkg{basilisk} 
-instead of \pkg{reticulate}.}
+\item{method}{Method to use:
+\itemize{
+\item{"basilisk"}
+\item{"reticulate"}
+}}
 }
 \description{
 List all available conda environments.

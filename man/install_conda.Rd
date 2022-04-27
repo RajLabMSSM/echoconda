@@ -5,7 +5,7 @@
 \title{Install conda}
 \usage{
 install_conda(
-  method = c("reticulate", "basilisk"),
+  method = c("basilisk", "reticulate"),
   conda = "auto",
   verbose = TRUE,
   ...

@@ -1,7 +1,3 @@
-# .BBSoptions
-# configure
-# configure.win
-
 .*\.Rproj$
 ^\.Rproj\.user$
 ^README.Rmd

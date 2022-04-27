@@ -4,7 +4,12 @@
 \alias{remove_env}
 \title{Remove conda environment}
 \usage{
-remove_env(conda_env, conda = "auto", use_basilisk = FALSE, verbose = TRUE)
+remove_env(
+  conda_env,
+  conda = "auto",
+  method = c("basilisk", "reticulate"),
+  verbose = TRUE
+)
 }
 \arguments{
 \item{conda_env}{Name of the conda environment.}
@@ -13,8 +18,11 @@ remove_env(conda_env, conda = "auto", use_basilisk = FALSE, verbose = TRUE)
 \code{reticulate} to automatically find an appropriate \code{conda} binary.
 See \strong{Finding Conda} and \code{\link[reticulate:conda-tools]{conda_binary()}} for more details.}
 
-\item{use_basilisk}{Search conda envs created by \pkg{basilisk} 
-instead of \pkg{reticulate}.}
+\item{method}{Method to use:
+\itemize{
+\item{"basilisk"}
+\item{"reticulate"}
+}}
 
 \item{verbose}{Print messages.}
 }

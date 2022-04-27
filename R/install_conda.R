@@ -8,7 +8,7 @@
 #' @export
 #' @examples 
 #' echoconda::install_conda()
-install_conda <- function(method = c("reticulate","basilisk"),
+install_conda <- function(method = c("basilisk","reticulate"),
                           conda = "auto",
                           verbose = TRUE,
                           ...) { 

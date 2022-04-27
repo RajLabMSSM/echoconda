@@ -8,12 +8,16 @@
 #' @importFrom data.table :=
 list_envs <- function(conda="auto",
                       conda_env=NULL,
-                      use_basilisk=FALSE){
+                      method=c("basilisk","reticulate")){
     python <- name <- dir <- NULL;
-    conda_x <- find_conda(conda = conda,
-                          use_basilisk = use_basilisk)
-    # envs <- basilisk::listPackages(env = conda_env)
-    envs <- reticulate::conda_list(conda = conda_x)
+   
+    if(method=="basilisk"){
+        envs <- basilisk::listPackages(env = conda_env)
+    } else if(method=="reticulate"){
+        conda_x <- find_conda(conda = conda,
+                              method = method)
+        envs <- reticulate::conda_list(conda = conda_x)
+    } 
     envs <- data.table::data.table(envs)
     envs[,dir:=dirname(dirname(python)),]
     #### Search for matching env ####

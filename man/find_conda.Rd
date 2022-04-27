@@ -4,15 +4,18 @@
 \alias{find_conda}
 \title{Find conda}
 \usage{
-find_conda(conda = "auto", use_basilisk = FALSE)
+find_conda(conda = "auto", method = c("basilisk", "reticulate"))
 }
 \arguments{
 \item{conda}{The path to a \code{conda} executable. Use \code{"auto"} to allow
 \code{reticulate} to automatically find an appropriate \code{conda} binary.
 See \strong{Finding Conda} and \code{\link[reticulate:conda-tools]{conda_binary()}} for more details.}
 
-\item{use_basilisk}{Search conda envs created by \pkg{basilisk} 
-instead of \pkg{reticulate}.}
+\item{method}{Method to use:
+\itemize{
+\item{"basilisk"}
+\item{"reticulate"}
+}}
 }
 \description{
 Find conda executable from multiple installations: 

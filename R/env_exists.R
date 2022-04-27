@@ -13,12 +13,15 @@
 #' @export
 #' @importFrom reticulate conda_python conda_binary
 env_exists <- function(conda_env = NULL,
-                       conda = "auto") { 
+                       conda = "auto",
+                       method = c("basilisk","reticulate")) { 
     
     #### Make sure conda_env is not NULL ####
     if(is.null(conda_env)) return(FALSE)
-    envs <- list_envs(conda = conda)
-    does_exist <- conda_env %in% envs$name
+    envs <- list_envs(conda = conda, 
+                      conda_env = conda_env,
+                      method = method)
+    does_exist <- nrow(envs)>0
     return(does_exist)
     # #### Check that conda is installed ####
     # condabin <- tryCatch(reticulate::conda_binary(conda = conda),

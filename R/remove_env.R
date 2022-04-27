@@ -13,15 +13,15 @@
 #' @importFrom reticulate conda_remove
 remove_env <- function(conda_env, 
                        conda="auto",
-                       use_basilisk=FALSE,
+                       method=c("basilisk","reticulate"),
                        verbose=TRUE){
-    name <- NULL;
-    conda_x <- find_conda(conda = conda, 
-                          use_basilisk = use_basilisk)
+    name <- NULL; 
     envs <- list_envs(conda_env = conda_env,
                       conda = conda, 
-                      use_basilisk = use_basilisk) 
+                      method = method) 
     if(nrow(envs)>0){
+        conda_x <- find_conda(conda = conda, 
+                              method = method)
         #### Remove multiple ways ####
         for(env in envs){
             messager("Removing env:",env,v=verbose)

@@ -11,6 +11,6 @@ install_conda_basilisk <- function(verbose=TRUE){
     if(isTRUE(new_install)){
         messager("echoconda:: Installing conda via basilisk.",v=verbose)
     } else {
-        messager("echoconda:: conda already installed via basilisk.",v=verbose)
+        messager("echoconda:: conda already installed.",v=verbose)
     }
 }

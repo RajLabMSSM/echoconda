@@ -34,7 +34,7 @@ yaml_to_env <- function(yaml_path = system.file(
                         show_contents = FALSE,
                         verbose = TRUE) {
     
-    install_conda(method = "reticulate",
+    install_conda(method = method,
                   verbose = verbose)
     start <- Sys.time() 
     conda_env <- name_from_yaml(yaml_path = yaml_path,
@@ -48,6 +48,8 @@ yaml_to_env <- function(yaml_path = system.file(
     #### Delete old env ####
     if(isTRUE(force_new)){
         remove_env(conda_env = conda_env,
+                   conda = conda,
+                   method = method,
                    verbose = verbose)
     }  
     #### Create env or return "base" ####
@@ -55,7 +57,9 @@ yaml_to_env <- function(yaml_path = system.file(
         messager("Returning 'base'",v=verbose)
         conda_env <- "base"
     } else {
-        if (env_exists(conda_env) ) {
+        if (env_exists(conda_env = conda_env, 
+                       conda = conda, 
+                       method = method) ) {
             messager("echoconda:: Conda environment already exists:",
                      conda_env, v = verbose)  
         } else {
