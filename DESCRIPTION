@@ -30,6 +30,7 @@ SystemRequirements: Python (>= 3.7.0)
 biocViews:
 Imports:
     utils,
+    R.utils,
     data.table,
     dplyr,
     sys,
