@@ -11,7 +11,7 @@
 \href{https://github.com/rstudio/reticulate/issues/292}{GH Issues}
 }
 \usage{
-activate_env(conda_env = "echoR", verbose = TRUE)
+activate_env(conda_env = "echoR_mini", verbose = TRUE)
 }
 \arguments{
 \item{conda_env}{Conda environment to use.}
@@ -26,7 +26,6 @@ doesn't work in practice}, especially within RStudio.
 and used.
 }
 \examples{
-# importFrom reticulate conda_list use_condaenv use_python conda_list
 echoconda::activate_env(conda_env = "echoR")
 }
 \seealso{

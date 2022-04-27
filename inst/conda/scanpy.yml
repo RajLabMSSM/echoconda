@@ -4,7 +4,7 @@ channels:
   - bioconda 
   - plotly 
   - nodefaults  
-dependencies: 
+dependencies:
   # Python
   - python>=3.7  
   - scikit-learn 
@@ -32,6 +32,5 @@ dependencies:
   - nb_conda_kernels
   ## After install jupyter_contrib_nbextensions, run: jupyter nbextensions_configurator enable --user
   - jupyter_contrib_nbextensions 
-  - pip
   - pip:
-   - magic-impute    
+    - magic-impute

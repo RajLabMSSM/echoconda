@@ -1,3 +1,25 @@
+# echoconda 0.99.6
+
+## New features
+
+* New functions:
+    - `remove_env`
+    - `create_env`
+    - `find_conda`
+    - `list_envs` 
+* `find_packages`:
+    - Benchmarked multiple methods for speed and completeness 
+    of recovering excecutable paths.
+* Setup `basilisk`
+* *echoR_mini*:
+    - Bare minimum conda env that solves in 2.5min.
+    - Replaces *echoR* as the default. 
+
+## Bug fixes
+
+* Fix GHA pkgdown building: 
+    - The newest version of [git introduced bugs when building pkgdown sites](https://github.com/actions/checkout/issues/760) from within Docker containers (e.g. via my Linux GHA workflow). Adjusting GHA to fix this. 
+
 # echoconda 0.99.5
 
 ## New features

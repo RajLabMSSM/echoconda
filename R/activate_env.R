@@ -12,12 +12,13 @@
 #' @source \href{https://github.com/rstudio/reticulate/issues/1044}{GH Issues}
 #' @source \href{https://github.com/rstudio/reticulate/issues/292}{GH Issues}
 #' @family conda
-#' @export
 #' 
+#' @export
+#' @importFrom basilisk.utils activateEnvironment
+#' @importFrom reticulate conda_list use_condaenv use_python conda_list
 #' @examples
-#' # importFrom reticulate conda_list use_condaenv use_python conda_list
 #' echoconda::activate_env(conda_env = "echoR")
-activate_env <- function(conda_env = "echoR",
+activate_env <- function(conda_env = "echoR_mini",
                          verbose = TRUE) { 
     install_conda()
     
@@ -27,7 +28,7 @@ activate_env <- function(conda_env = "echoR",
                  paste0("'",current_env,"'"),v=verbose)
     }
     
-    env_list <- reticulate::conda_list()
+    env_list <- list_envs()
     if (conda_env %in% env_list$name) {
         messager("echoconda:: Attempting to activate conda env:",
             paste0("'", conda_env, "'"),
@@ -35,6 +36,7 @@ activate_env <- function(conda_env = "echoR",
         ) 
         #### Take multiple approaches to ensure env gets activated ####
         out <- tryCatch(expr = {
+            basilisk.utils::activateEnvironment(envpath = conda_env)
             suppressWarnings(
                 reticulate::use_condaenv(condaenv = conda_env,
                                          required = TRUE) 

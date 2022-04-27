@@ -14,79 +14,78 @@
 #' @param sort_names Sort packages alphanumerically by their name. 
 #' @param types Path type to search for and include in the table.
 #' @param return_path Return only the path to each package. 
+#' @param robust Uses a more robust (but slower) method for identifying paths
+#' to conda environments and package executables (default: \code{FALSE}).
+#' When \code{robust=FALSE}, only executables in the main "bin" directory
+#'  will be detected. When \code{robust=TRUE}, additional executables to
+#'  R packages, Python packages, and executables in nested subdirectories will 
+#'  be detected.
 #' @param nThread Number of threads to use when parallelizing searches across
 #' multiple conda envs.
 #' @param verbose Print messages.
+#' @inheritParams list_packages
 #' @inheritParams reticulate::conda_binary
+#' 
 #' @returns Merged data.table with all packages installed in each conda 
 #' environment. 
+#' 
 #' @export
-#' @importFrom data.table := fread rbindlist
-#' @importFrom dplyr %>% first group_by mutate
-#' @importFrom stats na.omit setNames
+#' @importFrom data.table rbindlist
+#' @importFrom stats setNames 
 #' @examples 
 #' pkgs <- echoconda::find_packages(conda_env="base")
 find_packages <- function(packages = NULL,
                           conda_env = NULL,
                           conda = "auto",
+                          method = c("r","reticulate","basilisk"),
+                          types = c("r","python","binary"),
+                          return_path = FALSE,
+                          robust = FALSE, 
                           filter_paths = FALSE,
                           sort_names = FALSE,
-                          types=c("r","python","binary"),
-                          return_path=FALSE,
                           nThread = 1,
                           verbose = TRUE){ 
     requireNamespace("parallel") 
-    package <- path <- python <- NULL;
+    path <- NULL;
     # echoverseTemplate:::source_all(packages = "dplyr")
     # echoverseTemplate:::args2vars(find_packages);conda_env="echoR";
     
     #### Gather names of (requested envs) ####
-    envs <- reticulate::conda_list()
+    envs <- list_envs(conda_env = conda_env,
+                      conda = conda) 
+    #### List packages #### 
     packages <- unique(packages)
-    envs <- envs[envs$name %in% conda_env,]
-    if(nrow(envs)==0) {
-        stp <- paste("Could not identify any conda_env",
-                     "matching existing conda environments.")
-        stop(stp)
-    } 
     n_pkgs <- if(is.null(packages)) "all" else length(packages)
     #### Report what will be searched ####
     messager("Searching for",n_pkgs,"package(s) across",
-             nrow(envs),"conda environment(s):",
-             v=verbose)
-    prep <- function(x){
-        gsub("^r-*|^bioconductor-*|_|-|[.]","",tolower(x))
-    }
+             nrow(envs),"conda environment(s).",
+             v=verbose) 
     #### Iterate through envs ####
-    pkgs_select <- parallel::mclapply(envs$name, function(env){
-        messager(" -",env,v=verbose) 
-        tryCatch({
-            # pkgs <- reticulate:::conda_list_packages(envname = env)
-            pkgs <- conda_list_packages(conda_env = env, 
-                                        conda = conda,
-                                        verbose = FALSE)
-            pkgs <- cbind(env=env, pkgs) 
-            ##### Subset to only requested package(s) ####
-            if(!is.null(packages)){ 
-                pkgs <- subset(pkgs, prep(package) %in% prep(packages))
-            } 
-            if(nrow(pkgs)>0){
-                #### Get paths to each package ####
-                pkgs <- find_packages_paths(conda_env=env,
-                                            pkgs_select=pkgs, 
-                                            types=types,
-                                            verbose=verbose)
-            } else {
-                messager("No matching packages identified",
-                         "in the requested conda environment:",env,"\n",
-                         "Returning empty data.table.",
-                         v=verbose)
-            }
-            return(pkgs)
-        }, error = function(e){ message(e); NULL}) 
-    }, mc.cores = nThread) %>%
-        data.table::rbindlist() %>%
-        dplyr::relocate("env",.before = 1)
+    pkgs_select <- data.table::rbindlist(
+        parallel::mclapply(envs$name, function(env){ 
+            tryCatch({ 
+                pkgs <- list_packages(conda_env = env, 
+                                      conda = conda,
+                                      method = method,
+                                      packages = packages,
+                                      verbose = verbose)   
+                if(nrow(pkgs)>0){
+                    #### Get paths to each package ####
+                    pkgs <- find_packages_paths(conda_env=env,
+                                                pkgs=pkgs, 
+                                                types=types,
+                                                robust = robust,
+                                                verbose=verbose)
+                } else {
+                    messager("No matching packages identified",
+                             "in the requested conda environment:",env,"\n",
+                             "Returning empty data.table.",
+                             v=verbose)
+                }
+                return(pkgs)
+            }, error = function(e){ message(e); NULL}) 
+        }, mc.cores = nThread), 
+    fill=TRUE)
     #### Report ####
     if(nrow(pkgs_select)==0){
         messager("No matching packages identified",
@@ -102,14 +101,17 @@ find_packages <- function(packages = NULL,
     }
     #### Filter ####
     if(isTRUE(filter_paths)){
+        messager("Removing packages without identifiable paths.",v=verbose)
         pkgs_select <- subset(pkgs_select, !is.na(path))
     }
     #### Sort ####
     if(sort_names){
+        messager("Sorting packages alphanumerically.",v=verbose)
         data.table::setkeyv(pkgs_select,c("env","package")) 
     }
     #### Return ####
-    if(return_path){  
+    if(return_path){
+        # messager("Returning a named list of paths.",v=verbose)
         return(stats::setNames(pkgs_select$path,
                                pkgs_select$package))
     }else {

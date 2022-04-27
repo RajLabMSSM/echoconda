@@ -12,8 +12,8 @@
 #' conda GitHub Issue.}
 #' @family conda
 #' @export
+#' @importFrom reticulate install_miniconda
 #' @examples 
-#' # importFrom reticulate conda_version
 #' # echoconda::install_conda()
 install_conda <- function(conda_path = "auto",
                           verbose = TRUE,
@@ -27,6 +27,7 @@ install_conda <- function(conda_path = "auto",
                  "Installing with reticulate.",
             v = verbose
         )
+        # basilisk.utils::installConda()
         reticulate::install_miniconda(...)
     } else {
         messager("echoconda:: Conda already installed.", v = verbose)

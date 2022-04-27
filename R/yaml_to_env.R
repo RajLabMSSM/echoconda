@@ -4,6 +4,12 @@
 #' creates the "echoR" conda env to support \pkg{echolocatoR}.
 #' @param yaml_path Path to local or remote yaml file with conda build
 #' specifications.
+#' @param method Method to use to create the conda env:
+#' \itemize{
+#' \item{"basilisk" : }{Uses the R package \pkg{basilisk}.}
+#' \item{"reticulate" : }{Uses the R package \pkg{reticulate}.}
+#' \item{"cli" : }{Uses a custom wrapper for conda's command line interface.}
+#' }
 #' @param force_new If the conda env already exists,
 #'  overwrite it with a new one (\emph{DEFAULT}: \code{FALSE}).
 #' @param show_contents Show the contents of the yaml file (if used).
@@ -20,58 +26,43 @@
 #' conda_env <- echoconda::yaml_to_env()
 yaml_to_env <- function(yaml_path = system.file(
                               package = "echoconda",
-                              "conda/echoR.yml"
-                          ),
+                              "conda/echoR_mini.yml"
+                        ),
+                        method = c("basilisk","reticulate","cli"),
                         conda = "auto",
                         force_new = FALSE,
                         show_contents = FALSE,
                         verbose = TRUE) {
     install_conda(verbose = verbose)
     start <- Sys.time() 
-    conda_env <- name_from_yaml(
-        yaml_path = yaml_path,
-        verbose = verbose
-    )
+    conda_env <- name_from_yaml(yaml_path = yaml_path,
+                                verbose = verbose)
     #### Search for known yamls (by name or by path) ####
-    yaml_path <- search_yamls(conda_env = yaml_path,
-                              show_contents = show_contents,
-                              verbose = verbose) 
+    if(!file.exists(yaml_path)){
+        yaml_path <- search_yamls(conda_env = yaml_path,
+                                  show_contents = show_contents,
+                                  verbose = verbose) 
+    }
+    #### Delete old env ####
+    if(isTRUE(force_new)){
+        remove_env(conda_env = conda_env,
+                   verbose = verbose)
+    }  
     #### Create env or return "base" ####
     if((is.null(conda_env)) || (conda_env=="base")) {
         messager("Returning 'base'",v=verbose)
         conda_env <- "base"
     } else {
-        if (env_exists(conda_env) & (!force_new)) {
+        if (env_exists(conda_env) ) {
             messager("echoconda:: Conda environment already exists:",
-                     conda_env,
-                     v = verbose
-            )
+                     conda_env, v = verbose)  
         } else {
-            messager("echoconda:: Creating conda environment:", conda_env,
-                     v = verbose
-            ) 
-            conda_env <- tryCatch(expr = {
-                # out <- conda_create0(yaml_path = yaml_path,
-                #                      conda = conda, force_new = force_new,
-                #                      verbose = verbose)
-                reticulate::conda_create(envname = conda_env,
-                                         environment = yaml_path, 
-                                         conda = conda)
-                if(env_exists(conda_env = conda_env,
-                              conda = conda)){
-                    messager("echoconda:: Conda environment created:",
-                             conda_env,
-                             v = verbose
-                    )
-                } else {stop()}
-                conda_env
-            }, error = function(x) {
-                messager("echoconda:: Conda enviroment creation failed.",
-                         "Defaulting to enviroment 'base'.",
-                         v = verbose
-                )
-                "base"
-            })
+            conda_env <- create_env(conda_env = conda_env, 
+                                    yaml_path = yaml_path, 
+                                    method = method, 
+                                    conda = conda, 
+                                    force_new = force_new, 
+                                    verbose = verbose)
         }
     }
     conda_env <- check_env(conda_env = conda_env)

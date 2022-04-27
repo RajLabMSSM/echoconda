@@ -19,37 +19,37 @@ library(echoconda)
 
 ## Build env from yaml
 
-Will build the "echoR" conda environment by default.
+Will build the "echoR_mini" conda environment by default.
 
 ```{r}
-conda_env <- echoconda::yaml_to_env("echoR")
+conda_env <- echoconda::yaml_to_env("echoR_mini")
 ```
 
 ## Export 
 
 ```{r}
-yaml_path <- echoconda::env_to_yaml(conda_env = "echoR")
+yaml_path <- echoconda::env_to_yaml(conda_env = "echoR_mini")
 ```
 
 
 ## Activate conda env
 
 ```{r}
-echoconda::activate_env(conda_env = "echoR")
+echoconda::activate_env(conda_env = "echoR_mini")
 ```
 
 ## Find package path 
 
 ```{r}
 pkgs <- echoconda::find_packages(packages = c("dplyr","numpy","wget"),
-                                 conda_env = "echoR")
-print(pkgs)
+                                 conda_env = "echoR_mini")
+knitr::kable(pkgs)
 ```
 
 ## Find python path
 
 ```{r}
-python <- echoconda::find_python_path(conda_env = "echoR")
+python <- echoconda::find_python_path(conda_env = "echoR_mini")
 print(python)
 ```
 

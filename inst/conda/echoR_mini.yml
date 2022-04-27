@@ -1,0 +1,25 @@
+name: echoR_mini
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+dependencies:
+  # Python
+  - python>=3.8
+  - pandas-plink
+  - fastparquet
+  - pyarrow
+  - scipy
+  - scikit-learn
+  - tqdm
+  - bitarray
+  - networkx
+  - rpy2
+  - requests
+  # Command line
+  - htslib
+  - tabix
+  - wget
+  - axel
+  - gzip
+  - pip

@@ -10,8 +10,10 @@
 #' yamls <- echoconda::list_yamls()
 list_yamls <- function(verbose = TRUE){
     
-    cdir <- system.file(package = "echoconda","conda/")
-    yamls <- list.files(cdir, full.names = TRUE, recursive = TRUE)
+    cdir <- system.file(package = "echoconda","conda")
+    yamls <- list.files(cdir, pattern = ".yml$|.yaml$",
+                        ignore.case = TRUE,
+                        full.names = TRUE, recursive = TRUE)
     meta <- data.table::data.table(
         conda_env=sapply(yamls, name_from_yaml, verbose=FALSE),
         yaml_path=yamls

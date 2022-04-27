@@ -1,7 +1,7 @@
 Package: echoconda
 Type: Package
 Title: echoverse module: conda environment management
-Version: 0.99.5
+Version: 0.99.6
 Authors@R: 
     c(person(given = "Brian",
            family = "Schilder",
@@ -19,7 +19,8 @@ Authors@R:
            email = "towfique.raj@mssm.edu",
            comment = c(ORCID = "0000-0002-9355-5704"))
            ) 
-Description: Various utility functions to find, build, and use conda environments from within R.
+Description: Various utility functions to find, build, 
+    and use conda environments from within R.
 URL: https://github.com/RajLabMSSM/echoconda
 BugReports: https://github.com/RajLabMSSM/echoconda/issues
 Encoding: UTF-8
@@ -32,7 +33,11 @@ Imports:
     data.table,
     dplyr,
     sys,
-    reticulate (>= 1.24)
+    yaml,
+    stringr,
+    reticulate (>= 1.24),
+    basilisk,
+    basilisk.utils
 Suggests:
     markdown,
     rmarkdown,
@@ -46,11 +51,12 @@ Suggests:
     badger,
     hexSticker,
     parallel,
-    stringr,
     readr,
     tidyr,
-    giftwrap
+    giftwrap,
+    microbenchmark
 RoxygenNote: 7.1.2
+StagedInstall: no
 VignetteBuilder: knitr
 License: GPL (>= 3)
 Config/testthat/edition: 3

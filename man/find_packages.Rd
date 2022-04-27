@@ -8,10 +8,12 @@ find_packages(
   packages = NULL,
   conda_env = NULL,
   conda = "auto",
-  filter_paths = FALSE,
-  sort_names = FALSE,
+  method = c("r", "reticulate", "basilisk"),
   types = c("r", "python", "binary"),
   return_path = FALSE,
+  robust = FALSE,
+  filter_paths = FALSE,
+  sort_names = FALSE,
   nThread = 1,
   verbose = TRUE
 )
@@ -29,14 +31,23 @@ If \code{NULL} (default), will search all conda environments.}
 \code{reticulate} to automatically find an appropriate \code{conda} binary.
 See \strong{Finding Conda} and \code{\link[reticulate:conda-tools]{conda_binary()}} for more details.}
 
-\item{filter_paths}{Filter out packages without callable executable paths
-from the table.}
-
-\item{sort_names}{Sort packages alphanumerically by their name.}
+\item{method}{Method for listing packages in a given conda env.}
 
 \item{types}{Path type to search for and include in the table.}
 
 \item{return_path}{Return only the path to each package.}
+
+\item{robust}{Uses a more robust (but slower) method for identifying paths
+to conda environments and package executables (default: \code{FALSE}).
+When \code{robust=FALSE}, only executables in the main "bin" directory
+ will be detected. When \code{robust=TRUE}, additional executables to
+ R packages, Python packages, and executables in nested subdirectories will 
+ be detected.}
+
+\item{filter_paths}{Filter out packages without callable executable paths
+from the table.}
+
+\item{sort_names}{Sort packages alphanumerically by their name.}
 
 \item{nThread}{Number of threads to use when parallelizing searches across
 multiple conda envs.}

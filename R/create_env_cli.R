@@ -1,4 +1,4 @@
-#' Create conda env from yaml
+#' Create conda env from yaml: CLI
 #' 
 #' Original function for creating conda env from yaml before this was 
 #' implemented in \link[reticulate]{conda_create}.
@@ -8,11 +8,11 @@
 #' @keywords internal
 #' @inheritParams yaml_to_env
 #' @inheritParams reticulate::conda_create
-conda_create0 <- function(yaml_path = system.file(package = "echoconda",
+create_env_cli <- function(yaml_path = system.file(package = "echoconda",
                                                   "conda/test.yml"), 
-                          conda = "auto",
-                          force_new = FALSE,
-                          verbose=TRUE){ 
+                           conda = "auto",
+                           force_new = FALSE,
+                           verbose=TRUE){ 
     
     force <- if (force_new) "--force" else NULL
     conda <- reticulate::conda_binary(conda = conda)

@@ -24,7 +24,6 @@ install_conda(conda_path = "auto", verbose = TRUE, ...)
 Install conda if it's missing
 }
 \examples{
-# importFrom reticulate conda_version
 # echoconda::install_conda()
 }
 \seealso{
