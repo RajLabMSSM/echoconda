@@ -13,17 +13,19 @@
 #' GitHub Issue}
 #' @family conda
 #' @export
-#' @importFrom reticulate conda_binary
+#' @importFrom reticulate conda_export
 #' @examples
 #' path <- echoconda::env_to_yaml(conda_env="base")
 env_to_yaml <- function(conda_env,
                         yaml_path = file.path(tempdir(),"conda.yml"),
                         conda  = "auto",
+                        method = c("basilisk","reticulate"),
                         verbose = TRUE,
                         ...){
     
-    install_conda()
-    if(env_exists(conda_env = conda_env)){
+    if(env_exists(conda_env = conda_env,
+                  conda = conda, 
+                  method = method)){
         messager("Exporting environment",conda_env,"as yaml file.",v=verbose)
         out <- reticulate::conda_export(envname = conda_env, 
                                         file = yaml_path,

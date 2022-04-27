@@ -10,14 +10,12 @@ list_envs <- function(conda="auto",
                       conda_env=NULL,
                       method=c("basilisk","reticulate")){
     python <- name <- dir <- NULL;
-   
-    if(method=="basilisk"){
-        envs <- basilisk::listPackages(env = conda_env)
-    } else if(method=="reticulate"){
-        conda_x <- find_conda(conda = conda,
-                              method = method)
-        envs <- reticulate::conda_list(conda = conda_x)
-    } 
+     
+    conda_x <- find_conda(conda = conda,
+                          method = method)
+    envs <- reticulate::conda_list(conda = conda_x)
+    # envs <- list.files(file.path(basilisk.utils::getCondaDir(),"envs"), 
+    #                    full.names = TRUE)
     envs <- data.table::data.table(envs)
     envs[,dir:=dirname(dirname(python)),]
     #### Search for matching env ####

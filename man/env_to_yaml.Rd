@@ -15,6 +15,7 @@ env_to_yaml(
   conda_env,
   yaml_path = file.path(tempdir(), "conda.yml"),
   conda = "auto",
+  method = c("basilisk", "reticulate"),
   verbose = TRUE,
   ...
 )

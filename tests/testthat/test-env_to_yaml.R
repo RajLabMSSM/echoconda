@@ -5,7 +5,7 @@ test_that("env_to_yaml works", {
     l_base <- readLines(path_base)
     # testthat::expect_gte(length(l_base), 400)
     echoconda:::messager(length(l_base),"lines in exported env yaml:","base")
-    head(l_base)
+    utils::head(l_base)
     testthat::expect_equal(echoconda:::name_from_yaml(path_base),"base")
 
     #### echoR ####
@@ -13,6 +13,6 @@ test_that("env_to_yaml works", {
     l_echor <- readLines(path_echor)
     # testthat::expect_gte(length(l_echor), 400)
     echoconda:::messager(length(l_echor),"lines in exported env yaml:","echoR")
-    head(l_echor)
+    utils::head(l_echor)
     testthat::expect_equal(echoconda:::name_from_yaml(path_echor),"echoR")
 })

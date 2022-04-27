@@ -28,12 +28,13 @@ yaml_to_env <- function(yaml_path = system.file(
                               package = "echoconda",
                               "conda/echoR_mini.yml"
                         ),
-                        method = c("basilisk","reticulate","cli"),
+                        method = c("basilisk","reticulate"),
                         conda = "auto",
                         force_new = FALSE,
                         show_contents = FALSE,
                         verbose = TRUE) {
-    
+
+    method <- tolower(method)[1]
     install_conda(method = method,
                   verbose = verbose)
     start <- Sys.time() 

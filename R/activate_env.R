@@ -18,57 +18,28 @@
 #' @importFrom reticulate conda_list use_condaenv use_python conda_list
 #' @examples
 #' echoconda::activate_env(conda_env = "echoR")
-activate_env <- function(conda_env = "echoR_mini",
+activate_env <- function(method = c("basilisk","reticulate"),
+                         conda_env = "echoR_mini",
                          verbose = TRUE) { 
-    install_conda()
     
-    current_env <- which_env()
-    if(conda_env == current_env){
-        messager("echoconda:: Requested conda_env is already active:",
-                 paste0("'",current_env,"'"),v=verbose)
-    }
-    
-    env_list <- list_envs()
-    if (conda_env %in% env_list$name) {
-        messager("echoconda:: Attempting to activate conda env:",
-            paste0("'", conda_env, "'"),
-            v = verbose
-        ) 
-        #### Take multiple approaches to ensure env gets activated ####
-        out <- tryCatch(expr = {
-            basilisk.utils::activateEnvironment(envpath = conda_env)
-            suppressWarnings(
-                reticulate::use_condaenv(condaenv = conda_env,
-                                         required = TRUE) 
-            )
-            python <- find_python_path(conda_env = conda_env,
-                                       verbose = FALSE)  
-            Sys.setenv(RETICULATE_PYTHON = python) 
-            suppressWarnings(
-                reticulate::use_python(python = python,
-                                       required = TRUE) 
-            )
-        
-        }, error = function(e){e})
-        if (inherits(out, "error")) { 
-            conda_env <- which_env(verbose = FALSE)
-            messager("Unable to activate env.",
-                     "Using previously activated env instead:",
-                     conda_env, v=verbose)
-        } 
-    } else {
-        messager("echoconda::", paste0("'", conda_env, "'"),
-            "conda environment not found. Using default 'base' instead.",
-            v = verbose
-        )
+    conda_env <- conda_env[1]
+    method <- tolower(method)[1] 
+    #### check if env exists ####
+    if (!env_exists(conda_env = conda_env, 
+                    method = method)) { 
+        messager("WARNING:", paste0("'", conda_env, "'"),
+                 "conda environment not found. Using default 'base' instead.",
+                 v = verbose)
         conda_env <- "base"
-        out <- tryCatch({
-            python <- find_python_path(conda_env = conda_env,
-                                       verbose = FALSE)  
-            Sys.setenv(RETICULATE_PYTHON = python)  
-            reticulate::use_condaenv(condaenv = "base")
-        }, error = function(e){e})
     }
+    #### Activate env ####
+    if(method=="basilisk"){
+        activate_env_basilisk(conda_env = conda_env,
+                              verbose = verbose)
+    } else if(method=="reticulate"){
+        activate_env_reticulate(conda_env = conda_env,
+                                verbose = verbose)
+    } 
     conda_env <- check_env(conda_env)
     return(conda_env)
 }

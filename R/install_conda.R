@@ -12,6 +12,7 @@ install_conda <- function(method = c("basilisk","reticulate"),
                           conda = "auto",
                           verbose = TRUE,
                           ...) { 
+    
     method <- tolower(method)[1] 
     if(method=="basilisk"){
         install_conda_basilisk(verbose = verbose)

@@ -11,7 +11,11 @@
 \href{https://github.com/rstudio/reticulate/issues/292}{GH Issues}
 }
 \usage{
-activate_env(conda_env = "echoR_mini", verbose = TRUE)
+activate_env(
+  method = c("basilisk", "reticulate"),
+  conda_env = "echoR_mini",
+  verbose = TRUE
+)
 }
 \arguments{
 \item{conda_env}{Conda environment to use.}

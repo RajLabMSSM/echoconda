@@ -16,6 +16,7 @@ env_exists <- function(conda_env = NULL,
                        conda = "auto",
                        method = c("basilisk","reticulate")) { 
     
+    conda_env <- conda_env[1]
     #### Make sure conda_env is not NULL ####
     if(is.null(conda_env)) return(FALSE)
     envs <- list_envs(conda = conda, 
@@ -23,15 +24,4 @@ env_exists <- function(conda_env = NULL,
                       method = method)
     does_exist <- nrow(envs)>0
     return(does_exist)
-    # #### Check that conda is installed ####
-    # condabin <- tryCatch(reticulate::conda_binary(conda = conda),
-    #                      error = identity)
-    # if (inherits(condabin, "error")) return(FALSE) 
-    # #### Check that the environment exists #### 
-    # python <- tryCatch(reticulate::conda_python(envname = conda_env,
-    #                                             conda = conda),
-    #                    error = identity)
-    # if (inherits(python, "error")) return(FALSE) 
-    # #### Validate the Python binary exists ####
-    # return(file.exists(python))  
 }
