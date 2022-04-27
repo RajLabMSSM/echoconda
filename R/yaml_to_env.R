@@ -28,7 +28,7 @@ yaml_to_env <- function(yaml_path = system.file(
                               package = "echoconda",
                               "conda/echoR_mini.yml"
                         ),
-                        method = c("basilisk","reticulate","cli"),
+                        method = c("reticulate","basilisk","cli"),
                         conda = "auto",
                         force_new = FALSE,
                         show_contents = FALSE,
