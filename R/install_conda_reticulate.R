@@ -17,6 +17,7 @@
 install_conda_reticulate <- function(conda,
                                      verbose=TRUE,
                                      ...){
+    if(conda=="auto") conda <- NULL
     try({
         conda_version <- reticulate::conda_version(conda = conda)
     })
