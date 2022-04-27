@@ -52,7 +52,6 @@ conda_env <- echoconda::yaml_to_env()
 Other conda: 
 \code{\link{activate_env}()},
 \code{\link{env_to_yaml}()},
-\code{\link{find_env_rlib}()},
-\code{\link{install_conda}()}
+\code{\link{find_env_rlib}()}
 }
 \concept{conda}

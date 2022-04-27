@@ -1,0 +1,16 @@
+#' Install conda: basilisk
+#'
+#' Install conda if it has not already been installed.
+#' @param verbose Print messages.
+#' 
+#' @keywords internal
+#' @importFrom basilisk.utils installConda
+install_conda_basilisk <- function(verbose=TRUE){
+    
+    new_install <- basilisk.utils::installConda()
+    if(isTRUE(new_install)){
+        messager("echoconda:: Installing conda via basilisk.",v=verbose)
+    } else {
+        messager("echoconda:: conda already installed via basilisk.",v=verbose)
+    }
+}

@@ -1,35 +1,27 @@
-#' Install conda if it's missing
-#'
-#' @param conda_path Path to conda executable.
-#' @param verbose Print messages.
-#' @param ... Additional arguments to be passed to 
-#' \link[reticulate]{install_miniconda}.
-#'
-#' @source 
-#' \href{https://github.com/rstudio/reticulate/issues/1055}{
-#' reticulate GitHub Issue.}
-#' \href{https://github.com/conda/conda/issues/5388}{
-#' conda GitHub Issue.}
-#' @family conda
+#' Install conda 
+#' 
+#' Install conda if it has not already been installed.
+#' @param method Method to use when installing conda. 
+#' @inheritParams install_conda_reticulate
+#' @inheritParams reticulate::conda_version
+#' 
 #' @export
-#' @importFrom reticulate install_miniconda
 #' @examples 
-#' # echoconda::install_conda()
-install_conda <- function(conda_path = "auto",
+#' echoconda::install_conda()
+install_conda <- function(method = c("basilisk","reticulate"),
+                          conda = "auto",
                           verbose = TRUE,
-                          ...) {
-    conda_version <- NULL
-    try({
-        conda_version <- reticulate::conda_version(conda = conda_path)
-    })
-    if (is.null(conda_version)) {
-        messager("echoconda:: Conda not detected.",
-                 "Installing with reticulate.",
-            v = verbose
-        )
-        # basilisk.utils::installConda()
-        reticulate::install_miniconda(...)
+                          ...) { 
+    method <- tolower(method)[1] 
+    if(method=="basilisk"){
+        install_conda_basilisk(verbose = verbose)
+    } else if(method=="reticulate"){
+        install_conda_reticulate(conda = conda, 
+                                 verbose = verbose)
     } else {
-        messager("echoconda:: Conda already installed.", v = verbose)
+        messager("method must be one of:",
+                 paste("\n -",eval(formals(install_conda)$method),
+                       collapse = ""),
+                 v=verbose)
     }
 }

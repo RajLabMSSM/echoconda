@@ -4,7 +4,7 @@
 \alias{remove_env}
 \title{Remove conda environment}
 \usage{
-remove_env(conda_env, conda = "auto", use_basilisk = FALSE, verbose = TRUE)
+remove_env(conda_env, conda = "auto", use_basilisk = TRUE, verbose = TRUE)
 }
 \arguments{
 \item{conda_env}{Name of the conda environment.}

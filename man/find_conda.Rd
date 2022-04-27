@@ -4,7 +4,7 @@
 \alias{find_conda}
 \title{Find conda}
 \usage{
-find_conda(conda = "auto", use_basilisk = FALSE)
+find_conda(conda = "auto", use_basilisk = TRUE)
 }
 \arguments{
 \item{conda}{The path to a \code{conda} executable. Use \code{"auto"} to allow

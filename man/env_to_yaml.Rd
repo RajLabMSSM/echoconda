@@ -42,7 +42,6 @@ path <- echoconda::env_to_yaml(conda_env="base")
 Other conda: 
 \code{\link{activate_env}()},
 \code{\link{find_env_rlib}()},
-\code{\link{install_conda}()},
 \code{\link{yaml_to_env}()}
 }
 \concept{conda}

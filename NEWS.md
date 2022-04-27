@@ -14,11 +14,13 @@
 * *echoR_mini*:
     - Bare minimum conda env that solves in 2.5min.
     - Replaces *echoR* as the default. 
+* Install conda via `basilisk` by default. 
 
 ## Bug fixes
 
 * Fix GHA pkgdown building: 
     - The newest version of [git introduced bugs when building pkgdown sites](https://github.com/actions/checkout/issues/760) from within Docker containers (e.g. via my Linux GHA workflow). Adjusting GHA to fix this. 
+* Add `R.utils` to Imports. 
 
 # echoconda 0.99.5
 
