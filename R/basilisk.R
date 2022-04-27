@@ -39,7 +39,7 @@ create_env_basilisk <- function(yaml_path,
     }
     #### Subset to only core packages #### 
     ## Split by pip / non-pip 
-    pip_pkgs <- pkgs[package %in% unname(deps[has_pip]),]
+    pip_pkgs <- pkgs[package %in% unname(deps[has_pip]),] 
     nonpip_pkgs <- pkgs[package %in% unname(deps[!has_pip]),]
     #### Create basilisk env object ####
     envObj <- basilisk::BasiliskEnvironment(
