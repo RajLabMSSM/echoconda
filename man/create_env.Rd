@@ -7,7 +7,7 @@
 create_env(
   conda_env,
   yaml_path,
-  method = c("basilisk", "reticulate", "cli"),
+  method = c("reticulate", "basilisk", "cli"),
   conda = "auto",
   force_new = FALSE,
   verbose = TRUE

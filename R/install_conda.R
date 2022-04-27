@@ -8,7 +8,7 @@
 #' @export
 #' @examples 
 #' echoconda::install_conda()
-install_conda <- function(method = c("basilisk","reticulate"),
+install_conda <- function(method = c("reticulate","basilisk"),
                           conda = "auto",
                           verbose = TRUE,
                           ...) { 
@@ -19,9 +19,12 @@ install_conda <- function(method = c("basilisk","reticulate"),
         install_conda_reticulate(conda = conda, 
                                  verbose = verbose)
     } else {
-        messager("method must be one of:",
+        messager("Warning: method must be one of:",
                  paste("\n -",eval(formals(install_conda)$method),
                        collapse = ""),
                  v=verbose)
+        messager("Defaulting to reticulate.",v=verbose)
+        install_conda_reticulate(conda = conda, 
+                                 verbose = verbose)
     }
 }
