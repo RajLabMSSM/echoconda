@@ -1,4 +1,6 @@
-.BBSoptions
+# .BBSoptions
+# configure
+# configure.win
 
 .*\.Rproj$
 ^\.Rproj\.user$
