@@ -6,7 +6,7 @@
 #' @inheritParams reticulate::conda_create
 create_env <- function(conda_env,
                        yaml_path,
-                       method=c("basilisk","reticulate","cli"),
+                       method=c("reticulate","basilisk","cli"),
                        conda="auto",
                        force_new=FALSE,
                        verbose=TRUE){
@@ -33,7 +33,8 @@ create_env <- function(conda_env,
                 system.file(package = "echoconda","conda/echoR_versions.tsv.gz")
             )  
             envObj <- create_env_basilisk(yaml_path = yaml_path,
-                                          pkgs = pkgs)
+                                          pkgs = pkgs,
+                                          start = TRUE)
             conda_env <- envObj@envname
             
         #### cli ####
