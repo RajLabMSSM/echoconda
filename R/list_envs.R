@@ -8,7 +8,7 @@
 #' @importFrom data.table :=
 list_envs <- function(conda="auto",
                       conda_env=NULL,
-                      use_basilisk=TRUE){
+                      use_basilisk=FALSE){
     python <- name <- dir <- NULL;
     conda_x <- find_conda(conda = conda,
                           use_basilisk = use_basilisk)

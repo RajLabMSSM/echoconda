@@ -4,7 +4,7 @@
 \alias{list_envs}
 \title{List conda envs}
 \usage{
-list_envs(conda = "auto", conda_env = NULL, use_basilisk = TRUE)
+list_envs(conda = "auto", conda_env = NULL, use_basilisk = FALSE)
 }
 \arguments{
 \item{conda}{The path to a \code{conda} executable. Use \code{"auto"} to allow

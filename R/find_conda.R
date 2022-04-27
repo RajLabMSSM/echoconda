@@ -10,7 +10,7 @@
 #' @export
 #' @importFrom basilisk.utils getCondaBinary getCondaDir
 find_conda <- function(conda="auto",
-                       use_basilisk=TRUE){
+                       use_basilisk=FALSE){
     if(isTRUE(use_basilisk)){
         conda_x <- basilisk.utils::getCondaBinary(
             loc = basilisk.utils::getCondaDir()

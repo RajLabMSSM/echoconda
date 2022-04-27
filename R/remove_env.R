@@ -13,7 +13,7 @@
 #' @importFrom reticulate conda_remove
 remove_env <- function(conda_env, 
                        conda="auto",
-                       use_basilisk=TRUE,
+                       use_basilisk=FALSE,
                        verbose=TRUE){
     name <- NULL;
     conda_x <- find_conda(conda = conda, 
