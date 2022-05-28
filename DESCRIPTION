@@ -29,6 +29,7 @@ Depends: R (>= 4.1)
 biocViews:
 Imports:
     utils,
+    R.utils,
     data.table,
     dplyr,
     yaml,
