@@ -7,7 +7,8 @@
 #'
 #' @param conda_env Name of the conda environment.
 #' @param conda Path to conda executable.
-#'
+#' @inheritParams find_conda
+#' 
 #' @examples
 #' does_exist <- env_exists(conda_env = "echoR")
 #' @export

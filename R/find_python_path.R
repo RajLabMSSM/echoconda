@@ -2,6 +2,7 @@
 #'
 #' @param conda_env Conda environment name.
 #' @param verbose Print messages.
+#' @inheritParams find_conda
 #'
 #' @family echoconda
 #' @examples

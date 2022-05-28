@@ -8,6 +8,8 @@
 #' 
 #' @param conda_env Conda environment to use.
 #' @param verbose Print messages.
+#' @inheritParams find_conda
+#' 
 #' @source \href{https://github.com/rstudio/reticulate/issues/1147}{GH Issues}
 #' @source \href{https://github.com/rstudio/reticulate/issues/1044}{GH Issues}
 #' @source \href{https://github.com/rstudio/reticulate/issues/292}{GH Issues}

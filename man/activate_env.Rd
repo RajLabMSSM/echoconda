@@ -18,6 +18,12 @@ activate_env(
 )
 }
 \arguments{
+\item{method}{Method to use:
+\itemize{
+\item{"basilisk"}
+\item{"reticulate"}
+}}
+
 \item{conda_env}{Conda environment to use.}
 
 \item{verbose}{Print messages.}

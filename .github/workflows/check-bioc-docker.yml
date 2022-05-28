@@ -170,13 +170,6 @@ jobs:
         run: |
           message(paste('****', Sys.time(), 'installing BiocManager ****'))
           remotes::install_cran("BiocManager", upgrade = "never")
-        shell: Rscript {0}
-        
-      - name: Install basilisk/Miniconda
-        run: |
-          message(paste('****', Sys.time(), 'installing basilisk/Miniconda ****'))
-          BiocManager::install("basilisk")
-          basilisk.utils::installConda()
         shell: Rscript {0} 
 
       # Linux Bioconductor docker comes with bioconductor installed

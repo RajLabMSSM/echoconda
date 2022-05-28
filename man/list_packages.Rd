@@ -21,7 +21,11 @@ Will recognize R packages with or without the prefixes
 \item{conda_env}{Conda environments to search in. 
 If \code{NULL} (default), will search all conda environments.}
 
-\item{method}{Method for listing packages in a given conda env.}
+\item{method}{Method to use:
+\itemize{
+\item{"basilisk"}
+\item{"reticulate"}
+}}
 
 \item{conda}{The path to a \code{conda} executable. Use \code{"auto"} to allow
 \code{reticulate} to automatically find an appropriate \code{conda} binary.

@@ -31,7 +31,11 @@ If \code{NULL} (default), will search all conda environments.}
 \code{reticulate} to automatically find an appropriate \code{conda} binary.
 See \strong{Finding Conda} and \code{\link[reticulate:conda_binary]{conda_binary()}} for more details.}
 
-\item{method}{Method for listing packages in a given conda env.}
+\item{method}{Method to use:
+\itemize{
+\item{"basilisk"}
+\item{"reticulate"}
+}}
 
 \item{types}{Path type to search for and include in the table.}
 

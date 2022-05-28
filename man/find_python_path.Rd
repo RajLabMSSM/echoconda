@@ -13,6 +13,12 @@ find_python_path(
 \arguments{
 \item{conda_env}{Conda environment name.}
 
+\item{method}{Method to use:
+\itemize{
+\item{"basilisk"}
+\item{"reticulate"}
+}}
+
 \item{verbose}{Print messages.}
 }
 \description{

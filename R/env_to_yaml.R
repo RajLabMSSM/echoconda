@@ -5,6 +5,7 @@
 #' @param yaml_path Path to write yaml file to.
 #' @param verbose Print messages.
 #' @param ... Additional arguments passed to \link[reticulate]{conda_create}.
+#' @inheritParams find_conda
 #' @inheritParams reticulate::conda_create
 #' 
 #' @source \href{https://github.com/rstudio/reticulate/issues/779}{

@@ -37,15 +37,15 @@ yaml_to_env <- function(yaml_path = system.file(
     method <- tolower(method)[1]
     install_conda(method = method,
                   verbose = verbose)
-    start <- Sys.time() 
-    conda_env <- name_from_yaml(yaml_path = yaml_path,
-                                verbose = verbose)
+    start <- Sys.time()  
     #### Search for known yamls (by name or by path) ####
     if(!file.exists(yaml_path)){
         yaml_path <- search_yamls(conda_env = yaml_path,
                                   show_contents = show_contents,
                                   verbose = verbose) 
     }
+    conda_env <- name_from_yaml(yaml_path = yaml_path,
+                                verbose = verbose)
     #### Delete old env ####
     if(isTRUE(force_new)){
         remove_env(conda_env = conda_env,

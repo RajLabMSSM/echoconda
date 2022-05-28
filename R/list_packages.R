@@ -1,9 +1,9 @@
 #' List conda envs
 #'
 #' Alternative method for finding packages without relying on the (currently)
-#' internal function \code{reticulate::conda_list_packages}.
+#' internal function \code{reticulate::conda_list_packages}. 
 #' 
-#' @param method Method for listing packages in a given conda env.
+#' @inheritParams find_conda
 #' @inheritParams find_packages
 #' @inheritParams reticulate::conda_binary
 #' @keywords internal

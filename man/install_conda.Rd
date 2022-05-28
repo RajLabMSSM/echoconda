@@ -12,7 +12,11 @@ install_conda(
 )
 }
 \arguments{
-\item{method}{Method to use when installing conda.}
+\item{method}{Method to use:
+\itemize{
+\item{"basilisk"}
+\item{"reticulate"}
+}}
 
 \item{conda}{The path to a \code{conda} executable. Use \code{"auto"} to allow
 \code{reticulate} to automatically find an appropriate \code{conda} binary.

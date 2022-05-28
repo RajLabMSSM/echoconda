@@ -1,8 +1,8 @@
 #' Install conda 
 #' 
-#' Install conda if it has not already been installed.
-#' @param method Method to use when installing conda. 
+#' Install conda if it has not already been installed. 
 #' @inheritParams install_conda_reticulate
+#' @inheritParams find_conda
 #' @inheritParams reticulate::conda_version
 #' 
 #' @export

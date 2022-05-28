@@ -17,6 +17,12 @@ env_exists(
 \item{conda_env}{Name of the conda environment.}
 
 \item{conda}{Path to conda executable.}
+
+\item{method}{Method to use:
+\itemize{
+\item{"basilisk"}
+\item{"reticulate"}
+}}
 }
 \description{
 An extension of the internal function
