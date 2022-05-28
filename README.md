@@ -3,7 +3,7 @@
 [![R build
 status](https://github.com/RajLabMSSM/echoconda/workflows/R-CMD-check-bioc/badge.svg)](https://github.com/RajLabMSSM/echoconda/actions)
 [![](https://img.shields.io/github/last-commit/RajLabMSSM/echoconda.svg)](https://github.com/RajLabMSSM/echoconda/commits/main)
-[![](https://app.codecov.io/gh/RajLabMSSM/echoconda/branch/master/graph/badge.svg)](https://app.codecov.io/gh/RajLabMSSM/echoconda)
+[![](https://app.codecov.io/gh/RajLabMSSM/echoconda/branch/main/graph/badge.svg)](https://app.codecov.io/gh/RajLabMSSM/echoconda)
 [![License: GPL (\>=
 3)](https://img.shields.io/badge/license-GPL%20(%3E=%203)-blue.svg)](https://cran.r-project.org/web/licenses/GPL%20(%3E=%203))
 <h5>
