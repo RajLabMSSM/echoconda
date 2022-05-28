@@ -132,13 +132,7 @@ jobs:
           sysreqs=$(Rscript -e 'cat("apt-get update -y && apt-get install -y", paste(gsub("apt-get install -y ", "", remotes::system_requirements("ubuntu", "20.04")), collapse = " "))')
           echo $sysreqs
           sudo -s eval "$sysreqs"
-          sudo apt-get install -y qpdf 
-          
-          ## Install conda
-          wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
-          /bin/bash ~/miniconda.sh -b -p /opt/conda && \
-          rm ~/miniconda.sh && \ 
-          ln -s /opt/conda/bin/conda /usr/local/bin/
+          sudo apt-get install -y qpdf
 
       - name: Install macOS system dependencies
         if: matrix.config.os == 'macOS-latest'
@@ -177,6 +171,13 @@ jobs:
           message(paste('****', Sys.time(), 'installing BiocManager ****'))
           remotes::install_cran("BiocManager", upgrade = "never")
         shell: Rscript {0}
+        
+     - name: Install basilisk/Miniconda
+        run: |
+          message(paste('****', Sys.time(), 'installing basilisk/Miniconda ****'))
+          BiocManager::install("basilisk")
+          basilisk.utils::installConda()
+        shell: Rscript {0} 
 
       # Linux Bioconductor docker comes with bioconductor installed
       - name: Set BiocVersion
