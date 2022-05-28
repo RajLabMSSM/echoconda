@@ -172,7 +172,7 @@ jobs:
           remotes::install_cran("BiocManager", upgrade = "never")
         shell: Rscript {0}
         
-     - name: Install basilisk/Miniconda
+      - name: Install basilisk/Miniconda
         run: |
           message(paste('****', Sys.time(), 'installing basilisk/Miniconda ****'))
           BiocManager::install("basilisk")
