@@ -19,7 +19,7 @@
 #' @inheritParams yaml_to_env
 create_env_basilisk <- function(yaml_path,
                                 pkgs,
-                                sep="=",
+                                sep=">=",
                                 start = TRUE){  
     package <- NULL;
     # yaml_path <- tail(ymls$yaml_path,1)

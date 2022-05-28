@@ -6,7 +6,7 @@
 #' @inheritParams reticulate::conda_create
 create_env <- function(conda_env,
                        yaml_path,
-                       method=c("reticulate","basilisk","cli"),
+                       method=c("basilisk","reticulate","cli"),
                        conda="auto",
                        force_new=FALSE,
                        verbose=TRUE){
@@ -30,7 +30,8 @@ create_env <- function(conda_env,
         #### basilisk ####
         } else if(method=="basilisk"){
             pkgs <- data.table::fread(
-                system.file(package = "echoconda","conda/echoR_versions.tsv.gz")
+                system.file(package = "echoconda",
+                            "conda/echoR_versions.tsv.gz")
             )  
             envObj <- create_env_basilisk(yaml_path = yaml_path,
                                           pkgs = pkgs,
