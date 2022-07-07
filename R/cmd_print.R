@@ -47,7 +47,7 @@ cmd_print <- function(cmd,
             if(!is.null(wrap)){
                 cmd <- gsub(" --",paste0(wrap," --"),cmd) 
                 cmd <- gsub(" -",paste0(wrap," -"),cmd) 
-                cmd <- gsub("&&",paste0("&&",wrap),cmd) 
+                cmd <- gsub("&&",paste0("&&",wrap),cmd)
             } 
             cat(cmd)
             cat("\n")
