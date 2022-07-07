@@ -25,6 +25,8 @@ cmd_print <- function(cmd,
             cat(cmd)
             cat("\n")
         } else {
+            #### Remove extra spaces ####
+            cmd <- gsub(" +"," ",cmd)
             if(basepath){
                 split <- strsplit(cmd," ")[[1]]
                 cmd <- paste(
@@ -45,7 +47,8 @@ cmd_print <- function(cmd,
             if(!is.null(wrap)){
                 cmd <- gsub(" --",paste0(wrap," --"),cmd) 
                 cmd <- gsub(" -",paste0(wrap," -"),cmd) 
-            }
+                cmd <- gsub("&&",paste0("&&",wrap),cmd) 
+            } 
             cat(cmd)
             cat("\n")
         } 
