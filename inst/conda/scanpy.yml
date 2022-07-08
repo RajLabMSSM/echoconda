@@ -34,3 +34,4 @@ dependencies:
   - jupyter_contrib_nbextensions 
   - pip:
     - magic-impute
+    - scarches

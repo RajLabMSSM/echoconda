@@ -7,7 +7,7 @@ dependencies:
   # Nextflow
   - nf-core 
   - openjdk 
-  - nextflow>=21.04.0-0
+  - nextflow>=21.04.0
   # Command line
   ### Note that installing singularity this way can cause issues with root permissions.
   ### Might be best to intall directly from site (though this can be a bit complicated):
