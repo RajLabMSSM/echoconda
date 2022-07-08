@@ -32,6 +32,7 @@ dependencies:
   - nb_conda_kernels
   ## After install jupyter_contrib_nbextensions, run: jupyter nbextensions_configurator enable --user
   - jupyter_contrib_nbextensions 
+  - pip 
   - pip:
     - magic-impute
     - scarches
