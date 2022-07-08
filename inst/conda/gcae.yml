@@ -9,7 +9,8 @@ dependencies:
   - docopt
   - grpcio
   - setuptools>=47.1.1
-  - tensorflow-gpu>=2.2.0
+  - tensorflow>=2.2.0
+  # - tensorflow-gpu>=2.2.0
   - numpy>=1.18.4
   - scikit-learn
   - matplotlib>=3.2.1
