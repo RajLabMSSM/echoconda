@@ -26,12 +26,12 @@ dependencies:
   - chart-studio 
   - glob2   
   # Jupyter
-  - jupyter
+  # - jupyter
   ## nbconvert >=6.0 causes problems
-  - nbconvert=5.6.1
-  - nb_conda_kernels
+  # - nbconvert=5.6.1
+  # - nb_conda_kernels
   ## After install jupyter_contrib_nbextensions, run: jupyter nbextensions_configurator enable --user
-  - jupyter_contrib_nbextensions 
+  # - jupyter_contrib_nbextensions 
   - pip 
   - pip:
     - magic-impute
