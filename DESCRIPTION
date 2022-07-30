@@ -54,7 +54,7 @@ Suggests:
     tidyr,
     giftwrap,
     microbenchmark
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.1
 StagedInstall: no
 VignetteBuilder: knitr
 License: GPL (>= 3)

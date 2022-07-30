@@ -12,19 +12,19 @@
 }
 \usage{
 activate_env(
-  method = c("basilisk", "reticulate"),
   conda_env = "echoR_mini",
+  method = c("basilisk", "reticulate"),
   verbose = TRUE
 )
 }
 \arguments{
+\item{conda_env}{Conda environment to use.}
+
 \item{method}{Method to use:
 \itemize{
 \item{"basilisk"}
 \item{"reticulate"}
 }}
-
-\item{conda_env}{Conda environment to use.}
 
 \item{verbose}{Print messages.}
 }

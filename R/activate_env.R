@@ -20,8 +20,8 @@
 #' @importFrom reticulate conda_list use_condaenv use_python conda_list
 #' @examples
 #' echoconda::activate_env(conda_env = "echoR")
-activate_env <- function(method = c("basilisk","reticulate"),
-                         conda_env = "echoR_mini",
+activate_env <- function(conda_env = "echoR_mini",
+                         method = c("basilisk","reticulate"),
                          verbose = TRUE) { 
     
     conda_env <- conda_env[1]

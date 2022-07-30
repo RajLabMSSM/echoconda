@@ -14,7 +14,7 @@
 #' @importFrom basilisk.utils getCondaBinary getCondaDir
 find_conda <- function(conda="auto",
                        method=c("basilisk","reticulate")){
-    method <- tolower(method)[1]
+    method <- tolower(method)[1] 
     if(method=="basilisk"){
         conda_x <- basilisk.utils::getCondaBinary(
             loc = basilisk.utils::getCondaDir()
@@ -33,6 +33,8 @@ find_conda <- function(conda="auto",
                 loc = basilisk.utils::getCondaDir()
             )
         }
-    } 
+    } else {
+        stop("method not recognized.")
+    }
     return(conda_x)
 }

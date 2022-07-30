@@ -5,9 +5,8 @@
 \title{Find a directory to install software in}
 \usage{
 find_install_dir(
-  dest_dir_opts = c(tools::R_user_dir("echoconda", which = "cache"),
-    system.file("tools", package = "echoconda"), "/usr/local/bin", Sys.getenv("HOME"),
-    getwd(), tempdir()),
+  dest_dir_opts = c(tools::R_user_dir("echoconda", which = "cache"), system.file("tools",
+    package = "echoconda"), "/usr/local/bin", Sys.getenv("HOME"), getwd(), tempdir()),
   verbose = FALSE
 )
 }
