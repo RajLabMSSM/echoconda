@@ -5,9 +5,8 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
-  - python<=2.7.9
+  - python=2.7
+  - bx-python=0.7.4
+  - numpy
   - tabix
   - pip
-  - pip:
-    - bx-python
-    - numpy
