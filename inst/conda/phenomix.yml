@@ -1,0 +1,27 @@
+name: phenomix
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+dependencies:
+  # Python
+  - python>=3.7
+  - pandas
+  # R
+  - radian
+  - r>=4.2
+  - r-devtools
+  - r-reticulate   
+  - r-rversions
+  - r-rcmdcheck  
+  - r-r.utils
+  - r-data.table
+  - r-ggplot2 
+  - r-patchwork
+  - r-tidyverse
+  - r-uwot
+  - r-seurat
+  # Bioconductor 
+  - r-biocmanager
+  - bioconductor-mungesumstats
+  - pip
