@@ -7,6 +7,6 @@ dependencies:
   # R
   - radian
   - r-base>=4.2
-  - r-devtools 
+  - r-optparse
   # Bioconductor 
   - r-biocmanager 
