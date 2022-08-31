@@ -7,5 +7,4 @@ dependencies:
   # R
   - radian
   - r-base>=4.2
-  - r-optparse
  
