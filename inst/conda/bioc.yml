@@ -1,16 +1,12 @@
-name: phenomix
+name: bioc
 channels:
   - conda-forge
   - bioconda
   - nodefaults
 dependencies:
-  # Python
-  - python>=3.7
-  - pandas
   # R
   - radian
   - r-base>=4.2
   - r-devtools 
   # Bioconductor 
-  - r-biocmanager
-  - pip
+  - r-biocmanager 
