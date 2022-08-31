@@ -5,6 +5,5 @@ channels:
   - nodefaults
 dependencies:
   # R
-  - radian
   - r-base>=4.2
  
