@@ -6,4 +6,14 @@ channels:
 dependencies:
   # R
   - r-base>=4.2
- 
+  - r-optparse
+  - r-devtools
+  - r-data.table
+  - r-dplyr 
+  - r-here 
+  - r-r.utils
+  - r-ggplot2
+  - r-patchwork
+  # Bioconductor
+  - r-biocmanager 
+  
