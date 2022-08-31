@@ -9,7 +9,7 @@ dependencies:
   - pandas
   # R
   - radian
-  - r>=4.2
+  - r-base>=4.2
   - r-devtools
   - r-reticulate   
   - r-rversions
