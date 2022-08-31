@@ -8,5 +8,4 @@ dependencies:
   - radian
   - r-base>=4.2
   - r-optparse
-  # Bioconductor 
-  - r-biocmanager 
+ 
