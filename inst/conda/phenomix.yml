@@ -10,18 +10,7 @@ dependencies:
   # R
   - radian
   - r-base>=4.2
-  - r-devtools
-  - r-reticulate   
-  - r-rversions
-  - r-rcmdcheck  
-  - r-r.utils
-  - r-data.table
-  - r-ggplot2 
-  - r-patchwork
-  - r-tidyverse
-  - r-uwot
-  - r-seurat
+  - r-devtools 
   # Bioconductor 
   - r-biocmanager
-  - bioconductor-mungesumstats
   - pip
