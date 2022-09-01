@@ -12,8 +12,25 @@ dependencies:
   - r-dplyr 
   - r-here 
   - r-r.utils
+  - r-xml
   - r-ggplot2
   - r-patchwork
+  
+  - r-reticulate
+  - r-patchwork
+  - r-r.methodss3
+  - r-brew
+  - r-zip
+  - r-credentials
+  - r-gert
+  - r-r.oo
+  - r-usethis
+  - r-here
+  - r-r.utils
+  - r-data.table
+  - r-ggplot2
+  - r-tidyverse 
   # Bioconductor
   - r-biocmanager 
+  - bioconductor-bsgenome
   
