@@ -14,7 +14,7 @@ test_that("list_packages works", {
                                              method = "r")}, 
         times = 1, unit = "s"
     )
-    testthat::expect_gte(nrow(res1),200)
+    testthat::expect_gte(nrow(res1),150)
     testthat::expect_gte(nrow(res2),70)
     testthat::expect_gte(nrow(res3),350)
 })
