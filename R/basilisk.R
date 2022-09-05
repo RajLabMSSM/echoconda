@@ -76,6 +76,7 @@ create_env_basilisk <- function(yaml_path,
 #' @importFrom data.table fread
 #' @importFrom yaml read_yaml
 #' @importFrom stringr str_split
+#' @import R.utils
 #' @keywords internal
 get_echoR <- function(mini=TRUE){
     

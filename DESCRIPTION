@@ -1,7 +1,7 @@
 Package: echoconda
 Type: Package
 Title: echoverse module: conda environment management
-Version: 0.99.6
+Version: 0.99.7
 Authors@R: 
     c(person(given = "Brian",
            family = "Schilder",
@@ -29,6 +29,7 @@ Depends: R (>= 4.1)
 biocViews:
 Imports:
     utils,
+    methods,
     R.utils,
     data.table,
     dplyr,
@@ -41,8 +42,7 @@ Suggests:
     markdown,
     rmarkdown,
     magick,
-    remotes,
-    methods,
+    remotes, 
     knitr,
     BiocStyle,
     covr,
@@ -53,8 +53,11 @@ Suggests:
     readr,
     tidyr,
     giftwrap,
-    microbenchmark
-RoxygenNote: 7.2.1
+    microbenchmark,
+    genetics.binaRies
+Remotes:
+    github::MRCIEU/genetics.binaRies
+RoxygenNote: 7.2.1.9000
 StagedInstall: no
 VignetteBuilder: knitr
 License: GPL (>= 3)

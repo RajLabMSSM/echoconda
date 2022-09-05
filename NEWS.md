@@ -1,3 +1,15 @@
+# echoconda 0.99.7
+
+## New features
+
+* Add and export new functions:
+    - `set_permissions`
+    - `get_os`
+    - `find_executables_remote`
+
+## Bug fixes
+
+
 # echoconda 0.99.6
 
 ## New features
