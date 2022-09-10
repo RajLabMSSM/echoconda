@@ -3,12 +3,13 @@
 ## New features
 
 * Add and export new functions:
-    - `set_permissions`
     - `get_os`
     - `find_executables_remote`
 
 ## Bug fixes
 
+* `set_permissions`: Remove and use `echodata` implementation instead
+    (to avoid namespace conflicts). 
 
 # echoconda 0.99.6
 

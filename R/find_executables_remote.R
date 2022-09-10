@@ -10,6 +10,7 @@
 #' 
 #' @export
 #' @importFrom methods show
+#' @importFrom echodata set_permissions
 #' @examples 
 #' paths <- find_executables_remote()
 find_executables_remote <- function(path = NULL,
@@ -36,13 +37,13 @@ find_executables_remote <- function(path = NULL,
                 )
                 stop(stp)
             }
-            set_permissions(path = path,
-                            verbose = verbose)
+            echodata::set_permissions(path = path, 
+                                      verbose = verbose)
             return(path)
         }) |> `names<-`(tool)
     } else {
-        set_permissions(path = path,
-                        verbose = verbose)
+        echodata::set_permissions(path = path,
+                                  verbose = verbose)
     }
     messager("Using executable(s):",
              methods::show(unlist(path)),
