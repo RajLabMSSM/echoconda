@@ -44,11 +44,12 @@ find_executables_remote <- function(path = NULL,
     } else {
         echodata::set_permissions(path = path,
                                   verbose = verbose)
-    }
+    } 
     messager("Using executable(s):",
-             methods::show(unlist(path)),
+             paste("\n -",unlist(path),collapse = ""),
              v=verbose) 
     #### Check that tool works ####
+    messager("Checking executables.",v=verbose)
     checks <- check_executables_remote(path = path,
                                        verbose = verbose) 
     return(path)

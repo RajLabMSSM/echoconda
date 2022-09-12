@@ -10,6 +10,7 @@
 
 * `set_permissions`: Remove and use `echodata` implementation instead
     (to avoid namespace conflicts). 
+* `find_executables_remote`: Avoid printing when `verbose=FALSE`.
 
 # echoconda 0.99.6
 
