@@ -37,7 +37,8 @@ Imports:
     stringr,
     reticulate (>= 1.24),
     basilisk,
-    basilisk.utils
+    basilisk.utils,
+    echodata
 Suggests:
     markdown,
     rmarkdown,
