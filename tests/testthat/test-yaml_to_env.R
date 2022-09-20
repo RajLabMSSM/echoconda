@@ -8,7 +8,7 @@ test_that("yaml_to_env works", {
     
     #### echoR_mini: basilisk ####
     ## Finishes in ~2.6 minutes 
-    conda_env <- echoconda:: yaml_to_env(method = "basilisk", 
+    conda_env <- echoconda::yaml_to_env(method = "basilisk", 
                                          force_new = TRUE)
     testthat::expect_equal(conda_env,"echoR_mini")
     testthat::expect_true(echoconda::env_exists(conda_env = conda_env))

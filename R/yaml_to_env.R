@@ -22,24 +22,28 @@
 #' @family conda
 #' @export
 #' @importFrom reticulate conda_binary
+#' @importFrom echodata is_local is_url
 #' @examples
 #' conda_env <- echoconda::yaml_to_env()
 yaml_to_env <- function(yaml_path = system.file(
                               package = "echoconda",
-                              "conda/echoR_mini.yml"
+                              "conda","echoR_mini.yml"
                         ),
                         method = c("basilisk","reticulate"),
                         conda = "auto",
                         force_new = FALSE,
                         show_contents = FALSE,
                         verbose = TRUE) {
-
+    # echoverseTemplate:::source_all()
+    # echoverseTemplate:::args2vars(echoconda::yaml_to_env)
+    
     method <- tolower(method)[1]
     install_conda(method = method,
                   verbose = verbose)
     start <- Sys.time()  
     #### Search for known yamls (by name or by path) ####
-    if(!file.exists(yaml_path)){
+    if(any(echodata::is_local(path = yaml_path),
+           echodata::is_url(path = yaml_path))){
         yaml_path <- search_yamls(conda_env = yaml_path,
                                   show_contents = show_contents,
                                   verbose = verbose) 
