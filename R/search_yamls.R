@@ -1,8 +1,8 @@
-search_yamls <- function(conda_env,
+search_yamls <- function(yaml_path,
                          show_contents = TRUE,
                          verbose = TRUE){
     # Can take a yaml path too
-    conda_env <- name_from_yaml(yaml_path = conda_env,
+    conda_env <- name_from_yaml(yaml_path = yaml_path,
                                 verbose = FALSE)
     yamls <- list_yamls(verbose = FALSE)
     if(conda_env %in% yamls$conda_env){

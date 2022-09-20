@@ -13,6 +13,10 @@ test_that("yaml_to_env works", {
     testthat::expect_equal(conda_env,"echoR_mini")
     testthat::expect_true(echoconda::env_exists(conda_env = conda_env))
     
+    #### When env already exists ####
+    conda_env <- echoconda::yaml_to_env()
+    testthat::expect_equal(conda_env,"echoR_mini")
+    
     #### test ####
     ## Finishes in ~20 seconds
     conda_env <- echoconda::yaml_to_env(yaml_path = "test")

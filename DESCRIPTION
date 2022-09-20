@@ -57,7 +57,8 @@ Suggests:
     microbenchmark,
     genetics.binaRies
 Remotes:
-    github::MRCIEU/genetics.binaRies
+    github::MRCIEU/genetics.binaRies,
+    github::RajLabMSSM/echodata
 RoxygenNote: 7.2.1.9000
 StagedInstall: no
 VignetteBuilder: knitr

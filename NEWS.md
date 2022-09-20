@@ -1,3 +1,12 @@
+# echoconda 0.99.8
+
+## Bug fixes 
+
+* `yaml_to_env`:
+    - `search_yamls` returns yaml path,
+    - Check that env exists earlier.
+* Add `echodata` to Imports. 
+
 # echoconda 0.99.7
 
 ## New features

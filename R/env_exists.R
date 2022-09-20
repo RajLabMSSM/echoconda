@@ -15,9 +15,7 @@
 #' @importFrom reticulate conda_python conda_binary
 env_exists <- function(conda_env = NULL,
                        conda = "auto",
-                       method = c("basilisk","reticulate")) { 
-    
-    conda_env <- conda_env[1]
+                       method = c("basilisk","reticulate")) {  
     #### Make sure conda_env is not NULL ####
     if(is.null(conda_env)) return(FALSE)
     envs <- list_envs(conda = conda, 

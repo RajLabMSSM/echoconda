@@ -41,13 +41,26 @@ yaml_to_env <- function(yaml_path = system.file(
     install_conda(method = method,
                   verbose = verbose)
     start <- Sys.time()  
+    #### Check whether env exists #### 
+    conda_env <- name_from_yaml(yaml_path = yaml_path,
+                                verbose = verbose)
+    does_exist <- env_exists(conda_env = conda_env, 
+                             conda = conda,
+                             method = method)
+    #### If yes, return name ####
+    if(isTRUE(does_exist)){ 
+        messager("echoconda:: Conda environment already exists:",
+                 conda_env, v = verbose)
+        return(conda_env)
+    } 
+    ### If not, continue ####
     #### Search for known yamls (by name or by path) ####
-    if(any(echodata::is_local(path = yaml_path),
-           echodata::is_url(path = yaml_path))){
-        yaml_path <- search_yamls(conda_env = yaml_path,
+    if(!any(echodata::is_local(path = yaml_path),
+            echodata::is_url(path = yaml_path))){
+        yaml_path <- search_yamls(yaml_path = yaml_path,
                                   show_contents = show_contents,
                                   verbose = verbose) 
-    }
+    }  
     conda_env <- name_from_yaml(yaml_path = yaml_path,
                                 verbose = verbose)
     #### Delete old env ####
@@ -58,7 +71,8 @@ yaml_to_env <- function(yaml_path = system.file(
                    verbose = verbose)
     }  
     #### Create env or return "base" ####
-    if((is.null(conda_env)) || (conda_env=="base")) {
+    if((is.null(conda_env)) || 
+       (conda_env=="base")) {
         messager("Returning 'base'",v=verbose)
         conda_env <- "base"
     } else {
