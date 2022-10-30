@@ -6,6 +6,7 @@
     - `search_yamls` returns yaml path,
     - Check that env exists earlier.
 * Add `echodata` to Imports. 
+* Fix GHA: @master --> @v2  
 
 # echoconda 0.99.7
 

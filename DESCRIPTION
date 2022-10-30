@@ -1,7 +1,7 @@
 Package: echoconda
 Type: Package
 Title: echoverse module: conda environment management
-Version: 0.99.7
+Version: 0.99.8
 Authors@R: 
     c(person(given = "Brian",
            family = "Schilder",
