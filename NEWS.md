@@ -2,7 +2,8 @@
 
 ## New features
 
-* Implemented `rworkflows`.
+* Implemented `rworkflows`. 
+* Added `set_rhome` functions.
 
 # echoconda 0.99.8
 
