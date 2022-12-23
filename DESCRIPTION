@@ -1,7 +1,7 @@
 Package: echoconda
 Type: Package
 Title: echoverse module: conda environment management
-Version: 0.99.8
+Version: 0.99.9
 Authors@R: 
     c(person(given = "Brian",
            family = "Schilder",
@@ -59,7 +59,7 @@ Suggests:
 Remotes:
     github::MRCIEU/genetics.binaRies,
     github::RajLabMSSM/echodata
-RoxygenNote: 7.2.1.9000
+RoxygenNote: 7.2.3
 StagedInstall: no
 VignetteBuilder: knitr
 License: GPL (>= 3)

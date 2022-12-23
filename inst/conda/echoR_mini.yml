@@ -16,6 +16,15 @@ dependencies:
   - networkx
   - rpy2
   - requests
+  # R
+  ## PolyFun can't find these r packages (e.g. ckmeans.1d.dp)
+  # - r-base>=4.0.0
+  # - r-ckmeans.1d.dp
+  # - r-lattice
+  # - r-stringi
+  # - r-matrixstats
+  # - r-susier
+  # - r-expm
   # Command line
   - htslib
   - tabix

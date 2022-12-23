@@ -1,3 +1,9 @@
+# echoconda 0.99.9
+
+## New features
+
+* Implemented `rworkflows`.
+
 # echoconda 0.99.8
 
 ## Bug fixes 
@@ -7,6 +13,7 @@
     - Check that env exists earlier.
 * Add `echodata` to Imports. 
 * Fix GHA: @master --> @v2  
+* Add R packages back into "echoR_mini" for PolyFun.
 
 # echoconda 0.99.7
 
