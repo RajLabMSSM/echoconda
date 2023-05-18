@@ -1,0 +1,36 @@
+name: saturn
+channels:
+  - conda-forge
+  - bioconda
+  - plotly 
+  - nodefaults 
+dependencies:
+  - anndata
+  - biopython
+  - fair-esm
+  - igraph
+  - ipdb
+  - ipython
+  - louvain
+  - matplotlib
+  - notebook
+  - numpy
+  - pandas
+  - plotly
+  - scanpy
+  - scikit-learn
+  - scikit-learn-intelex
+  - scipy
+  - seaborn
+  - tqdm
+  - typed-argument-parser
+  - torchvision
+  - scvi-tools
+  - scikit-misc
+  - pytorch
+  - pip
+  - pip:
+    # - faiss-gpu
+    - record-keeper
+    - ensembl-rest
+    # - torch==1.10.2+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
