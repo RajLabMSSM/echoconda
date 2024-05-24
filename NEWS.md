@@ -1,3 +1,9 @@
+# echoconda 0.99.10
+
+## New features
+
+* Updated `rworkflows`. 
+
 # echoconda 0.99.9
 
 ## New features

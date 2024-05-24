@@ -1,0 +1,13 @@
+name: plotly
+channels:
+  - conda-forge
+  - bioconda 
+  - plotly 
+  - nodefaults  
+dependencies:
+  - python>=3.7 
+  - plotly  
+  - plotly-orca
+  - python-kaleido
+  - r-plotly
+  - pip

@@ -10,7 +10,8 @@ create_env(
   method = c("basilisk", "reticulate", "cli"),
   conda = "auto",
   force_new = FALSE,
-  verbose = TRUE
+  verbose = TRUE,
+  ...
 )
 }
 \arguments{
@@ -32,6 +33,14 @@ See \strong{Finding Conda} and \code{\link[reticulate:conda_binary]{conda_binary
 overwrite it with a new one (\emph{DEFAULT}: \code{FALSE}).}
 
 \item{verbose}{Print messages.}
+
+\item{...}{Additional arguments passed to method-specific 
+conda env build functions:
+\itemize{
+ \item \code{basilisk}: \link[echoconda]{create_env_basilisk}
+ \item \code{reticulate}: \link[reticulate]{conda_create}
+ \item \code{cli}: \link[echoconda]{create_env_cli} 
+ }}
 }
 \description{
 Create conda env using one of several methods.

@@ -4,7 +4,7 @@
 \alias{find_env_rlib}
 \title{Find the R library for a specific env}
 \usage{
-find_env_rlib(conda_env = "echoR", suffix = "lib/R/library/")
+find_env_rlib(conda_env = "echoR_mini", suffix = "lib/R/library/")
 }
 \arguments{
 \item{conda_env}{Conda environment name.}

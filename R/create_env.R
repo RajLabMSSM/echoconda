@@ -1,6 +1,13 @@
 #' Create conda env
 #' 
 #' Create conda env using one of several methods.
+#' @param ... Additional arguments passed to method-specific 
+#' conda env build functions:
+#' \itemize{
+#'  \item \code{basilisk}: \link[echoconda]{create_env_basilisk}
+#'  \item \code{reticulate}: \link[reticulate]{conda_create}
+#'  \item \code{cli}: \link[echoconda]{create_env_cli} 
+#'  }
 #' @keywords internal
 #' @inheritParams yaml_to_env
 #' @inheritParams reticulate::conda_create
@@ -9,7 +16,8 @@ create_env <- function(conda_env,
                        method=c("basilisk","reticulate","cli"),
                        conda="auto",
                        force_new=FALSE,
-                       verbose=TRUE){
+                       verbose=TRUE,
+                       ...){
     messager("echoconda:: Creating conda environment:", conda_env,
              v = verbose
     ) 
@@ -26,7 +34,8 @@ create_env <- function(conda_env,
         if(method=="reticulate"){
             reticulate::conda_create(envname = conda_env,
                                      environment = yaml_path, 
-                                     conda = conda)
+                                     conda = conda,
+                                     ...)
         #### basilisk ####
         } else if(method=="basilisk"){
             pkgs <- data.table::fread(
@@ -35,7 +44,7 @@ create_env <- function(conda_env,
             )  
             envObj <- create_env_basilisk(yaml_path = yaml_path,
                                           pkgs = pkgs,
-                                          start = TRUE)
+                                          ...)
             conda_env <- envObj@envname
             
         #### cli ####
@@ -43,7 +52,8 @@ create_env <- function(conda_env,
             conda_env <- create_env_cli(yaml_path = yaml_path,
                                         conda = conda, 
                                         force_new = force_new,
-                                        verbose = verbose)
+                                        verbose = verbose,
+                                        ...)
         } else {
             stp <- paste("method must be one of:",
                          paste("\n -",eval(formals(create_env)$method)))

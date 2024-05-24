@@ -15,7 +15,7 @@ env_to_yaml(
   conda_env,
   yaml_path = file.path(tempdir(), "conda.yml"),
   conda = "auto",
-  method = c("basilisk", "reticulate"),
+  method = c("reticulate", "basilisk"),
   verbose = TRUE,
   ...
 )
@@ -43,7 +43,7 @@ See \strong{Finding Conda} and \code{\link[reticulate:conda_binary]{conda_binary
 Export a yaml file from a conda environment.
 }
 \examples{
-path <- echoconda::env_to_yaml(conda_env="base")
+path <- env_to_yaml(conda_env="base")
 }
 \seealso{
 Other conda: 

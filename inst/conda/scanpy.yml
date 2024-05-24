@@ -10,10 +10,12 @@ dependencies:
   - scikit-learn 
   - statsmodels 
   - numba 
+  - tensorflow
+  - tensorflow-probability
   - pytables 
   - python-igraph 
   - leidenalg 
-  - louvain
+  # - louvain
   - scanpy  
   - anndata  
   - bbknn 
@@ -23,7 +25,8 @@ dependencies:
   - matplotlib 
   - seaborn 
   - plotly 
-  - chart-studio 
+  - ipykernel
+  - nbformat
   - glob2   
   # Jupyter
   # - jupyter
@@ -36,3 +39,5 @@ dependencies:
   - pip:
     - magic-impute
     - scarches
+    - keras-nlp
+    - tensorflow-metal # Enable GPU on Mac

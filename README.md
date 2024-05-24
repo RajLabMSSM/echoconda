@@ -1,17 +1,22 @@
-<img src='https://github.com/RajLabMSSM/echoconda/raw/main/inst/hex/hex.png' height='300'><br><br>
-[![](https://img.shields.io/badge/devel%20version-0.99.9-black.svg)](https://github.com/RajLabMSSM/echoconda)
-[![R build
-status](https://github.com/RajLabMSSM/echoconda/workflows/rworkflows/badge.svg)](https://github.com/RajLabMSSM/echoconda/actions)
-[![](https://img.shields.io/github/last-commit/RajLabMSSM/echoconda.svg)](https://github.com/RajLabMSSM/echoconda/commits/main)
-[![](https://app.codecov.io/gh/RajLabMSSM/echoconda/branch/main/graph/badge.svg)](https://app.codecov.io/gh/RajLabMSSM/echoconda)
+<img src='https://github.com/RajLabMSSM/echoconda/raw/main/inst/hex/hex.png' title='Hex sticker for echoconda' height='300'><br>
 [![License: GPL (\>=
 3)](https://img.shields.io/badge/license-GPL%20(%3E=%203)-blue.svg)](https://cran.r-project.org/web/licenses/GPL%20(%3E=%203))
-¶ <h5> ¶ Author: <i>Brian M. Schilder</i> ¶ </h5>
-<h5> ¶ README updated: <i>Dec-22-2022</i> ¶ </h5>
+[![](https://img.shields.io/badge/devel%20version-0.99.10-black.svg)](https://github.com/RajLabMSSM/echoconda)
+[![](https://img.shields.io/github/languages/code-size/RajLabMSSM/echoconda.svg)](https://github.com/RajLabMSSM/echoconda)
+[![](https://img.shields.io/github/last-commit/RajLabMSSM/echoconda.svg)](https://github.com/RajLabMSSM/echoconda/commits/main)
+<br> [![R build
+status](https://github.com/RajLabMSSM/echoconda/workflows/rworkflows/badge.svg)](https://github.com/RajLabMSSM/echoconda/actions)
+[![](https://codecov.io/gh/RajLabMSSM/echoconda/branch/main/graph/badge.svg)](https://app.codecov.io/gh/RajLabMSSM/echoconda)
+<br>
+<a href='https://app.codecov.io/gh/RajLabMSSM/echoconda/tree/main' target='_blank'><img src='https://codecov.io/gh/RajLabMSSM/echoconda/branch/main/graphs/icicle.svg' title='Codecov icicle graph' width='200' height='50' style='vertical-align: top;'></a>  
+<h4>  
+Authors: <i>Brian Schilder, Jack Humphrey, Towfique Raj</i>  
+</h4>
+<h5>  
+README updated: <i>Feb-11-2024</i>  
+</h5>
 
-## `echoconda`: Various utility functions to find, build,
-
-and use conda environments from within R.
+## `echoconda`: Various utility functions to find, build, and use conda environments from within R.
 
 This R package is part of the *echoverse* suite that supports
 [`echolocatoR`](https://github.com/RajLabMSSM/echolocatoR): an automated

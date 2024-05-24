@@ -22,11 +22,14 @@ create_env_basilisk <- function(yaml_path,
                                 pkgs,
                                 sep="=",
                                 use_subversion=FALSE,
+                                use_nodefaults=TRUE,
                                 start = TRUE){  
     package <- NULL;
     # yaml_path <- tail(ymls$yaml_path,1)
     yaml_txt <- yaml::read_yaml(file = yaml_path) 
     deps <- unlist(yaml_txt$dependencies)
+    #### Omit python ####
+    deps <- deps[!startsWith(deps,"python")]
     #### Check for pip deps ####
     has_pip <- if(!is.null(names(deps))){
         startsWith(names(deps),"pip")
@@ -41,7 +44,7 @@ create_env_basilisk <- function(yaml_path,
     }
     #### Subset to only core packages ####  
     #### Make sure package aren't listed twice ####
-    pkgs <- pkgs[!duplicated(pkgs$package),]
+    pkgs <- pkgs[!duplicated(pkgs$package),]  
     #### Omit subversions for increased flexibility ####
     if(isFALSE(use_subversion)){
         pkgs$version <- stringr::str_split(pkgs$version,"[.]", 
@@ -50,15 +53,18 @@ create_env_basilisk <- function(yaml_path,
     ## Split by pip / non-pip 
     pip_pkgs <- pkgs[package %in% unname(deps[has_pip]),] 
     nonpip_pkgs <- pkgs[package %in% unname(deps[!has_pip]),]
+    channels <-  unique(c(pkgs$channel,
+                          if(use_nodefaults) "nodefaults" else NULL))
+      use_nodefaults
     #### Create basilisk env object ####
     envObj <- basilisk::BasiliskEnvironment(
         envname = yaml_txt$name, 
         pkgname = "echoconda",
         ## Use >= rather than = or == for increased flexibility,
         ## but reduced reproducibility.
-        packages = paste(nonpip_pkgs$package,nonpip_pkgs$version,sep=sep),
-        pip = paste(pip_pkgs$package,pip_pkgs$version,sep=sep),
-        channels = unique(c(pkgs$channel,"nodefaults"))
+        packages = paste(nonpip_pkgs$package, nonpip_pkgs$version, sep=sep),
+        pip = paste(pip_pkgs$package, pip_pkgs$version, sep=sep),
+        channels = channels
     ) 
     if(isTRUE(start)){
         proc <- basilisk::basiliskStart(env = envObj)

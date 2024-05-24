@@ -5,10 +5,12 @@
 #'
 #' @family conda
 #' @export
-find_env_rlib <- function(conda_env = "echoR",
+find_env_rlib <- function(conda_env = "echoR_mini",
                           suffix = "lib/R/library/") {
     conda_env <- check_env(conda_env = conda_env)
-    conda_path <- dirname(dirname(find_python_path(conda_env = conda_env)))
+    list.files(conda_env)
+    python <- find_python_path(conda_env = conda_env)
+    conda_path <- dirname(dirname(python))
     if (conda_path == ".") {
         env_Rlib <- .libPaths()
         message("No conda_env='", conda_env, "' not found.")

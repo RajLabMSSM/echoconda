@@ -1,0 +1,26 @@
+name: scvi
+channels:
+  - conda-forge
+  - plotly 
+  - pytorch
+  #- nvidia
+  - nodefaults  
+dependencies:
+  - pydantic<2.0
+  #- pytorch 
+  #- torchvision 
+  #- torchaudio 
+  #- pytorch-cuda=11.7
+  #- jax 
+  #- jaxlib
+  - scvi-tools 
+  - scanpy  
+  - anndata  
+  - fastcluster
+  - leidenalg
+  - python-igraph
+  - seaborn 
+  - plotly 
+  - ipykernel
+  - nbformat
+  - pip 

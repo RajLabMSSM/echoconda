@@ -14,6 +14,7 @@ create_env_basilisk(
   pkgs,
   sep = "=",
   use_subversion = FALSE,
+  use_nodefaults = TRUE,
   start = TRUE
 )
 }

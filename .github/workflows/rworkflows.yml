@@ -4,14 +4,19 @@ name: rworkflows
     branches:
     - master
     - main
+    - devel
     - RELEASE_**
   pull_request:
     branches:
     - master
     - main
+    - devel
     - RELEASE_**
 jobs:
   rworkflows:
+    permissions:
+      contents: write
+      packages: write
     runs-on: ${{ matrix.config.os }}
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
     container: ${{ matrix.config.cont }}
@@ -20,16 +25,22 @@ jobs:
       matrix:
         config:
         - os: ubuntu-latest
-          r: devel
           bioc: devel
-          cont: bioconductor/bioconductor_docker:devel
-          rspm: https://packagemanager.rstudio.com/cran/__linux__/focal/release
+          r: auto
+          cont: ghcr.io/bioconductor/bioconductor_docker:devel
+          python: 3.11
         - os: macOS-latest
-          r: latest
           bioc: release
+          r: auto
+          cont: ~
+          rspm: ~
+          python: 3.11
         - os: windows-latest
-          r: latest
           bioc: release
+          r: auto
+          cont: ~
+          rspm: ~
+          python: 3.11
     steps:
     - uses: neurogenomics/rworkflows@master
       with:
@@ -41,10 +52,9 @@ jobs:
         run_covr: ${{ true }}
         run_pkgdown: ${{ true }}
         has_runit: ${{ false }}
-        GITHUB_TOKEN: ${{ secrets.PAT_GITHUB }}
-        run_docker: ${{ true }}
-        docker_user: bschilder
-        docker_org: neurogenomicslab
+        has_latex: ${{ false }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run_docker: ${{ false }}
         DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
         runner_os: ${{ runner.os }}
-        cache_version: cache-master
+        cache_version: cache-v1

@@ -16,7 +16,8 @@ yaml_to_env(
   conda = "auto",
   force_new = FALSE,
   show_contents = FALSE,
-  verbose = TRUE
+  verbose = TRUE,
+  ...
 )
 }
 \arguments{
@@ -40,13 +41,21 @@ overwrite it with a new one (\emph{DEFAULT}: \code{FALSE}).}
 \item{show_contents}{Show the contents of the yaml file (if used).}
 
 \item{verbose}{Print messages.}
+
+\item{...}{Additional arguments passed to method-specific 
+conda env build functions:
+\itemize{
+ \item \code{basilisk}: \link[echoconda]{create_env_basilisk}
+ \item \code{reticulate}: \link[reticulate]{conda_create}
+ \item \code{cli}: \link[echoconda]{create_env_cli} 
+ }}
 }
 \description{
 Create a conda environment from a yaml file. By default, 
 creates the "echoR" conda env to support \pkg{echolocatoR}.
 }
 \examples{
-conda_env <- echoconda::yaml_to_env()
+conda_env <- yaml_to_env()
 }
 \seealso{
 Other conda: 

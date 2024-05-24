@@ -1,0 +1,12 @@
+name: scgpt
+channels:
+  - conda-forge
+  - plotly 
+  - nodefaults  
+dependencies:
+  - ipykernel
+  - plotly 
+  - nbformat
+  - pip 
+  - pip:
+    - umap-pytorch

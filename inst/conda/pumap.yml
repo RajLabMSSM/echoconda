@@ -1,0 +1,16 @@
+name: pumap
+channels:
+  - conda-forge
+  - plotly 
+  - nodefaults  
+dependencies:
+  - pytorch 
+  - torchvision
+  - torchaudio
+  - seaborn 
+  - ipykernel
+  - plotly 
+  - nbformat
+  - pip 
+  - pip:
+    - umap-pytorch

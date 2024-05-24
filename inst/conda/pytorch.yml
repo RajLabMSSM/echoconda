@@ -1,0 +1,24 @@
+name: pytorch
+channels:
+  - conda-forge
+  - pytorch
+  - rapidsai
+dependencies:
+  - python
+  - numpy
+  - matplotlib
+  - scikit-learn
+  - pytorch>=1.4
+  - torchvision>=0.5
+  - torchtext
+  - tensorboard
+  - opencv
+  - librosa
+  - rapids
+  - nb_conda_kernels
+  - jupyter
+  - jupyterlab
+  - jupyter-server-proxy
+  - pip
+  - pip:
+    - torchviz
