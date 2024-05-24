@@ -2,7 +2,7 @@ name: uce
 channels:
   - conda-forge
   - plotly 
-  - pytorch 
+  - pytorch-nightly 
   - nodefaults  
 dependencies:
   - numpy
@@ -10,6 +10,8 @@ dependencies:
   - pandas
   - tqdm
   - pytorch
+  - torchvision 
+  - torchaudio
   - scanpy
   - accelerate
   - requests
