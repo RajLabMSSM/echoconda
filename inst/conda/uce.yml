@@ -9,8 +9,6 @@ dependencies:
   - numpy=1.21.0
   - tqdm=4.61.2
   - scanpy
-  - igraph-python
-  - leidenalg
   - accelerate
   - requests
   - urllib3==1.26.6  
