@@ -2,7 +2,7 @@ name: uce
 channels:
   - conda-forge
   - pytorch
-  - nividia
+  - nvidia
   - defaults
 dependencies:
   - python
