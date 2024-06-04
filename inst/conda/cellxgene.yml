@@ -1,11 +1,11 @@
-name: uce
+name: cellxgene
 channels:
   - conda-forge
   - pytorch
   - nvidia
   - defaults
 dependencies:
-  - python >=3.8,<3.11
+  - python >=3.9,<3.11
   - pandas
   - scikit-learn
   - numpy
@@ -15,13 +15,11 @@ dependencies:
   - torchvision
   - torchaudio
   - cuda-toolkit>=12.0.0
-  - accelerate
-  - requests
-  - urllib3==1.26.6  
   - scanpy
   - python-igraph
-  - leidenalg
+  - leidenalg 
   - ipykernel 
   - pip 
   - pip:
-    - gdown
+    - cellxgene-census
+    - oaklib
