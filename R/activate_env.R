@@ -16,7 +16,6 @@
 #' @family conda
 #' 
 #' @export
-#' @importFrom basilisk.utils activateEnvironment
 #' @importFrom reticulate conda_list use_condaenv use_python conda_list
 #' @examples
 #' conda_env <- echoconda::activate_env(conda_env = "echoR_mini")
