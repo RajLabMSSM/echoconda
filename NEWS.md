@@ -1,3 +1,12 @@
+# echoconda 0.99.11
+
+## New features
+
+* Standardize `rworkflows.yml` with canonical template:
+  enable Docker on `ghcr.io`, set `write-all` permissions.
+  Preserve `python: 3.11` in matrix config.
+* Remove tracked `.DS_Store` files.
+
 # echoconda 0.99.10
 
 ## New features
