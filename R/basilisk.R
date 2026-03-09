@@ -2,7 +2,7 @@
 #' 
 #' Create conda env using one of several methods.
 #' @param pkgs data.table with the columns:
-#' \itemize{
+#' \describe{
 #' \item{"package" : }{Package names.}
 #' \item{"version" : }{Package versions.}
 #' \item{"channel" : }{Channel where the package was installed from.}
@@ -13,7 +13,7 @@
 #' @param use_subversion Specify the specific package subversion. 
 #' 
 #' @source \href{https://github.com/LTLA/basilisk}{GitHub repo}
-#' @source \href{https://doi.org/doi:10.18129/B9.bioc.basilisk}{Bioconductor}
+#' @source Bioconductor (\doi{10.18129/B9.bioc.basilisk})
 #' @returns An object of class \link[basilisk]{BasiliskEnvironment}. 
 #' 
 #' @keywords internal
@@ -39,7 +39,7 @@ create_env_basilisk <- function(yaml_path,
                                simplify = TRUE)[,1] 
     #### Remove deps that aren't available on Windows ####
     ## (at least, for specific versions)
-    if(basilisk.utils::isWindows()){
+    if(.Platform$OS.type == "windows"){
         deps <- deps[!deps %in% c("wget","gzip","htslib","axel")]
     }
     #### Subset to only core packages ####  

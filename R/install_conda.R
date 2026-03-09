@@ -6,8 +6,10 @@
 #' @inheritParams reticulate::conda_version
 #' 
 #' @export
-#' @examples 
+#' @examples
+#' \dontrun{
 #' echoconda::install_conda()
+#' }
 install_conda <- function(method = c("basilisk","reticulate"),
                           conda = "auto",
                           verbose = TRUE,

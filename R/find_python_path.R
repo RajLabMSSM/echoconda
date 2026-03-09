@@ -6,8 +6,10 @@
 #'
 #' @family echoconda
 #' @examples
+#' \dontrun{
 #' # importFrom reticulate conda_list
 #' python <- find_python_path(conda_env = "echoR")
+#' }
 #' @export
 find_python_path <- function(conda_env = "echoR_mini",
                              method = c("basilisk","reticulate"),

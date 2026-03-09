@@ -9,29 +9,33 @@
 #' @inheritParams find_conda
 #' @inheritParams reticulate::conda_list
 #' @export
-#' @importFrom basilisk.utils deactivateEnvironment
 #' @importFrom reticulate conda_remove
-remove_env <- function(conda_env, 
+remove_env <- function(conda_env,
                        conda="auto",
                        method=c("basilisk","reticulate"),
                        verbose=TRUE){
-    name <- NULL; 
+    name <- NULL;
     envs <- list_envs(conda_env = conda_env,
-                      conda = conda, 
-                      method = method) 
+                      conda = conda,
+                      method = method)
     if(nrow(envs)>0){
-        conda_x <- find_conda(conda = conda, 
+        conda_x <- find_conda(conda = conda,
                               method = method)
         #### Remove multiple ways ####
         for(env in envs){
             messager("Removing env:",env,v=verbose)
-            basilisk.utils::deactivateEnvironment(listing = env)
+            ## deactivateEnvironment was removed from basilisk.utils.
+            ## Clean up environment variables if this env is currently active.
+            current_prefix <- Sys.getenv("CONDA_PREFIX", unset = "")
+            if(nchar(current_prefix) > 0 && grepl(env, current_prefix, fixed = TRUE)){
+                Sys.unsetenv("CONDA_PREFIX")
+            }
             tryCatch({
                 reticulate::conda_remove(envname = env,
                                          conda = conda_x)
             }, error = function(e){message(e)})
             unlink(x = dirname(dirname(subset(envs, name==env)$python)),
-                   recursive = TRUE, 
+                   recursive = TRUE,
                    force = TRUE)
         }
     } else {

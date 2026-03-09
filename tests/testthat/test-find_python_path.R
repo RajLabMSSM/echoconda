@@ -1,5 +1,10 @@
 test_that("find_python_path works", {
-    
+
+    testthat::skip_on_cran()
+    testthat::skip_if_not(
+      echoconda::env_exists(conda_env = "echoR"),
+      message = "echoR conda env not available"
+    )
     conda_env <- echoconda::yaml_to_env(yaml_path = system.file(
         package = "echoconda",
         "conda/echoR.yml"

@@ -23,8 +23,8 @@ If \code{NULL} (default), will search all conda environments.}
 
 \item{method}{Method to use:
 \itemize{
-\item{"basilisk"}
-\item{"reticulate"}
+\item \code{"basilisk"}
+\item \code{"reticulate"}
 }}
 
 \item{conda}{The path to a \code{conda} executable. Use \code{"auto"} to allow

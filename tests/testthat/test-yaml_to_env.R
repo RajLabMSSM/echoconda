@@ -1,5 +1,10 @@
 test_that("yaml_to_env works", {
-  
+
+    testthat::skip_on_cran()
+    testthat::skip_if_not(
+      nzchar(Sys.which("conda")),
+      message = "conda not available"
+    )
     #### echoR_mini: reticulate ####
     ## Finishes in ~3.1 minutes
     # conda_env <- echoconda::yaml_to_env(method = "reticulate")

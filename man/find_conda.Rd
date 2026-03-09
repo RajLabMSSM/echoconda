@@ -13,8 +13,8 @@ See \strong{Finding Conda} and \code{\link[reticulate:conda_binary]{conda_binary
 
 \item{method}{Method to use:
 \itemize{
-\item{"basilisk"}
-\item{"reticulate"}
+\item \code{"basilisk"}
+\item \code{"reticulate"}
 }}
 }
 \description{

@@ -32,8 +32,10 @@
 #' @export
 #' @importFrom data.table rbindlist
 #' @importFrom stats setNames 
-#' @examples 
+#' @examples
+#' \dontrun{
 #' pkgs <- echoconda::find_packages(conda_env="base")
+#' }
 find_packages <- function(packages = NULL,
                           conda_env = NULL,
                           conda = "auto",

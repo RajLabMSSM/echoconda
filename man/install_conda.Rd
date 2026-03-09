@@ -14,8 +14,8 @@ install_conda(
 \arguments{
 \item{method}{Method to use:
 \itemize{
-\item{"basilisk"}
-\item{"reticulate"}
+\item \code{"basilisk"}
+\item \code{"reticulate"}
 }}
 
 \item{conda}{The path to a \code{conda} executable. Use \code{"auto"} to allow
@@ -31,5 +31,7 @@ See \strong{Finding Conda} and \code{\link[reticulate:conda_binary]{conda_binary
 Install conda if it has not already been installed.
 }
 \examples{
+\dontrun{
 echoconda::install_conda()
+}
 }

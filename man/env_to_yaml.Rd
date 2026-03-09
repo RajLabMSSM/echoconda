@@ -31,8 +31,8 @@ See \strong{Finding Conda} and \code{\link[reticulate:conda_binary]{conda_binary
 
 \item{method}{Method to use:
 \itemize{
-\item{"basilisk"}
-\item{"reticulate"}
+\item \code{"basilisk"}
+\item \code{"reticulate"}
 }}
 
 \item{verbose}{Print messages.}
@@ -43,7 +43,9 @@ See \strong{Finding Conda} and \code{\link[reticulate:conda_binary]{conda_binary
 Export a yaml file from a conda environment.
 }
 \examples{
+\dontrun{
 path <- env_to_yaml(conda_env="base")
+}
 }
 \seealso{
 Other conda: 

@@ -1,5 +1,11 @@
 test_that("find_packages works", {
-    
+
+    testthat::skip_on_cran()
+    testthat::skip_if_not(
+      echoconda::env_exists(conda_env = "echoR_mini"),
+      message = "echoR_mini conda env not available"
+    )
+
     conda_env <- yaml_to_env()
     
     #### python packages: default ####

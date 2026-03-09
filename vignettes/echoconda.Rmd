@@ -11,39 +11,39 @@ vignette: >
 ---
 
 ```{r setup}
-library(echoconda) 
+library(echoconda)
 ```
 
 
 # conda
 
-`echoconda`'s primary purpose is to robustly build, use and export 
+`echoconda`'s primary purpose is to robustly build, use and export
 conda environments from within R.
 
 ## Build env from yaml
 
 Will build the "echoR_mini" conda environment by default.
 
-```{r}
+```{r, eval=FALSE}
 conda_env <- echoconda::yaml_to_env("echoR_mini")
 ```
 
-## Export 
+## Export
 
-```{r}
+```{r, eval=FALSE}
 yaml_path <- echoconda::env_to_yaml(conda_env = "echoR_mini")
 ```
 
 
 ## Activate conda env
 
-```{r}
+```{r, eval=FALSE}
 echoconda::activate_env(conda_env = "echoR_mini")
 ```
 
-## Find package path 
+## Find package path
 
-```{r}
+```{r, eval=FALSE}
 pkgs <- echoconda::find_packages(packages = c("python","tabix","axel"),
                                  conda_env = "echoR_mini")
 knitr::kable(pkgs)
@@ -51,7 +51,7 @@ knitr::kable(pkgs)
 
 ## Find python path
 
-```{r}
+```{r, eval=FALSE}
 python <- echoconda::find_python_path(conda_env = "echoR_mini")
 print(python)
 ```
@@ -59,14 +59,14 @@ print(python)
 
 # import CLI
 
-In addition, `echoconda` has some functionality for automatically converting 
-command line interface (CLI) tools into R functions. 
+In addition, `echoconda` has some functionality for automatically converting
+command line interface (CLI) tools into R functions.
 
 ## tabix
 
 Here we will use a conda-installed version of tabix as an example.
 
-```{r}
+```{r, eval=FALSE}
 #### Import tool ####
 tabix <- echoconda::import_cli(path = "tabix",
                                conda_env = "echoR_mini")
@@ -76,7 +76,7 @@ target_path <- system.file("extdata", "BST1.1KGphase3.vcf.bgz",
                            package = "echodata")
 query <- "4:5000-100000000"
 
-res <- tabix(D = TRUE, 
+res <- tabix(D = TRUE,
              h = TRUE,
              ... = paste(target_path, query))
 dat <- data.table::fread(text = res, skip = "#CHROM")

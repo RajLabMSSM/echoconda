@@ -10,7 +10,9 @@
 #' @inheritParams find_conda
 #' 
 #' @examples
+#' \dontrun{
 #' does_exist <- env_exists(conda_env = "echoR")
+#' }
 #' @export
 #' @importFrom reticulate conda_python conda_binary
 env_exists <- function(conda_env = NULL,

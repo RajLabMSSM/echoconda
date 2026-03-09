@@ -33,8 +33,8 @@ See \strong{Finding Conda} and \code{\link[reticulate:conda_binary]{conda_binary
 
 \item{method}{Method to use:
 \itemize{
-\item{"basilisk"}
-\item{"reticulate"}
+\item \code{"basilisk"}
+\item \code{"reticulate"}
 }}
 
 \item{types}{Path type to search for and include in the table.}
@@ -68,5 +68,7 @@ Search for a package (or list of packages) across all available conda
  By default, returns all packages from all conda environments.
 }
 \examples{
+\dontrun{
 pkgs <- echoconda::find_packages(conda_env="base")
+}
 }

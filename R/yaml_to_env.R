@@ -5,7 +5,7 @@
 #' @param yaml_path Path to local or remote yaml file with conda build
 #' specifications.
 #' @param method Method to use to create the conda env:
-#' \itemize{
+#' \describe{
 #' \item{"basilisk" : }{Uses the R package \pkg{basilisk}.}
 #' \item{"reticulate" : }{Uses the R package \pkg{reticulate}.}
 #' \item{"cli" : }{Uses a custom wrapper for conda's command line interface.}
@@ -26,7 +26,9 @@
 #' @importFrom reticulate conda_binary
 #' @importFrom echodata is_local is_url
 #' @examples
+#' \dontrun{
 #' conda_env <- yaml_to_env()
+#' }
 yaml_to_env <- function(yaml_path = system.file(
                               package = "echoconda",
                               "conda","echoR_mini.yml"

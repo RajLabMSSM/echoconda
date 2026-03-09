@@ -6,7 +6,7 @@
 \source{
 \href{https://github.com/LTLA/basilisk}{GitHub repo}
 
-\href{https://doi.org/doi:10.18129/B9.bioc.basilisk}{Bioconductor}
+Bioconductor (\doi{10.18129/B9.bioc.basilisk})
 }
 \usage{
 create_env_basilisk(
@@ -23,7 +23,7 @@ create_env_basilisk(
 specifications.}
 
 \item{pkgs}{data.table with the columns:
-\itemize{
+\describe{
 \item{"package" : }{Package names.}
 \item{"version" : }{Package versions.}
 \item{"channel" : }{Channel where the package was installed from.}

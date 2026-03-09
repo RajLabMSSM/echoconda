@@ -16,7 +16,9 @@
 #' @export
 #' @importFrom reticulate conda_export
 #' @examples
+#' \dontrun{
 #' path <- env_to_yaml(conda_env="base")
+#' }
 env_to_yaml <- function(conda_env,
                         yaml_path = file.path(tempdir(),"conda.yml"),
                         conda  = "auto",

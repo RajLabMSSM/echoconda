@@ -1,5 +1,11 @@
 test_that("env_to_yaml works", {
-  
+
+    testthat::skip_on_cran()
+    testthat::skip_if_not(
+      echoconda::env_exists(conda_env = "echoR_mini"),
+      message = "echoR_mini conda env not available"
+    )
+
     #### base ####
     path_base <- env_to_yaml(conda_env="base")
     l_base <- readLines(path_base)

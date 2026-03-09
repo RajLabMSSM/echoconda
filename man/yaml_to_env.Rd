@@ -25,7 +25,7 @@ yaml_to_env(
 specifications.}
 
 \item{method}{Method to use to create the conda env:
-\itemize{
+\describe{
 \item{"basilisk" : }{Uses the R package \pkg{basilisk}.}
 \item{"reticulate" : }{Uses the R package \pkg{reticulate}.}
 \item{"cli" : }{Uses a custom wrapper for conda's command line interface.}
@@ -55,7 +55,9 @@ Create a conda environment from a yaml file. By default,
 creates the "echoR" conda env to support \pkg{echolocatoR}.
 }
 \examples{
+\dontrun{
 conda_env <- yaml_to_env()
+}
 }
 \seealso{
 Other conda: 

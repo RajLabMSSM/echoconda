@@ -20,8 +20,8 @@ env_exists(
 
 \item{method}{Method to use:
 \itemize{
-\item{"basilisk"}
-\item{"reticulate"}
+\item \code{"basilisk"}
+\item \code{"reticulate"}
 }}
 }
 \description{
@@ -29,5 +29,7 @@ An extension of the internal function
  \code{reticulate:::condaenv_exists()}.
 }
 \examples{
+\dontrun{
 does_exist <- env_exists(conda_env = "echoR")
+}
 }

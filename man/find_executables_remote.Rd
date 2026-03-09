@@ -24,6 +24,8 @@ Path to executable.
 Find the path to one or more executable binary for each given software.
 }
 \examples{
+\dontrun{
 paths <- find_executables_remote()
+}
 }
 \keyword{internal}

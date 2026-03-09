@@ -22,8 +22,8 @@ activate_env(
 
 \item{method}{Method to use:
 \itemize{
-\item{"basilisk"}
-\item{"reticulate"}
+\item \code{"basilisk"}
+\item \code{"reticulate"}
 }}
 
 \item{verbose}{Print messages.}
@@ -36,7 +36,9 @@ doesn't work in practice}, especially within RStudio.
 and used.
 }
 \examples{
+\dontrun{
 conda_env <- echoconda::activate_env(conda_env = "echoR_mini")
+}
 }
 \seealso{
 Other conda: 

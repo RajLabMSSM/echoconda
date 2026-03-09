@@ -34,9 +34,11 @@ If \code{NULL} (default), will search all conda environments.}
 Import a Command Line Interface (CLI) tool into R as a function.
 }
 \examples{
+\dontrun{
 mycurl <- import_cli(path="curl")
 mycurl(h = TRUE)
 mycurl(url= file.path("http://hgdownload.soe.ucsc.edu/goldenPath",
                            "hg38/multiz100way/md5sum.txt"),
        o="~/Downloads/tmp.txt")
+}
 }

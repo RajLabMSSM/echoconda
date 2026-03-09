@@ -16,12 +16,14 @@
 #' match.call}
 #' @export
 #' @importFrom stats setNames
-#' @examples 
+#' @examples
+#' \dontrun{
 #' mycurl <- import_cli(path="curl")
 #' mycurl(h = TRUE)
 #' mycurl(url= file.path("http://hgdownload.soe.ucsc.edu/goldenPath",
 #'                            "hg38/multiz100way/md5sum.txt"),
 #'        o="~/Downloads/tmp.txt")
+#' }
 import_cli <- function(path,
                        fix_names = TRUE,
                        # intern = FALSE,

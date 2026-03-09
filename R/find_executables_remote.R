@@ -11,8 +11,10 @@
 #' @export
 #' @importFrom methods show
 #' @importFrom echodata set_permissions
-#' @examples 
+#' @examples
+#' \dontrun{
 #' paths <- find_executables_remote()
+#' }
 find_executables_remote <- function(path = NULL,
                                     tool = c("bcftools",
                                              "gcta",

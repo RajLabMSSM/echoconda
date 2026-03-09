@@ -15,8 +15,8 @@ find_python_path(
 
 \item{method}{Method to use:
 \itemize{
-\item{"basilisk"}
-\item{"reticulate"}
+\item \code{"basilisk"}
+\item \code{"reticulate"}
 }}
 
 \item{verbose}{Print messages.}
@@ -25,7 +25,9 @@ find_python_path(
 Find the python file for a specific env
 }
 \examples{
+\dontrun{
 # importFrom reticulate conda_list
 python <- find_python_path(conda_env = "echoR")
+}
 }
 \concept{echoconda}
