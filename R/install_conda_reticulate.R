@@ -17,15 +17,20 @@
 install_conda_reticulate <- function(conda,
                                      verbose=TRUE,
                                      ...){
+    conda_version <- NULL
     try({
         conda_version <- reticulate::conda_version(conda = conda)
     })
-    if (is.null(conda_version) || conda=="auto") {
+    if (is.null(conda_version)) {
         messager("echoconda:: Installing conda via reticulate.",
                  v=verbose)
-        if(is.null(conda)) conda <- "auto"
-        reticulate::install_miniconda(path = conda,
-                                      ...)
+        if(is.null(conda) || conda == "auto") {
+            ## Use reticulate's default miniconda path,
+            ## not the literal string "auto".
+            reticulate::install_miniconda(...)
+        } else {
+            reticulate::install_miniconda(path = conda, ...)
+        }
     } else {
         messager("echoconda:: conda already installed.",
                  v=verbose)
