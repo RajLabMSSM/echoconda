@@ -21,7 +21,7 @@
 create_env_basilisk <- function(yaml_path,
                                 pkgs,
                                 sep="=",
-                                use_subversion=FALSE,
+                                use_subversion=TRUE,
                                 use_nodefaults=TRUE,
                                 start = TRUE){  
     package <- NULL;
@@ -60,8 +60,7 @@ create_env_basilisk <- function(yaml_path,
     envObj <- basilisk::BasiliskEnvironment(
         envname = yaml_txt$name, 
         pkgname = "echoconda",
-        ## Use >= rather than = or == for increased flexibility,
-        ## but reduced reproducibility.
+        ## basilisk requires exact version pins (= is converted to ==).
         packages = paste(nonpip_pkgs$package, nonpip_pkgs$version, sep=sep),
         pip = paste(pip_pkgs$package, pip_pkgs$version, sep=sep),
         channels = channels
