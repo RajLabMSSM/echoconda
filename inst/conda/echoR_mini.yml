@@ -2,7 +2,6 @@ name: echoR_mini
 channels:
   - conda-forge
   - bioconda
-  - nodefaults
 dependencies:
   # Python
   - python>=3.11
@@ -27,8 +26,5 @@ dependencies:
   # - r-expm
   # Command line
   - htslib
-  - tabix
   - wget
-  - axel
-  - gzip
   - pip
