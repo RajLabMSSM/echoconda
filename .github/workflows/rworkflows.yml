@@ -58,3 +58,4 @@ jobs:
         miniforge_variant: Mambaforge
         miniforge_version: latest
         environment_file: inst/conda/echoR_mini.yml
+        activate_environment: echoR_mini
