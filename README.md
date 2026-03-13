@@ -32,9 +32,9 @@ If you use `echoconda`, please cite:
 ## Installation
 
 ``` r
-if(!require("remotes")) install.packages("remotes")
+if(!require("BiocManager")) install.packages("BiocManager")
 
-remotes::install_github("RajLabMSSM/echoconda")
+BiocManager::install("RajLabMSSM/echoconda")
 library(echoconda)
 ```
 
