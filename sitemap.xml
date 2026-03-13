@@ -1,75 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/articles/echoconda.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/activate_env.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_access.html</loc>
-  </url>
-  <url>
-    <loc>/reference/conda_create0.html</loc>
-  </url>
-  <url>
-    <loc>/reference/conda_list_packages.html</loc>
-  </url>
-  <url>
-    <loc>/reference/env_exists.html</loc>
-  </url>
-  <url>
-    <loc>/reference/env_to_yaml.html</loc>
-  </url>
-  <url>
-    <loc>/reference/find_env_rlib.html</loc>
-  </url>
-  <url>
-    <loc>/reference/find_install_dir.html</loc>
-  </url>
-  <url>
-    <loc>/reference/find_packages.html</loc>
-  </url>
-  <url>
-    <loc>/reference/find_python_path.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fix_path.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_os.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/install_conda.html</loc>
-  </url>
-  <url>
-    <loc>/reference/list_yamls.html</loc>
-  </url>
-  <url>
-    <loc>/reference/reticulate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/which_env.html</loc>
-  </url>
-  <url>
-    <loc>/reference/yaml_to_env.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/articles/echoconda.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/activate_env.html</loc></url>
+<url><loc>/reference/check_access.html</loc></url>
+<url><loc>/reference/check_executables_remote.html</loc></url>
+<url><loc>/reference/cmd_print.html</loc></url>
+<url><loc>/reference/create_env.html</loc></url>
+<url><loc>/reference/create_env_basilisk.html</loc></url>
+<url><loc>/reference/create_env_cli.html</loc></url>
+<url><loc>/reference/env_exists.html</loc></url>
+<url><loc>/reference/env_to_yaml.html</loc></url>
+<url><loc>/reference/find_conda.html</loc></url>
+<url><loc>/reference/find_env_rlib.html</loc></url>
+<url><loc>/reference/find_executables_remote.html</loc></url>
+<url><loc>/reference/find_install_dir.html</loc></url>
+<url><loc>/reference/find_packages.html</loc></url>
+<url><loc>/reference/find_python_path.html</loc></url>
+<url><loc>/reference/fix_path.html</loc></url>
+<url><loc>/reference/get_echoR.html</loc></url>
+<url><loc>/reference/get_os.html</loc></url>
+<url><loc>/reference/import_cli.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/install_conda.html</loc></url>
+<url><loc>/reference/install_conda_basilisk.html</loc></url>
+<url><loc>/reference/install_conda_reticulate.html</loc></url>
+<url><loc>/reference/list_envs.html</loc></url>
+<url><loc>/reference/list_packages.html</loc></url>
+<url><loc>/reference/list_yamls.html</loc></url>
+<url><loc>/reference/name_from_yaml.html</loc></url>
+<url><loc>/reference/parse_options.html</loc></url>
+<url><loc>/reference/remove_env.html</loc></url>
+<url><loc>/reference/reticulate.html</loc></url>
+<url><loc>/reference/set_rhome.html</loc></url>
+<url><loc>/reference/which_env.html</loc></url>
+<url><loc>/reference/yaml_to_env.html</loc></url>
 </urlset>
+
