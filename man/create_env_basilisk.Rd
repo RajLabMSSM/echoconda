@@ -13,7 +13,7 @@ create_env_basilisk(
   yaml_path,
   pkgs,
   sep = "=",
-  use_subversion = FALSE,
+  use_subversion = TRUE,
   use_nodefaults = TRUE,
   start = TRUE
 )

@@ -18,6 +18,6 @@ See \strong{Finding Conda} and \code{\link[reticulate:conda_binary]{conda_binary
 }}
 }
 \description{
-Find conda executable from multiple installations: 
+Find conda executable from multiple installations:
 \pkg{reticulate}, \pkg{basilisk}
 }
