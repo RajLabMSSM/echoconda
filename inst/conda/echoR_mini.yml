@@ -24,4 +24,8 @@ dependencies:
   # - r-matrixstats
   # - r-susier
   # - r-expm
+  # Command line (Linux/macOS only — not available on Windows conda-forge)
+  - htslib
+  - tabix
+  - wget
   - pip

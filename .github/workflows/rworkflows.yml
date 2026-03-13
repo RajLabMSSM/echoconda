@@ -34,12 +34,7 @@ jobs:
           cont: ~
           rspm: ~
           python: 3.11
-        - os: windows-latest
-          bioc: release
-          r: auto
-          cont: ~
-          rspm: ~
-          python: 3.11
+        ## Windows excluded: htslib/tabix not available on Windows conda-forge
     steps:
     - uses: neurogenomics/rworkflows@master
       with:
