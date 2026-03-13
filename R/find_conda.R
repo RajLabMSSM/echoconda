@@ -36,10 +36,22 @@ find_conda <- function(conda="auto",
     } else {
         stop("method not recognized.")
     }
-    #### Last resort: check PATH ####
+    #### Last resort: check PATH and CONDA env var ####
     if(is.null(conda_x) || !file.exists(conda_x)){
         conda_path <- Sys.which("conda")
         if(nzchar(conda_path)) conda_x <- conda_path
+    }
+    if(is.null(conda_x) || !file.exists(conda_x)){
+        ## conda-incubator/setup-miniconda sets the CONDA env var
+        conda_root <- Sys.getenv("CONDA", unset = "")
+        if(nzchar(conda_root)){
+            candidates <- file.path(conda_root,
+                                    c("condabin/conda", "bin/conda",
+                                      "condabin/conda.bat",
+                                      "Scripts/conda.exe"))
+            hits <- candidates[file.exists(candidates)]
+            if(length(hits) > 0) conda_x <- hits[1]
+        }
     }
     if(is.null(conda_x) || !file.exists(conda_x)){
         stop("Could not find conda. ",
