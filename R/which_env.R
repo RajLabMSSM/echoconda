@@ -9,7 +9,7 @@
 which_env <- function(verbose=TRUE){
     # conf <- reticulate::py_config()
     conf <- reticulate::py_discover_config()
-    conda_env <- basename(conf$prefix)
+    conda_env <- if(is.null(conf$prefix)) "base" else basename(conf$prefix)
     messager("echoconda:: Active conda env:",
              paste0("'",conda_env,"'"),v=verbose)
     return(conda_env) 
