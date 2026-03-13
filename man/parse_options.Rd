@@ -39,6 +39,7 @@ of each argument description.}
 Parse the available options (arguments) for a given command line tool.
 }
 \examples{
- 
+\dontrun{
 opts <- echoconda::parse_options(path="curl")
+}
 }

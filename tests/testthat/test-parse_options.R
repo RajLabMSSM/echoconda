@@ -1,5 +1,6 @@
 test_that("parse_options works", {
-  
+
+    testthat::skip_on_os("windows")  # uses Unix shell piping (| tee)
     #### curl ####
     opts <- echoconda::parse_options(path="curl")
     testthat::expect_true(nrow(opts)>10 & nrow(opts)<15)

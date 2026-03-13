@@ -14,8 +14,10 @@
 #' @param verbose Print messages.
 #' @export
 #' @importFrom dplyr %>%
-#' @examples  
+#' @examples
+#' \dontrun{
 #' opts <- echoconda::parse_options(path="curl")
+#' }
 parse_options <- function(path,
                           command=NA,
                           subcommand=NA,
