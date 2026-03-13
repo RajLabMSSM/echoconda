@@ -39,7 +39,7 @@ create_env_basilisk <- function(yaml_path,
                                simplify = TRUE)[,1] 
     #### Remove deps that aren't available on Windows ####
     ## (at least, for specific versions)
-    if(.Platform$OS.type == "windows"){
+    if(basilisk::isWindows()){
         deps <- deps[!deps %in% c("wget","gzip","htslib","axel")]
     }
     #### Subset to only core packages ####  

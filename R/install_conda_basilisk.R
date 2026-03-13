@@ -8,11 +8,9 @@
 install_conda_basilisk <- function(verbose=TRUE){
     # Sys.setenv("BASILISK_USE_SYSTEM_DIR"=1)
     cache_dir <- basilisk.utils::defaultCacheDirectory()
-    conda_path <- basilisk.utils::condaBinary(loc = cache_dir)
-    if(!file.exists(conda_path)){
-        messager("echoconda:: Installing conda via basilisk.",v=verbose)
-        basilisk.utils::download(cache.dir = cache_dir)
-    } else {
-        messager("echoconda:: conda already installed.",v=verbose)
+    messager("echoconda:: Installing/checking conda via basilisk.", v=verbose)
+    conda_path <- basilisk.utils::download()
+    if(!is.null(conda_path) && dir.exists(conda_path)){
+        messager("echoconda:: conda available at:", conda_path, v=verbose)
     }
 }

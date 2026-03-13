@@ -1,8 +1,8 @@
-#' Find conda 
-#' 
-#' Find conda executable from multiple installations: 
+#' Find conda
+#'
+#' Find conda executable from multiple installations:
 #' \pkg{reticulate}, \pkg{basilisk}
-#' 
+#'
 #' @param method Method to use:
 #' \itemize{
 #' \item \code{"basilisk"}
@@ -11,16 +11,14 @@
 #' @inheritParams reticulate::conda_binary
 #'
 #' @export
-#' @importFrom basilisk.utils condaBinary defaultCacheDirectory
+#' @importFrom basilisk.utils find
 find_conda <- function(conda="auto",
                        method=c("basilisk","reticulate")){
     method <- tolower(method)[1]
     if(method=="basilisk"){
-        conda_x <- basilisk.utils::condaBinary(
-            loc = basilisk.utils::defaultCacheDirectory()
-        )
+        conda_x <- basilisk.utils::find()
         #### If it fails, use the other method ####
-        if(!file.exists(conda_x)){
+        if(is.null(conda_x) || !file.exists(conda_x)){
             conda_x <- reticulate::conda_binary(conda = conda)
         }
     } else if(method=="reticulate"){
@@ -29,9 +27,7 @@ find_conda <- function(conda="auto",
         conda_x <- reticulate::conda_binary(conda = conda)
         #### If it fails, use the other method ####
         if(!file.exists(conda_x)){
-            conda_x <- basilisk.utils::condaBinary(
-                loc = basilisk.utils::defaultCacheDirectory()
-            )
+            conda_x <- basilisk.utils::find()
         }
     } else {
         stop("method not recognized.")

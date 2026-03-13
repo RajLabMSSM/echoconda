@@ -1,11 +1,11 @@
 #' Remove conda environment
-#' 
+#'
 #' Actually remove conda environments,
 #'  unlike \code{reticulate}::\link[reticulate]{conda_remove}.
-#' 
-#' @param conda_env Name of the conda environment. 
-#' @param verbose Print messages. 
-#' 
+#'
+#' @param conda_env Name of the conda environment.
+#' @param verbose Print messages.
+#'
 #' @inheritParams find_conda
 #' @inheritParams reticulate::conda_list
 #' @export
@@ -24,12 +24,6 @@ remove_env <- function(conda_env,
         #### Remove multiple ways ####
         for(env in envs){
             messager("Removing env:",env,v=verbose)
-            ## deactivateEnvironment was removed from basilisk.utils.
-            ## Clean up environment variables if this env is currently active.
-            current_prefix <- Sys.getenv("CONDA_PREFIX", unset = "")
-            if(nchar(current_prefix) > 0 && grepl(env, current_prefix, fixed = TRUE)){
-                Sys.unsetenv("CONDA_PREFIX")
-            }
             tryCatch({
                 reticulate::conda_remove(envname = env,
                                          conda = conda_x)
