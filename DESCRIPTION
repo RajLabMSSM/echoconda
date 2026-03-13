@@ -54,7 +54,6 @@ Suggests:
     parallel,
     readr,
     tidyr,
-
     microbenchmark,
     genetics.binaRies
 Remotes:
