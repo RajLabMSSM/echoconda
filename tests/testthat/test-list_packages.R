@@ -1,7 +1,6 @@
 test_that("list_packages works", {
 
     testthat::skip_on_cran()
-    testthat::skip_on_ci()
     requireNamespace("microbenchmark")
 
     conda_env <- tryCatch(

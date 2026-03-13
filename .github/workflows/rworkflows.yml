@@ -55,3 +55,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run_docker: ${{ true }}
         docker_registry: ghcr.io
+        miniforge_variant: Mambaforge
+        miniforge_version: latest
+        environment_file: inst/conda/echoR_mini.yml
