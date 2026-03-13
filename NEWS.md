@@ -1,3 +1,13 @@
+# echoconda 1.0.0
+
+## Bug fixes
+
+* Update `basilisk.utils` API calls for current Bioconductor release.
+* Fix `install_conda_reticulate` passing `"auto"` as a literal path
+  instead of resolving it.
+* Fix basilisk env creation: use full version pins, pin `python>=3.11`.
+* Remove tracked `.DS_Store` files.
+
 # echoconda 0.99.12
 
 ## Bug fixes
