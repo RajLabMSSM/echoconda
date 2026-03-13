@@ -24,7 +24,4 @@ dependencies:
   # - r-matrixstats
   # - r-susier
   # - r-expm
-  # Command line
-  - htslib
-  - wget
   - pip
