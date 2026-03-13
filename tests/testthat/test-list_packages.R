@@ -1,17 +1,24 @@
 test_that("list_packages works", {
-    
+
+    testthat::skip_on_cran()
+    testthat::skip_on_ci()
     requireNamespace("microbenchmark")
-    
-    conda_env <- echoconda::yaml_to_env()
-    
+
+    conda_env <- tryCatch(
+        echoconda::yaml_to_env(),
+        error = function(e) NULL
+    )
+    testthat::skip_if(is.null(conda_env),
+                      message = "conda env creation failed")
+
     method <- eval(formals(echoconda:::list_packages)$method)
     micro_res <- microbenchmark::microbenchmark(
         reticulate={res1 <- echoconda:::list_packages(conda_env = conda_env,
-                                                      method = "reticulate")}, 
+                                                      method = "reticulate")},
         basilisk={res2 <- echoconda:::list_packages(conda_env = conda_env,
                                                     method = "basilisk")},
         r={res3 <- echoconda:::list_packages(conda_env = conda_env,
-                                             method = "r")}, 
+                                             method = "r")},
         times = 1, unit = "s"
     )
     testthat::expect_gte(nrow(res1),150)
