@@ -1,77 +1,110 @@
 ---
-title: "``r read.dcf('../DESCRIPTION', fields = 'Package')[1]``: Getting Started" 
-author: "<h4>Author: <i>Brian M. Schilder</i></h4>" 
+title: "echoconda: Getting Started"
+author: "Brian M. Schilder"
 date: "<h4>Updated: <i>`r format( Sys.Date(), '%b-%d-%Y')`</i></h4>"
 output:
-  BiocStyle::html_document
+  BiocStyle::html_document:
+    self_contained: yes
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    code_folding: show
 vignette: >
-    %\VignetteIndexEntry{echodata} 
+    %\VignetteIndexEntry{echoconda}
     %\usepackage[utf8]{inputenc}
     %\VignetteEngine{knitr::rmarkdown}
 ---
 
-```{r setup}
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+```{r, eval = TRUE}
 library(echoconda)
 ```
 
+# Introduction
 
-# conda
+`echoconda` provides robust utilities to find, build, use, and export
+conda environments from within R. It wraps `reticulate` and `basilisk`
+to give a consistent, cross-platform interface for managing Python
+dependencies needed by the echoverse tool suite.
 
-`echoconda`'s primary purpose is to robustly build, use and export
-conda environments from within R.
+# Conda
 
-## Build env from yaml
+## Install conda
+
+If conda is not yet available on your system, `echoconda` can install
+Miniconda for you:
+```{r}
+echoconda::install_conda()
+```
+
+## Build an environment from YAML
 
 Will build the "echoR_mini" conda environment by default.
 
-```{r, eval=FALSE}
+```{r}
 conda_env <- echoconda::yaml_to_env("echoR_mini")
 ```
 
-## Export
+## Export an environment to YAML
 
-```{r, eval=FALSE}
+```{r}
 yaml_path <- echoconda::env_to_yaml(conda_env = "echoR_mini")
 ```
 
+## Activate a conda environment
 
-## Activate conda env
-
-```{r, eval=FALSE}
+```{r}
 echoconda::activate_env(conda_env = "echoR_mini")
 ```
 
-## Find package path
+## List available environments
 
-```{r, eval=FALSE}
-pkgs <- echoconda::find_packages(packages = c("python","tabix","axel"),
-                                 conda_env = "echoR_mini")
+```{r}
+envs <- echoconda::list_envs()
+print(envs)
+```
+
+## Find packages in an environment
+
+```{r}
+pkgs <- echoconda::find_packages(
+  packages = c("python", "tabix", "axel"),
+  conda_env = "echoR_mini"
+)
 knitr::kable(pkgs)
 ```
 
-## Find python path
+## Find the Python path
 
-```{r, eval=FALSE}
+```{r}
 python <- echoconda::find_python_path(conda_env = "echoR_mini")
 print(python)
 ```
 
+# Import CLI tools
 
-# import CLI
+In addition, `echoconda` can automatically convert command-line
+interface (CLI) tools into R functions.
 
-In addition, `echoconda` has some functionality for automatically converting
-command line interface (CLI) tools into R functions.
+## Example: tabix
 
-## tabix
+Here we use a conda-installed version of `tabix` as an example.
 
-Here we will use a conda-installed version of tabix as an example.
-
-```{r, eval=FALSE}
+```{r}
 #### Import tool ####
-tabix <- echoconda::import_cli(path = "tabix",
-                               conda_env = "echoR_mini")
+tabix <- echoconda::import_cli(
+  path = "tabix",
+  conda_env = "echoR_mini"
+)
 
-#### Use function to query file ####
+#### Use function to query a file ####
 target_path <- system.file("extdata", "BST1.1KGphase3.vcf.bgz",
                            package = "echodata")
 query <- "4:5000-100000000"
@@ -80,19 +113,16 @@ res <- tabix(D = TRUE,
              h = TRUE,
              ... = paste(target_path, query))
 dat <- data.table::fread(text = res, skip = "#CHROM")
-
 ```
 
+# Session Info
 
-# Session Info 
+<details>
 
-<details> 
-
-```{r Session Info}
+```{r Session Info, eval = TRUE}
 utils::sessionInfo()
 ```
 
-</details>  
+</details>
 
 <br>
-
