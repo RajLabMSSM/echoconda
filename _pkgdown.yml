@@ -87,6 +87,7 @@ reference:
   contents:
   - list_yamls
 
-- title: Re-exports
+- title: Other
   contents:
-  - reexports
+  - reticulate
+  - install_conda_reticulate
